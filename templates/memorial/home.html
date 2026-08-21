@@ -1,0 +1,10 @@
+{% extends 'memorial/base.html' %}{% block title %}Tra cứu liệt sĩ · Ký ức Việt – Lào{% endblock %}
+{% block content %}
+<section class="hero"><div class="eyebrow">TRI ÂN · GHI NHỚ · KẾT NỐI</div><h1>Mỗi cái tên là<br><em>một phần lịch sử</em></h1><p>Tra cứu thông tin phần mộ tại Nghĩa trang Liệt sĩ Việt – Lào theo tên, quê quán hoặc vị trí.</p>
+<form class="search" method="get"><input name="q" value="{{ query }}" placeholder="Nhập họ tên liệt sĩ, quê quán hoặc số mộ…" autofocus><select name="zone"><option value="">Tất cả phân khu</option>{% for item in zones %}<option {% if zone == item %}selected{% endif %}>{{ item }}</option>{% endfor %}</select><button>Tìm kiếm</button></form>
+<div class="stats"><b>{{ total }}</b><span>hồ sơ đang được lưu trữ và đối chiếu nguồn</span></div></section>
+<section class="results"><div class="section-title"><div><span>KẾT QUẢ TRA CỨU</span><h2>{% if query %}Kết quả cho “{{ query }}”{% else %}Danh sách liệt sĩ{% endif %}</h2></div><p>{{ page.paginator.count }} hồ sơ</p></div>
+<div class="cards">{% for martyr in page %}<a class="card" href="{% url 'detail' martyr.source_id %}"><span class="flame">◆</span><div><h3>{{ martyr.name }}</h3><p>{{ martyr.hometown|default:'Quê quán đang cập nhật' }}</p><dl><div><dt>Phân khu</dt><dd>{{ martyr.zone|default:'—' }}</dd></div><div><dt>Hàng</dt><dd>{{ martyr.grave_row|default:'—' }}</dd></div><div><dt>Mộ</dt><dd>{{ martyr.grave_number|default:'—' }}</dd></div></dl></div><span class="arrow">→</span></a>{% empty %}<div class="empty">Chưa tìm thấy hồ sơ phù hợp. Hãy thử tên không đầy đủ hoặc bỏ bộ lọc phân khu.</div>{% endfor %}</div>
+{% if page.has_other_pages %}<nav class="pagination">{% if page.has_previous %}<a href="?q={{ query|urlencode }}&zone={{ zone|urlencode }}&page={{ page.previous_page_number }}">← Trước</a>{% endif %}<span>Trang {{ page.number }} / {{ page.paginator.num_pages }}</span>{% if page.has_next %}<a href="?q={{ query|urlencode }}&zone={{ zone|urlencode }}&page={{ page.next_page_number }}">Sau →</a>{% endif %}</nav>{% endif %}</section>
+{% endblock %}
+

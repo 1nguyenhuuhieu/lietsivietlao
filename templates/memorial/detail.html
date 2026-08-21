@@ -1,0 +1,5 @@
+{% extends 'memorial/base.html' %}{% block title %}{{ martyr.name }} · Ký ức Việt – Lào{% endblock %}{% block content %}
+<section class="detail"><a class="back" href="/">← Quay lại tra cứu</a><div class="memorial-card"><div class="portrait">✦</div><div><span class="eyebrow">TƯỞNG NHỚ LIỆT SĨ</span><h1>{{ martyr.name }}</h1><p class="place">{{ martyr.hometown|default:'Thông tin quê quán đang cập nhật' }}</p></div></div>
+<div class="facts"><div><span>Ngày / năm sinh</span><b>{{ martyr.birth_text|default:'Chưa có dữ liệu' }}</b></div><div><span>Ngày hy sinh</span><b>{{ martyr.death_text|default:'Chưa có dữ liệu' }}</b></div><div><span>Phân khu</span><b>{{ martyr.zone|default:'—' }}</b></div><div><span>Hàng</span><b>{{ martyr.grave_row|default:'—' }}</b></div><div><span>Số mộ</span><b>{{ martyr.grave_number|default:'—' }}</b></div></div>
+<aside class="source"><strong>Minh bạch dữ liệu</strong><p>Thông tin được đồng bộ từ nguồn công khai và giữ nguyên các trường còn thiếu, không tự suy đoán.</p><a href="{{ martyr.source_url }}" target="_blank" rel="noopener noreferrer">Xem bản ghi nguồn ↗</a></aside></section>{% endblock %}
+
