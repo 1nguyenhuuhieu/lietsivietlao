@@ -21,3 +21,6 @@ python manage.py crawl_graves --end-page 2
 python manage.py runserver
 ```
 
+## Triển khai
+
+Các mẫu cấu hình tách biệt cho systemd và nginx nằm trong `deploy/`. Ứng dụng chỉ lắng nghe ở `127.0.0.1:8240`; nginx là cổng truy cập công khai.

@@ -1,0 +1,21 @@
+[Unit]
+Description=Ky uc Viet Lao Django application
+After=network.target postgresql.service
+Requires=postgresql.service
+
+[Service]
+Type=simple
+User=hieunh
+Group=www-data
+WorkingDirectory=/home/hieunh/lietsivietlao
+EnvironmentFile=/home/hieunh/lietsivietlao/.env
+ExecStart=/home/hieunh/lietsivietlao/.venv/bin/gunicorn config.wsgi:application --bind 127.0.0.1:8240 --workers 3 --timeout 60 --access-logfile -
+Restart=on-failure
+RestartSec=5
+PrivateTmp=true
+ProtectSystem=full
+NoNewPrivileges=true
+
+[Install]
+WantedBy=multi-user.target
+
