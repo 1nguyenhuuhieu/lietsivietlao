@@ -6,5 +6,6 @@ urlpatterns = [
     path("liet-si/<int:source_id>/", views.detail, name="detail"),
     path("trai-nghiem-360/", views.tour, name="tour"),
     path("health/", views.health, name="health"),
+    path("robots.txt", views.robots, name="robots"),
+    path("sitemap.xml", views.sitemap, name="sitemap"),
 ]
-

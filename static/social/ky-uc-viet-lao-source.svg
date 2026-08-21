@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#17382a"/><stop offset="1" stop-color="#2d6047"/></linearGradient><radialGradient id="sun"><stop stop-color="#d6ad60" stop-opacity=".35"/><stop offset="1" stop-color="#d6ad60" stop-opacity="0"/></radialGradient></defs>
+  <rect width="1200" height="630" fill="url(#bg)"/><circle cx="975" cy="160" r="330" fill="url(#sun)"/>
+  <path d="M0 550 C250 500 405 590 620 530 C820 475 1010 520 1200 470 V630 H0Z" fill="#10271d" opacity=".72"/>
+  <circle cx="95" cy="82" r="32" fill="none" stroke="#d6ad60" stroke-width="2"/><text x="95" y="92" text-anchor="middle" fill="#d6ad60" font-size="27">✦</text>
+  <text x="145" y="77" fill="#fffdf8" font-family="Noto Serif, serif" font-size="30">Ký ức <tspan font-weight="700">Việt – Lào</tspan></text>
+  <text x="145" y="101" fill="#cbd9d1" font-family="Noto Sans, sans-serif" font-size="13" letter-spacing="3">KHÔNG GIAN TƯỞNG NIỆM SỐ</text>
+  <text x="70" y="205" fill="#e0b766" font-family="Noto Sans, sans-serif" font-weight="700" font-size="16" letter-spacing="5">TRI ÂN · GHI NHỚ · KẾT NỐI</text>
+  <text x="70" y="300" fill="#fffdf8" font-family="Noto Serif, serif" font-size="76">Mỗi cái tên là</text>
+  <text x="70" y="390" fill="#e0b766" font-family="Noto Serif, serif" font-style="italic" font-size="76">một phần lịch sử</text>
+  <text x="72" y="450" fill="#d9e4dd" font-family="Noto Sans, sans-serif" font-size="23">Tra cứu 10.809 hồ sơ liệt sĩ Việt – Lào</text>
+  <rect x="70" y="505" width="515" height="58" rx="29" fill="none" stroke="#d6ad60" stroke-width="2"/>
+  <text x="98" y="542" fill="#f1c975" font-family="Noto Sans, sans-serif" font-weight="700" font-size="19">MIỄN PHÍ 100%</text><line x1="268" y1="520" x2="268" y2="550" stroke="#ffffff55"/><text x="292" y="542" fill="#fff" font-family="Noto Sans, sans-serif" font-size="18">Được cung cấp bởi 8Tech</text>
+</svg>
