@@ -65,3 +65,11 @@ body:has(.detail){background:#091510}body:has(.detail) main{position:relative;is
 .detail .memorial-profile .memorial-card .facts span{color:#aebdb4}
 .detail .memorial-profile .memorial-card .facts b{color:#fff8e9}
 @media(max-width:760px){.detail .memorial-profile .memorial-card{padding-bottom:24px}.detail .memorial-profile .memorial-card h1{max-width:100%;white-space:nowrap;font-size:clamp(21px,7.4vw,31px)!important;letter-spacing:-.045em}.detail .memorial-profile .memorial-card .facts{width:100%;margin-top:16px;border-radius:8px;grid-template-columns:repeat(2,minmax(0,1fr))}.detail .memorial-profile .memorial-card .facts div{min-height:64px;padding:12px 11px}.detail .memorial-profile .memorial-card .facts div:last-child{grid-column:1/-1}.detail .memorial-profile .memorial-card .facts span{font-size:8px}.detail .memorial-profile .memorial-card .facts b{font-size:13px}}
+
+/* v8 — luminous metallic-gold frame for the complete information card. */
+.detail .memorial-profile{border-color:transparent;box-shadow:0 0 24px rgba(235,183,75,.14),0 0 62px rgba(218,153,47,.08),0 28px 76px rgba(0,0,0,.36)}
+.detail .memorial-profile:after{content:"";position:absolute;z-index:8;inset:-1px;pointer-events:none;border-radius:19px 19px 0 0;padding:1.5px;background:linear-gradient(105deg,#704816 0%,#c68d2d 15%,#ffe29a 31%,#a86c1d 47%,#f5c86c 63%,#7c4d17 79%,#e5b453 100%);background-size:260% 100%;-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;filter:drop-shadow(0 0 5px rgba(255,201,91,.42));animation:memorialGoldSweep 9s ease-in-out infinite alternate}
+.detail .tribute-section{border-color:rgba(226,177,77,.52);box-shadow:0 0 22px rgba(235,183,75,.1),0 28px 76px rgba(0,0,0,.34)}
+@keyframes memorialGoldSweep{0%{background-position:0 50%;filter:drop-shadow(0 0 4px rgba(255,201,91,.3))}100%{background-position:100% 50%;filter:drop-shadow(0 0 8px rgba(255,214,130,.52))}}
+@media(max-width:760px){.detail .memorial-profile:after{border-radius:13px 13px 0 0;padding:1px;filter:drop-shadow(0 0 4px rgba(255,201,91,.34))}}
+@media(prefers-reduced-motion:reduce){.detail .memorial-profile:after{animation:none;background-position:50% 50%}}
