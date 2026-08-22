@@ -24,9 +24,11 @@ class Command(BaseCommand):
         parser.add_argument("--start-page", type=int, default=1)
         parser.add_argument("--end-page", type=int, default=217)
         parser.add_argument("--delay", type=float, default=1.2)
+        parser.add_argument("--retries", type=int, default=3)
 
     def handle(self, *args, **opts):
         start, end, delay = opts["start_page"], opts["end_page"], max(opts["delay"], 1.0)
+        retries = max(opts["retries"], 1)
         if start < 1 or end < start:
             raise CommandError("Invalid page range")
         run = SyncRun.objects.create()
@@ -37,12 +39,23 @@ class Command(BaseCommand):
                 path = ALLOWED_PREFIX if page_no == 1 else f"{ALLOWED_PREFIX}page-{page_no}/"
                 if any(path.startswith(blocked) for blocked in DISALLOWED):
                     raise CommandError(f"Blocked path: {path}")
-                response = session.get(urljoin(BASE_URL, path), timeout=30)
-                response.raise_for_status()
-                soup = BeautifulSoup(response.text, "html.parser")
-                rows = soup.select("table tbody tr")
+                rows = []
+                last_error = None
+                for attempt in range(1, retries + 1):
+                    try:
+                        response = session.get(urljoin(BASE_URL, path), timeout=30)
+                        response.raise_for_status()
+                        soup = BeautifulSoup(response.text, "html.parser")
+                        rows = soup.select("table tbody tr")
+                        if rows:
+                            break
+                        last_error = f"empty response on attempt {attempt}"
+                    except requests.RequestException as exc:
+                        last_error = str(exc)
+                    if attempt < retries:
+                        time.sleep(attempt * 3)
                 if not rows:
-                    raise CommandError(f"No records found on page {page_no}; stopping safely")
+                    raise CommandError(f"No records found on page {page_no} after {retries} attempts ({last_error}); stopping safely")
                 for row in rows:
                     cells = [cell.get_text(" ", strip=True) for cell in row.select("td")]
                     link = row.select_one('a[href*="/detail/liet-sy-"]')
@@ -71,4 +84,3 @@ class Command(BaseCommand):
             raise
         finally:
             run.save()
-

@@ -1,31 +1,34 @@
 {% load static %}<!doctype html>
 <html lang="vi"><head>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="{% block description %}Không gian tưởng niệm số và tra cứu 10.809 hồ sơ liệt sĩ Việt – Lào, được 8Tech xây dựng và cung cấp hoàn toàn miễn phí.{% endblock %}">
-  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+  <meta name="description" content="{% block description %}Tra cứu hồ sơ và khám phá không gian tưởng niệm tại Nghĩa trang Liệt sĩ Quốc tế Việt – Lào, Anh Sơn, Nghệ An.{% endblock %}">
+  <meta name="robots" content="{% block robots %}index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1{% endblock %}">
   <meta name="author" content="8Tech"><meta name="theme-color" content="#244e3a">
+  <link rel="icon" type="image/svg+xml" href="{% static 'brand/ky-uc-viet-lao-mark.svg' %}">
   <link rel="canonical" href="{% block canonical %}https://lietsivietlao.8tech.vn{{ request.path }}{% endblock %}">
   <title>{% block title %}Ký ức Việt – Lào{% endblock %}</title>
   <meta property="og:locale" content="vi_VN"><meta property="og:site_name" content="Ký ức Việt – Lào">
   <meta property="og:type" content="{% block og_type %}website{% endblock %}">
-  <meta property="og:title" content="{% block og_title %}Ký ức Việt – Lào · Không gian tưởng niệm số miễn phí{% endblock %}">
-  <meta property="og:description" content="{% block og_description %}Tra cứu 10.809 hồ sơ liệt sĩ và trải nghiệm không gian tưởng niệm số Việt – Lào. Sản phẩm cộng đồng được 8Tech cung cấp hoàn toàn miễn phí.{% endblock %}">
+  <meta property="og:title" content="{% block og_title %}Nghĩa trang Liệt sĩ Việt – Lào · Ký ức Việt – Lào{% endblock %}">
+  <meta property="og:description" content="{% block og_description %}Tra cứu hồ sơ liệt sĩ, vị trí phần mộ và khám phá không gian tưởng niệm Việt – Lào tại Anh Sơn, Nghệ An.{% endblock %}">
   <meta property="og:url" content="https://lietsivietlao.8tech.vn{{ request.path }}">
   <meta property="og:image" content="https://lietsivietlao.8tech.vn{% static 'social/ky-uc-viet-lao-1200x630.png' %}">
   <meta property="og:image:secure_url" content="https://lietsivietlao.8tech.vn{% static 'social/ky-uc-viet-lao-1200x630.png' %}">
   <meta property="og:image:type" content="image/png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Ký ức Việt – Lào — Không gian tưởng niệm số miễn phí bởi 8Tech">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="{% block twitter_title %}Ký ức Việt – Lào · Không gian tưởng niệm số miễn phí{% endblock %}">
-  <meta name="twitter:description" content="Tra cứu thông tin liệt sĩ Việt – Lào. Sản phẩm cộng đồng được 8Tech cung cấp hoàn toàn miễn phí.">
+  <meta name="twitter:title" content="{% block twitter_title %}Nghĩa trang Liệt sĩ Việt – Lào · Ký ức Việt – Lào{% endblock %}">
+  <meta name="twitter:description" content="{% block twitter_description %}Tra cứu hồ sơ liệt sĩ, vị trí phần mộ và khám phá Nghĩa trang Liệt sĩ Việt – Lào tại Anh Sơn, Nghệ An.{% endblock %}">
   <meta name="twitter:image" content="https://lietsivietlao.8tech.vn{% static 'social/ky-uc-viet-lao-1200x630.png' %}">
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Ký ức Việt – Lào","url":"https://lietsivietlao.8tech.vn/","inLanguage":"vi-VN","description":"Không gian tưởng niệm số và tra cứu thông tin liệt sĩ Việt – Lào","isAccessibleForFree":true,"creator":{"@type":"Organization","name":"8Tech","url":"https://8tech.vn/"},"potentialAction":{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://lietsivietlao.8tech.vn/?q={search_term_string}"},"query-input":"required name=search_term_string"}}</script>
   {% block structured_data %}{% endblock %}
-  <link rel="stylesheet" href="{% static 'app.css' %}?v=2">
+  <link rel="stylesheet" href="{% static 'app.css' %}?v=3">
   <link rel="stylesheet" href="{% static 'seo.css' %}?v=1">
-</head><body>
-<header class="site-header"><a class="brand" href="/"><span class="mark">✦</span><span>Ký ức <b>Việt – Lào</b><small>Không gian tưởng niệm số</small></span></a>
-<nav><a href="/">Tra cứu</a><a href="/trai-nghiem-360/">Trải nghiệm 360°</a></nav></header>
+  <link rel="stylesheet" href="{% static 'layout.css' %}?v=68">
+  {% block extra_css %}{% endblock %}
+</head><body class="{% block body_class %}{% endblock %}">
+<header class="site-header"><div class="site-header__inner"><a class="brand" href="/"><img class="brand-mark" src="{% static 'brand/ky-uc-viet-lao-mark.svg' %}?v=2" alt=""><span>Ký ức <b>Việt – Lào</b></span></a>
+<nav><a href="/danh-sach-liet-si/">Danh sách liệt sĩ</a><a href="/#cau-chuyen-home">Giới thiệu</a><a href="/trai-nghiem-360/">Trải nghiệm 360°</a></nav></div></header>
 <main>{% block content %}{% endblock %}</main>
-<footer><p><strong>Sản phẩm cộng đồng do <a href="https://8tech.vn/" rel="noopener">8Tech</a> xây dựng và cung cấp hoàn toàn miễn phí.</strong></p><p>Dữ liệu tra cứu được dẫn nguồn từ website Ban quản lý Nghĩa trang Liệt sĩ Việt – Lào.</p><p>Đây là bản thử nghiệm độc lập, không phải website chính thức.</p></footer>
-</body></html>
+<footer><p><strong>Sản phẩm cộng đồng do <a href="https://8tech.vn/" rel="noopener">8Tech</a> xây dựng và cung cấp hoàn toàn miễn phí.</strong></p><p>Dữ liệu tra cứu được dẫn nguồn từ website Ban quản lý Nghĩa trang Liệt sĩ Việt – Lào.</p></footer>
+<script defer src="{% static 'search-autocomplete.js' %}?v=2"></script>{% block extra_js %}{% endblock %}</body></html>

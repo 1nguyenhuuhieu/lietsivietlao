@@ -24,3 +24,5 @@ python manage.py runserver
 ## Triển khai
 
 Các mẫu cấu hình tách biệt cho systemd và nginx nằm trong `deploy/`. Ứng dụng chỉ lắng nghe ở `127.0.0.1:8240`; nginx là cổng truy cập công khai.
+
+`lietsivietlao-sync.timer` đồng bộ lại toàn bộ 217 trang danh sách công khai mỗi ngày lúc khoảng 02:20 (Asia/Bangkok). Timer có chế độ `Persistent`, nên nếu máy chủ tắt đúng giờ thì lượt bị lỡ sẽ chạy sau khi máy hoạt động trở lại. Kết quả mỗi lượt được lưu trong bảng `SyncRun` và xem được qua Django Admin/journal systemd.

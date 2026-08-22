@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <filter id="stone" x="-10%" y="-10%" width="120%" height="120%">
+    <feTurbulence type="fractalNoise" baseFrequency=".018 .055" numOctaves="4" seed="17"/>
+    <feColorMatrix values=".18 0 0 0 .57  0 .18 0 0 .58  0 0 .18 0 .56  0 0 0 .42 0"/>
+  </filter>
+  <rect width="512" height="512" fill="#b7b9b5"/>
+  <rect width="512" height="512" filter="url(#stone)" opacity=".52"/>
+</svg>

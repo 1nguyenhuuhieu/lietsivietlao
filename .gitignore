@@ -5,5 +5,8 @@ __pycache__/
 db.sqlite3
 staticfiles/
 media/
+private_uploads/
+static/uploads/
+artifacts/
+.deploy-incoming/
 *.log
-

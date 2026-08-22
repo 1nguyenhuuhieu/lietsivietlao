@@ -1,0 +1,111 @@
+/*
+ * Isolated stylesheet entrypoint for /trai-nghiem-360/.
+ *
+ * Keep tour-only rules in tour.css and tour-map.css. This entrypoint is the
+ * only project stylesheet loaded by the public 360 page, after shared CSS,
+ * so changes to the tour cannot accidentally be loaded on other pages.
+ */
+@import url("tour.css?v=15");
+@import url("tour-map.css?v=15");
+
+/* A page-level isolation hook for future 360-specific overrides. */
+.page-tour-360 main {
+  overflow: clip;
+}
+
+/* v2 — official overview card, one full uncropped image and scoped controls. */
+.page-tour-360 .map-experience {
+  padding: 46px max(4vw, 20px) 56px !important;
+  background:
+    radial-gradient(circle at 75% 0, rgba(203, 164, 85, .10), transparent 32%),
+    #10271c;
+}
+.page-tour-360 .map-toolbar {
+  align-items: center;
+  padding: 0 0 24px;
+}
+.page-tour-360 .map-toolbar p { line-height: 1.65; }
+.page-tour-360 .map-legend {
+  min-width: 164px;
+  padding: 13px 15px;
+  border: 1px solid rgba(255,255,255,.14);
+  border-radius: 10px;
+  background: rgba(4,20,13,.34);
+  box-shadow: 0 10px 30px rgba(0,0,0,.12);
+}
+.page-tour-360 .map-admin-link {
+  display: inline-flex;
+  margin-top: 11px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(255,255,255,.12);
+  color: #e8cc8b;
+  font-size: 11px;
+  font-weight: 700;
+  text-decoration: none;
+}
+.page-tour-360 .aerial-map {
+  width: 100%;
+  max-width: 1380px;
+  aspect-ratio: 1280 / 531;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.13);
+  border-radius: 16px;
+  background-color: #081b12;
+  background-position: center !important;
+  background-size: 100% 100% !important;
+  background-repeat: no-repeat !important;
+  box-shadow: 0 24px 65px rgba(2,12,7,.42);
+}
+.page-tour-360 .map-depth {
+  background: linear-gradient(180deg, rgba(4,17,11,.04), transparent 58%, rgba(4,17,11,.18));
+}
+.page-tour-360 .map-hint,
+.page-tour-360 .map-fullscreen {
+  z-index: 4;
+  min-height: 38px;
+  border: 1px solid rgba(255,255,255,.22);
+  border-radius: 9px;
+  background: rgba(5,24,15,.78);
+  color: rgba(255,255,255,.94);
+  box-shadow: 0 5px 18px rgba(0,0,0,.24);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+.page-tour-360 .map-hint {
+  left: 16px;
+  bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 0 12px;
+  font-size: 11px;
+}
+.page-tour-360 .map-fullscreen {
+  position: absolute;
+  right: 16px;
+  bottom: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 12px;
+  cursor: pointer;
+  font: 700 11px "Noto Sans VN", sans-serif;
+}
+.page-tour-360 .map-fullscreen:hover,
+.page-tour-360 .map-fullscreen:focus-visible {
+  border-color: rgba(232,204,139,.8);
+  background: rgba(36,78,58,.94);
+  outline: 2px solid rgba(232,204,139,.35);
+  outline-offset: 2px;
+}
+@media (max-width: 760px) {
+  .page-tour-360 .map-experience { padding: 28px 12px 34px !important; }
+  .page-tour-360 .map-toolbar { padding-inline: 6px; padding-bottom: 18px; }
+  .page-tour-360 .map-legend { display: flex; align-items: center; gap: 9px; min-width: 0; margin-top: 15px; }
+  .page-tour-360 .map-legend b { margin: 0 0 0 auto; }
+  .page-tour-360 .map-admin-link { margin: 0; padding: 0 0 0 10px; border-top: 0; border-left: 1px solid rgba(255,255,255,.12); }
+  .page-tour-360 .aerial-map { border-radius: 11px; }
+  .page-tour-360 .map-hint { display: none; }
+  .page-tour-360 .map-fullscreen { right: 8px; bottom: 8px; min-height: 34px; padding: 0 9px; }
+  .page-tour-360 .map-fullscreen b { display: none; }
+}

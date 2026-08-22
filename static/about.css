@@ -1,0 +1,96 @@
+.about-page{--ink:#183c2c;--wine:#751f1b;--gold:#d4ae5e;--paper:#f4f0e6;color:#293a32;background:var(--paper)}
+.about-hero{position:relative;min-height:calc(100vh - 54px);display:flex;align-items:flex-end;overflow:hidden;background:url("images/nghia-trang-viet-lao-toan-canh.jpg") center 45%/cover no-repeat;color:#fff}
+.about-hero__shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,31,21,.9) 0%,rgba(10,35,24,.63) 44%,rgba(8,25,18,.13) 75%),linear-gradient(0deg,rgba(8,27,18,.64),transparent 48%)}
+.about-hero__content{position:relative;z-index:1;width:min(1180px,calc(100% - 48px));margin:0 auto;padding:90px 0 95px}
+.about-eyebrow,.about-kicker{display:block;color:#976318;font-size:12px;font-weight:800;letter-spacing:.16em;line-height:1.45}
+.about-hero h1{max-width:800px;margin:14px 0 24px;font:700 clamp(48px,7.5vw,92px)/.98 "Noto Serif VN",serif;letter-spacing:-.04em}.about-hero h1 em{color:#e2bf72;font-weight:400}.about-hero p{max-width:590px;color:#e7efea;font-size:16px;line-height:1.7}.about-hero a{display:inline-flex;gap:20px;margin-top:26px;padding:13px 18px;border:1px solid rgba(255,255,255,.5);color:#fff;text-decoration:none;font-size:11px;font-weight:700;letter-spacing:.08em}
+.about-lead,.about-history,.about-homecoming{display:grid;width:min(1100px,calc(100% - 48px));margin:0 auto;grid-template-columns:.85fr 1.15fr;gap:90px;padding:110px 0}.about-dropcap{margin:0;color:var(--wine);font:italic 400 clamp(27px,3.4vw,43px)/1.45 "Noto Serif VN",serif}.about-lead h2,.about-history h2,.about-homecoming h2,.about-provinces h2,.about-stele h2,.about-final h2{margin:12px 0 24px;color:var(--ink);font:700 clamp(32px,4.4vw,54px)/1.12 "Noto Serif VN",serif;letter-spacing:-.025em}.about-lead p:not(.about-dropcap),.about-copy p,.about-homecoming p,.about-provinces p,.about-stele p,.about-final>p{font-size:14px;line-height:1.85;color:#5b6962}
+.about-photo{margin:0}.about-photo img{display:block;width:100%;height:auto}.about-photo--wide{position:relative;width:min(1240px,calc(100% - 48px));margin:0 auto}.about-photo--wide img{height:auto;object-fit:contain}.about-photo figcaption{position:absolute;right:24px;bottom:24px;display:flex;gap:14px;align-items:center;padding:11px 15px;background:rgba(13,39,27,.78);color:#fff;backdrop-filter:blur(8px);font-size:11px}.about-photo figcaption b{color:var(--gold)}
+.about-history{grid-template-columns:.75fr 1.25fr}.about-section-title{position:sticky;top:90px;align-self:start}.about-copy blockquote{margin:35px 0;padding:24px 28px;border-left:3px solid var(--gold);background:#ebe4d5;color:var(--wine);font:italic 400 22px/1.55 "Noto Serif VN",serif}
+.about-quote{padding:95px max(24px,calc((100% - 960px)/2));background:var(--ink);color:#fff;text-align:center}.about-quote span{color:var(--gold);font-size:10px;font-weight:700;letter-spacing:.2em}.about-quote blockquote{margin:22px auto 0;font:italic 400 clamp(27px,4vw,46px)/1.45 "Noto Serif VN",serif}
+.about-homecoming{width:min(1180px,calc(100% - 48px));grid-template-columns:.9fr 1.1fr;gap:80px;align-items:center}.about-homecoming__image{position:relative}.about-homecoming__image img{display:block;width:100%;height:auto;aspect-ratio:auto;object-fit:contain;image-rendering:auto}.about-homecoming__image span{position:absolute;left:-24px;bottom:30px;padding:12px 16px;background:var(--wine);color:#fff;font:italic 400 16px "Noto Serif VN",serif}.about-numbers{display:grid;grid-template-columns:repeat(2,1fr);margin:30px 0;border-top:1px solid #d3ccbc;border-left:1px solid #d3ccbc}.about-numbers div{padding:20px;border-right:1px solid #d3ccbc;border-bottom:1px solid #d3ccbc}.about-numbers strong{display:block;color:var(--wine);font:700 27px "Noto Serif VN",serif}.about-numbers span{font-size:10px;font-weight:700;color:#6e7872;text-transform:uppercase;letter-spacing:.05em}
+.about-provinces{padding:105px max(24px,calc((100% - 840px)/2));background:#e9e2d3;text-align:center}.about-provinces p{max-width:760px;margin:14px auto}.about-stele{display:grid;grid-template-columns:.75fr 1.25fr;gap:75px;width:min(1180px,calc(100% - 48px));margin:0 auto;padding:110px 0}.about-stele__intro{align-self:center}.about-stele blockquote{margin:28px 0 0;color:var(--wine);font:italic 400 20px/1.6 "Noto Serif VN",serif}.about-stele__gallery{display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:center}.about-stele figure{margin:0;background:#ddd3c1;padding:10px}.about-stele figure:nth-child(2){transform:translateY(45px)}.about-stele img{display:block;width:100%;height:auto}.about-stele figcaption{padding:9px 4px 2px;color:#67716b;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em}
+.about-final{padding:110px max(24px,calc((100% - 930px)/2));background:#173c2b;color:#fff;text-align:center}.about-final h2{color:#fff}.about-final>p{max-width:740px;margin:0 auto;color:#d7e3dc}.about-final blockquote{margin:42px auto 10px;color:#e3c270;font:italic 400 clamp(22px,3.4vw,35px)/1.65 "Noto Serif VN",serif}.about-final cite{font-size:11px;color:#aebeb5}.about-final__actions{display:flex;justify-content:center;gap:12px;margin-top:42px}.about-final__actions a{padding:13px 18px;border:1px solid rgba(255,255,255,.35);color:#fff;text-decoration:none;font-size:11px;font-weight:700}.about-final__actions a:first-child{background:#fff;color:var(--ink)}.about-credit{max-width:900px;margin:0 auto;padding:24px;text-align:center;color:#78817c;font-size:10px;line-height:1.6}
+@media(max-width:760px){.about-hero{min-height:650px;background-position:58% center}.about-hero__shade{background:linear-gradient(0deg,rgba(7,29,19,.92),rgba(8,31,21,.18) 78%)}.about-hero__content{width:calc(100% - 40px);padding:80px 0 48px}.about-hero h1{font-size:45px}.about-hero p{font-size:14px}.about-lead,.about-history,.about-homecoming,.about-stele{width:calc(100% - 40px);grid-template-columns:1fr;gap:32px;padding:68px 0}.about-dropcap{font-size:27px}.about-photo--wide{width:100%}.about-photo--wide img{height:auto;min-height:0}.about-photo figcaption{right:12px;bottom:12px}.about-section-title{position:static}.about-copy blockquote{font-size:18px}.about-quote{padding:68px 20px}.about-homecoming__image{width:82%;margin:0 auto}.about-homecoming__image span{left:-12px}.about-numbers div{padding:14px}.about-numbers strong{font-size:22px}.about-provinces{padding:68px 20px}.about-stele__gallery{gap:8px}.about-stele figure{padding:5px}.about-stele figure:nth-child(2){transform:translateY(22px)}.about-final{padding:72px 20px}.about-final__actions{flex-direction:column}.about-credit{padding:20px}.site-header nav{gap:10px}.site-header nav a{font-size:9px}}
+@media(max-width:360px){.site-header nav a:nth-child(2){display:none}.about-hero h1{font-size:39px}.about-numbers{grid-template-columns:1fr 1fr}.about-stele__gallery{grid-template-columns:1fr}.about-stele figure:nth-child(2){transform:none}}
+
+/* The story is embedded after the home timeline, so it continues the page
+   instead of behaving like a second standalone landing page. */
+.memory-journey:has(+.about-page--embedded){margin-bottom:54px}
+.about-page--embedded .about-lead{padding-top:0;padding-bottom:82px}
+.about-page--embedded .about-history,.about-page--embedded .about-homecoming{padding-top:82px;padding-bottom:82px}
+.about-page--embedded .about-stele{padding-top:88px;padding-bottom:96px}
+.about-page--embedded .about-final .about-kicker{color:#e3bf70}
+.about-page--embedded .about-lead{grid-template-columns:1fr;gap:58px}
+.about-page--embedded .about-lead>div{width:min(780px,100%);margin:0 auto;text-align:center}
+.about-page--embedded .about-dropcap{position:relative;width:100%;margin:0;padding:42px 70px 40px;border-top:1px solid #b88a38;border-bottom:1px solid #b88a38;background:linear-gradient(90deg,transparent,rgba(184,135,49,.08) 18%,rgba(184,135,49,.12) 50%,rgba(184,135,49,.08) 82%,transparent);text-align:center}
+.about-page--embedded .about-dropcap:before{content:"✦";position:absolute;top:0;left:50%;padding:0 16px;background:#f4f0e6;color:#a46e1d;font:18px/1 "Noto Serif VN",serif;transform:translate(-50%,-52%)}
+.about-page--embedded .about-dropcap span,.about-page--embedded .about-dropcap strong{display:block}
+.about-page--embedded .about-dropcap strong{margin-top:4px;color:#6f211d;font-weight:700}
+.about-page--embedded .about-dropcap{
+  isolation:isolate;
+  overflow:hidden;
+  padding:54px 84px 48px;
+  border-color:#b98a35;
+  background:
+    radial-gradient(circle at 50% 50%,rgba(201,157,68,.13),transparent 48%),
+    linear-gradient(90deg,transparent,rgba(255,253,247,.72) 20%,rgba(255,253,247,.9) 50%,rgba(255,253,247,.72) 80%,transparent);
+  box-shadow:inset 0 1px rgba(255,255,255,.7),inset 0 -1px rgba(255,255,255,.55);
+}
+.about-page--embedded .about-dropcap:after{
+  content:"“";
+  position:absolute;
+  z-index:-1;
+  top:14px;
+  left:50%;
+  color:rgba(117,31,27,.075);
+  font:italic 400 150px/.8 "Noto Serif VN",serif;
+  transform:translateX(-50%);
+}
+.about-page--embedded .about-dropcap small{
+  display:block;
+  margin-bottom:22px;
+  color:#946018;
+  font:800 10px/1.4 "Noto Sans VN",sans-serif;
+  letter-spacing:.24em;
+}
+.about-page--embedded .about-dropcap span{
+  color:#263c31;
+  font-size:clamp(25px,3vw,38px);
+  font-style:normal;
+  font-weight:400;
+  line-height:1.35;
+  letter-spacing:-.018em;
+}
+.about-page--embedded .about-dropcap strong{
+  margin-top:5px;
+  color:#741f1b;
+  font-size:clamp(31px,4vw,51px);
+  font-style:italic;
+  font-weight:700;
+  line-height:1.28;
+  letter-spacing:-.025em;
+  text-wrap:balance;
+}
+.about-page--embedded .about-dropcap cite{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+  margin-top:25px;
+  color:#75684f;
+  font:600 11px/1.4 "Noto Sans VN",sans-serif;
+  font-style:normal;
+  letter-spacing:.11em;
+  text-transform:uppercase;
+}
+.about-page--embedded .about-dropcap cite:before,
+.about-page--embedded .about-dropcap cite:after{
+  content:"";
+  width:38px;
+  height:1px;
+  background:linear-gradient(90deg,transparent,#b88731);
+}
+.about-page--embedded .about-dropcap cite:after{transform:scaleX(-1)}
+@media(max-width:760px){.memory-journey:has(+.about-page--embedded){margin-bottom:42px}.about-page--embedded .about-lead{padding-top:0;padding-bottom:58px}.about-page--embedded .about-history,.about-page--embedded .about-homecoming,.about-page--embedded .about-stele{padding-top:58px;padding-bottom:58px}}
+@media(max-width:760px){.about-page--embedded .about-lead{gap:38px}.about-page--embedded .about-dropcap{padding:42px 14px 36px;line-height:1.45}.about-page--embedded .about-dropcap small{margin-bottom:17px;font-size:8px}.about-page--embedded .about-dropcap span{font-size:clamp(21px,6.4vw,27px)}.about-page--embedded .about-dropcap strong{font-size:clamp(26px,7.8vw,34px)}.about-page--embedded .about-dropcap cite{margin-top:20px;font-size:9px;letter-spacing:.08em}}

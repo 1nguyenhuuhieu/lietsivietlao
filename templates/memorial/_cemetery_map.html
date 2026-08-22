@@ -1,0 +1,11 @@
+<div class="cemetery-map" id="cemetery-map" aria-label="Bản đồ tương tác các khu mộ">
+  <div class="site-plan__copy"><div><span class="eyebrow">BẢN ĐỒ PHẦN MỘ TƯƠNG TÁC</span><h2 id="site-plan-title">Chạm một khu, tìm đúng phần mộ</h2></div><p>Bản đồ mô phỏng không gian từ trên cao. Chạm vào từng khu A hoặc B để mở bản đồ 3D chi tiết theo hàng và số mộ.</p><div class="site-plan__legend"><span><i></i>Khu A</span><span><i></i>Khu B</span><span>23 khu mộ</span></div></div>
+  <div class="cemetery-map__north">BẮC <i>↑</i></div>
+  <div class="cemetery-map__stage">
+    <div class="map3d-road map3d-road--main"></div><div class="map3d-road map3d-road--cross"></div>
+    <div class="map3d-memorial"><i></i><strong>Đài tưởng niệm</strong></div>
+    {% for zone, count in zone_counts.items %}<button type="button" class="map3d-zone map3d-zone--{{ zone|first|lower }} zone-{{ zone|lower }}" data-zone="{{ zone }}" data-count="{{ count }}" aria-label="Khu {{ zone }}, {{ count }} phần mộ"><span>{{ zone }}</span><small>{{ count }} mộ</small></button>{% endfor %}
+    <div class="map3d-pond pond-one">HỒ NƯỚC</div><div class="map3d-pond pond-two">HỒ NƯỚC</div>
+  </div>
+  <p class="cemetery-map__hint"><i>↟</i> Chạm vào một khu để mở bản đồ phần mộ chi tiết</p>
+</div>

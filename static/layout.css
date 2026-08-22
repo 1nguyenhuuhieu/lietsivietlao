@@ -1,0 +1,982 @@
+/* Keep the major page regions on one consistent, centered grid. */
+.site-header {
+  height: 54px;
+  padding-inline: 0;
+}
+
+.site-header__inner,
+.hero__inner {
+  width: min(1180px, calc(100% - 48px));
+  margin-inline: auto;
+}
+
+.site-header__inner {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.site-header .brand { gap: 8px; font-size: 16px; line-height: 1; }
+.site-header .brand small { font-size: 8px; line-height: 1.25; letter-spacing: .15em; }
+.site-header .brand-mark { display: block; width: 48px; height: 34px; flex: none; }
+.site-header nav { gap: 20px; }
+.site-header nav a { font-size: 12px; }
+
+.hero {
+  position: relative;
+  isolation: isolate;
+  min-height: 570px;
+  display: flex;
+  align-items: center;
+  padding-left: 0;
+  padding-right: 0;
+  overflow: visible;
+  z-index: 2;
+  background:
+    linear-gradient(90deg, rgba(7, 27, 19, .96) 0%, rgba(10, 35, 24, .9) 28%, rgba(13, 38, 27, .56) 50%, rgba(8, 25, 18, .14) 76%, rgba(7, 21, 15, .18) 100%),
+    linear-gradient(0deg, rgba(6, 22, 15, .74) 0%, transparent 42%),
+    #102d20;
+  box-shadow: inset 0 -1px rgba(255, 255, 255, .12);
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: var(--home-hero-image, url("images/hero-cong-tuong-niem-v3.png")) center / cover no-repeat;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(8, 34, 28, .38) 0%, rgba(8, 34, 28, .22) 28%, rgba(8, 34, 28, .08) 46%, transparent 62%),
+    radial-gradient(circle at 13% 35%, rgba(213, 173, 86, .11), transparent 28%),
+    linear-gradient(180deg, rgba(255, 255, 255, .05), transparent 22%, transparent 70%, rgba(7, 22, 15, .38));
+}
+
+.hero__inner {
+  position: relative;
+  z-index: 2;
+}
+
+.hero__inner > p {
+  text-shadow: 0 2px 14px rgba(0, 0, 0, .55);
+}
+
+/* Consistent search controls across Chromium, Safari/iOS and Android. */
+.search select {
+  appearance: none;
+  -webkit-appearance: none;
+  min-width: 0;
+  padding-right: 44px;
+  color: #26352d;
+  font-weight: 600;
+  cursor: pointer;
+  background-color: #fff;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='%23244e3a' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m7 10 5 5 5-5'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 15px center;
+  background-size: 18px;
+  border-radius: 0;
+  transition: background-color .18s ease, box-shadow .18s ease;
+}
+.search select:hover { background-color: #fbfaf6; }
+.search select:focus {
+  position: relative;
+  z-index: 1;
+  background-color: #fff;
+  box-shadow: inset 0 0 0 2px rgba(184,135,49,.55);
+}
+.search select::-ms-expand { display: none; }
+.search { position: relative; z-index: 100; display:block; overflow: visible; }
+.search-main { display:grid; grid-template-columns:minmax(260px,1fr) 190px 130px; }
+.advanced-filters { border-top:1px solid #dfe5e1; color:#26352d; }
+.advanced-filters summary { display:flex; min-height:38px; align-items:center; justify-content:space-between; padding:8px 12px; list-style:none; cursor:pointer; font-size:11px; font-weight:700; letter-spacing:.04em; }
+.advanced-filters summary::-webkit-details-marker { display:none; }
+.advanced-filters summary span::before { content:"＋"; display:inline-block; width:20px; color:#b88731; font-size:15px; }
+.advanced-filters[open] summary span::before { content:"−"; }
+.advanced-filters summary b { padding:3px 7px; border-radius:999px; background:#e6efe9; color:#295a42; font-size:9px; }
+.filter-grid { display:grid; grid-template-columns:minmax(200px,1fr) 190px 240px auto; gap:8px; align-items:end; padding:4px 8px 10px; }
+.filter-grid label { display:grid; min-width:0; gap:4px; }
+.filter-grid label>span { color:#68736d; font-size:9px; font-weight:700; letter-spacing:.07em; text-transform:uppercase; }
+.filter-grid input,.filter-grid select { width:100%; height:39px; padding:8px 35px 8px 10px; border:1px solid #d5ded8; border-radius:4px; background-color:#f9fbfa; font-size:12px; }
+.filter-grid input:focus,.filter-grid select:focus { border-color:#b88731; box-shadow:none; }
+.clear-filters { align-self:center; padding:8px 6px; color:#681917; font-size:10px; font-weight:700; text-decoration:none; white-space:nowrap; }
+.search-input-wrap { position: relative; min-width: 0; }
+.search-input-wrap>input { width: 100%; height: 100%; }
+.search-input-wrap>input.is-searching { background-image: radial-gradient(circle,#b88731 2px,transparent 3px); background-position:right 15px center; background-repeat:no-repeat; }
+.suggestions {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  left: 0;
+  z-index: 9999;
+  max-height: 350px;
+  overflow-y: auto;
+  padding: 6px;
+  border: 1px solid #b8c5bd;
+  border-radius: 7px;
+  background: #fff;
+  box-shadow: 0 22px 55px rgba(4,20,12,.38),0 0 0 1px rgba(255,255,255,.8);
+}
+.search .suggestion { position:relative;display:block;width:100%;padding:12px 92px 12px 13px;border:0;border-radius:5px;background:#fff;color:var(--ink);text-align:left;cursor:pointer;font-weight:400; }
+.search .suggestion+ .suggestion { border-top: 1px solid #dfe7e2; }
+.search .suggestion:hover,.search .suggestion.is-active,.search .suggestion[aria-selected="true"] { background:#e5efe9;box-shadow:inset 3px 0 #2d6348; }
+.suggestion strong { display:block;color:#5d1716;font:700 15px/1.3 "Noto Serif VN",serif;text-transform:uppercase; }
+.suggestion span { display:block;margin-top:3px;overflow:hidden;color:#405248;font-size:12px;line-height:1.35;text-overflow:ellipsis;white-space:nowrap; }
+.suggestion small { position:absolute;right:12px;top:50%;transform:translateY(-50%);color:#2d6348;font-size:10px;font-weight:700; }
+.results { position: relative; z-index: 1; }
+.heritage-facts { position:relative; z-index:3; display:grid; width:min(1100px,calc(100% - 48px)); grid-template-columns:repeat(4,1fr); margin:-34px auto 0; border:1px solid #d9d2c2; border-radius:8px; background:#fffdf8; box-shadow:0 14px 38px rgba(38,43,39,.13); }
+.heritage-facts div { padding:22px 24px; border-right:1px solid #e2dccf; }
+.heritage-facts div:last-child { border:0; }
+.heritage-facts strong { display:block; color:#681917; font:700 25px/1.1 "Noto Serif VN",serif; }
+.heritage-facts span { display:block; margin-top:6px; color:#68736d; font-size:10px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; }
+.heritage-story { display:grid; width:min(1180px,calc(100% - 48px)); grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr); margin:30px auto 0; overflow:hidden; border-radius:10px; background:#173c2b; color:#fff; box-shadow:0 20px 48px rgba(19,38,29,.15); }
+.heritage-story__visual { min-height:500px; display:flex; align-items:flex-end; padding:28px; background:linear-gradient(0deg,rgba(9,30,20,.62),transparent 58%),url("images/doi-doi-nho-on-cac-anh-hung-liet-si.jpg") center/cover no-repeat; }
+.heritage-story__visual span { padding:7px 11px; border:1px solid rgba(255,255,255,.5); border-radius:999px; background:rgba(13,38,27,.56); font-size:10px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; backdrop-filter:blur(7px); }
+.heritage-story__content { align-self:center; padding:52px 46px; }
+.section-kicker { color:#956116; font-size:12px; font-weight:800; letter-spacing:.15em; line-height:1.45; }
+.heritage-story h2,.memory-journey h2 { margin:12px 0 20px; font:700 clamp(31px,4vw,49px)/1.12 "Noto Serif VN",serif; }
+.heritage-story p { color:#d9e5de; font-size:14px; line-height:1.75; }
+.heritage-actions { display:flex; flex-wrap:wrap; gap:12px 20px; align-items:center; margin-top:28px; }
+.primary-action { padding:12px 16px; border-radius:4px; background:#b88731; color:white; font-size:12px; font-weight:700; text-decoration:none; }
+.source-action { color:#dce6e0; font-size:11px; font-weight:700; text-decoration:none; }
+.memory-journey { display:grid; width:min(1100px,calc(100% - 48px)); grid-template-columns:.85fr 1.15fr; gap:70px; margin:95px auto; }
+.memory-journey__intro>p { color:#68736d; }
+.memory-journey ol { position:relative; margin:0; padding:0; list-style:none; }
+.memory-journey ol::before { content:""; position:absolute; top:8px; bottom:8px; left:39px; width:1px; background:#cfc7b5; }
+.memory-journey li { position:relative; display:grid; grid-template-columns:80px 1fr; gap:22px; padding-bottom:28px; }
+.memory-journey li:last-child { padding-bottom:0; }
+.memory-journey li>b { position:relative; z-index:1; align-self:start; padding:4px 0; background:#f4f0e6; color:#a26e20; font:700 15px/1.2 "Noto Serif VN",serif; }
+.memory-journey li strong { font:700 19px/1.3 "Noto Serif VN",serif; }
+.memory-journey li p { margin:6px 0 0; color:#68736d; font-size:13px; line-height:1.6; }
+.friendship-quote { width:min(1100px,calc(100% - 48px)); margin:0 auto 90px; padding:48px; border:1px solid #d7cfbd; background:linear-gradient(135deg,#fffdf8,#eee6d6); text-align:center; }
+.friendship-quote blockquote { margin:0; color:#681917; font:italic 400 clamp(28px,4vw,44px)/1.35 "Noto Serif VN",serif; }
+.friendship-quote>p { max-width:710px; margin:20px auto 0; color:#68736d; font-size:13px; }
+.bilingual-note { display:flex; max-width:680px; align-items:center; gap:20px; margin:32px auto 0; padding-top:25px; border-top:1px solid #d2c8b4; text-align:left; }
+.bilingual-note span { color:#a26e20; font:700 30px/1 "Noto Serif VN",serif; white-space:nowrap; }
+.bilingual-note p { margin:0; color:#4f5d55; font-size:12px; line-height:1.55; }
+
+@media (max-width: 760px) {
+  .site-header { height: 48px; }
+  .site-header__inner,
+  .hero__inner {
+    width: calc(100% - 40px);
+  }
+
+  .site-header .brand { gap: 7px; font-size: 15px; }
+  .site-header .brand small { font-size: 7px; letter-spacing: .12em; }
+  .site-header .brand-mark { width: 43px; height: 29px; }
+
+  .hero {
+    min-height: 650px;
+    align-items: flex-end;
+    padding-bottom: 48px;
+    background:
+      linear-gradient(0deg, rgba(7, 27, 18, .99) 0%, rgba(9, 31, 21, .92) 47%, rgba(8, 27, 19, .34) 73%, rgba(7, 22, 16, .12) 100%),
+      #102d20;
+  }
+  .hero::before {
+    background-position:68% center;
+    background-size:cover;
+    -webkit-mask-image:linear-gradient(180deg,#000 0%,#000 48%,rgba(0,0,0,.72) 65%,rgba(0,0,0,.12) 84%,transparent 100%);
+    mask-image:linear-gradient(180deg,#000 0%,#000 48%,rgba(0,0,0,.72) 65%,rgba(0,0,0,.12) 84%,transparent 100%);
+  }
+  .search-main { grid-template-columns:1fr; }
+  .filter-grid { grid-template-columns:1fr; gap:7px; }
+  .filter-grid input,.filter-grid select { height:42px; }
+  .clear-filters { justify-self:start; }
+  .heritage-facts { width:calc(100% - 24px); grid-template-columns:repeat(2,1fr); margin-top:-24px; }
+  .heritage-facts div { padding:16px 14px; }
+  .heritage-facts div:nth-child(2) { border-right:0; }
+  .heritage-facts div:nth-child(-n+2) { border-bottom:1px solid #e2dccf; }
+  .heritage-facts strong { font-size:20px; }
+  .heritage-story { width:calc(100% - 24px); grid-template-columns:1fr; }
+  .heritage-story__visual { min-height:280px; }
+  .heritage-story__content { padding:34px 24px; }
+  .memory-journey { width:calc(100% - 40px); grid-template-columns:1fr; gap:28px; margin:65px auto; }
+  .memory-journey ol::before { left:31px; }
+  .memory-journey li { grid-template-columns:64px 1fr; gap:14px; }
+  .friendship-quote { width:calc(100% - 24px); margin-bottom:65px; padding:34px 20px; }
+  .bilingual-note { align-items:flex-start; }
+}
+
+/* Memorial records are presented as respectful, real-stone grave markers. */
+.cards {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 22px 18px;
+  align-items: stretch;
+}
+
+.card {
+  min-width: 0;
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 340px;
+  padding: 57px 17px 21px;
+  overflow: hidden;
+  color: #641f1d;
+  text-align: center;
+  text-decoration: none;
+  border: 6px solid #858783;
+  border-bottom-width: 11px;
+  border-radius: 48% 48% 7px 7px / 24% 24% 7px 7px;
+  background:
+    linear-gradient(112deg, transparent 0 14%, rgba(255,255,255,.18) 15%, transparent 18% 58%, rgba(64,66,63,.1) 60%, transparent 64%),
+    repeating-linear-gradient(164deg, rgba(255,255,255,.055) 0 1px, transparent 1px 7px),
+    linear-gradient(142deg, #d1d2ce 0%, #b5b7b3 32%, #a6a8a4 58%, #c5c6c2 100%);
+  background-size: 100% 100%, 100% 100%, 100% 100%;
+  box-shadow: inset 0 0 0 2px rgba(238,239,235,.72), inset 9px 6px 17px rgba(255,255,255,.34), inset -10px -7px 18px rgba(45,47,44,.28), 0 4px 0 #6f716d, 0 15px 28px rgba(36,37,34,.22);
+  transition: transform .2s ease, box-shadow .2s ease, filter .2s ease;
+}
+
+/* Deterministic stone variations prevent repeated records looking cloned while
+   keeping every marker within the same restrained grey-granite family. */
+.card:nth-child(6n+1) { background-position: 0 0, 0 0, 0 0; }
+.card:nth-child(6n+2) {
+  background-image: linear-gradient(68deg, transparent 0 21%, rgba(255,255,255,.13) 23%, transparent 27% 67%, rgba(54,57,53,.11) 69%, transparent 73%), repeating-linear-gradient(176deg, rgba(255,255,255,.05) 0 1px, transparent 1px 9px), linear-gradient(128deg,#c7c9c5 0%,#a9aba7 34%,#c2c3bf 61%,#a2a5a1 100%);
+}
+.card:nth-child(6n+3) {
+  background-image: linear-gradient(137deg, rgba(59,61,58,.08) 0 1%, transparent 9% 43%, rgba(255,255,255,.15) 47%, transparent 54%), repeating-linear-gradient(157deg, rgba(66,68,65,.035) 0 1px, transparent 1px 8px), linear-gradient(154deg,#b4b6b2 0%,#d0d1cd 29%,#aaaca8 63%,#c0c2be 100%);
+}
+.card:nth-child(6n+4) {
+  background-image: linear-gradient(101deg, transparent 0 31%, rgba(64,66,63,.1) 34%, transparent 39% 72%, rgba(255,255,255,.14) 75%, transparent 81%), repeating-linear-gradient(169deg, rgba(255,255,255,.045) 0 1px, transparent 1px 6px), linear-gradient(116deg,#c4c5c1 0%,#a5a7a3 38%,#c9cac6 66%,#adafac 100%);
+}
+.card:nth-child(6n+5) {
+  background-image: linear-gradient(151deg, rgba(255,255,255,.14) 0 3%, transparent 12% 57%, rgba(54,56,53,.09) 61%, transparent 69%), repeating-linear-gradient(172deg, rgba(62,64,60,.035) 0 1px, transparent 1px 10px), linear-gradient(137deg,#aeb0ac 0%,#cacbc7 31%,#a4a6a2 57%,#c4c6c2 100%);
+}
+.card:nth-child(6n) {
+  background-image: linear-gradient(82deg, transparent 0 17%, rgba(57,59,56,.08) 20%, transparent 25% 59%, rgba(255,255,255,.16) 63%, transparent 70%), repeating-linear-gradient(161deg, rgba(255,255,255,.05) 0 1px, transparent 1px 8px), linear-gradient(149deg,#ced0cc 0%,#adafac 36%,#c3c5c1 58%,#a5a8a4 100%);
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 13px 10px 10px;
+  z-index: -1;
+  border: 1px solid rgba(87,89,85,.58);
+  border-radius: 45% 45% 4px 4px / 22% 22% 4px 4px;
+  box-shadow: 0 0 0 1px rgba(238,239,235,.38), inset 0 0 14px rgba(255,255,255,.2);
+}
+
+.card::after {
+  content: "";
+  position: absolute;
+  right: -8%;
+  bottom: -5px;
+  left: -8%;
+  z-index: -2;
+  height: 13px;
+  border-radius: 50%;
+  background: rgba(46,47,43,.3);
+  filter: blur(7px);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  border-color: #858681;
+  filter: brightness(1.04);
+  box-shadow: inset 0 0 0 2px rgba(245,245,240,.78), inset 7px 4px 14px rgba(255,255,255,.4), inset -8px -5px 15px rgba(46,48,47,.25), 0 18px 30px rgba(36,37,34,.25);
+}
+
+.stone-star {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  display: grid;
+  place-items: center;
+  width: 31px;
+  height: 31px;
+  transform: translateX(-50%);
+  border: 1px solid #9f7628;
+  border-radius: 50%;
+  background: #b52825;
+  color: #f0d059;
+  font-size: 18px;
+  line-height: 1;
+  box-shadow: 0 2px 5px rgba(60,30,20,.3), inset 0 0 0 2px rgba(255,255,255,.12);
+}
+
+.stone-inscription { display: flex; flex: 1; width: 100%; min-width: 0; flex-direction: column; align-items: center; }
+.stone-heading { margin-top: 7px; color: #681917; font: 700 12px/1.3 "Noto Sans VN", sans-serif; letter-spacing: .13em; text-transform: uppercase; text-shadow: 0 1px rgba(255,255,255,.55); }
+.card h3 { margin: 10px 0 8px; color: #681917; font: 700 clamp(19px, 1.7vw, 24px)/1.18 "Noto Serif VN", serif; text-transform: uppercase; text-shadow: 0 1px rgba(255,255,255,.6), 0 -1px rgba(74,20,18,.12); }
+.card p { min-height: 42px; margin: 0; color: #38332f; font-size: 14px; font-weight: 600; line-height: 1.4; }
+.card dl { display: grid; width: 100%; grid-template-columns: repeat(3, 1fr); gap: 0; margin: 14px 0 0; padding: 10px 0; border-top: 1px solid rgba(75,68,63,.38); border-bottom: 1px solid rgba(75,68,63,.38); }
+.card dl div { display: flex; min-width: 0; flex-direction: column; padding: 0 5px; border-right: 1px solid rgba(91,76,68,.25); }
+.card dl div:last-child { border: 0; }
+.card dt { font-size: 9px; font-weight: 600; text-transform: uppercase; letter-spacing: .05em; color: #4d4742; }
+.card dd { overflow-wrap: anywhere; margin: 3px 0 0; color: #5f1816; font-size: 14px; line-height: 1.3; font-weight: 700; }
+.stone-link { margin-top: auto; padding-top: 12px; font-size: 10px; font-weight: 600; color: #3f3935; letter-spacing: .06em; text-transform: uppercase; opacity: .9; }
+.stone-link b { color: #7b211f; font-size: 12px; }
+
+@media (max-width: 980px) {
+  .cards { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+@media (max-width: 620px) {
+  .results { padding-inline: 12px; }
+  .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px 10px; }
+  .card {
+    width: 100%;
+    min-height: 270px;
+    padding: 44px 8px 13px;
+    border-width: 4px;
+    border-bottom-width: 8px;
+    border-radius: 48% 48% 4px 4px / 20% 20% 4px 4px;
+    box-shadow: inset 0 0 0 1px rgba(238,239,235,.66), inset 5px 4px 9px rgba(255,255,255,.26), inset -5px -4px 10px rgba(45,47,44,.2), 0 2px 0 #6f716d, 0 8px 15px rgba(36,37,34,.18);
+  }
+  .card::before { inset: 9px 6px 7px; }
+  .card::after { height: 9px; filter: blur(4px); }
+  .stone-star { top: 15px; width: 25px; height: 25px; font-size: 14px; }
+  .stone-heading { margin-top: 4px; font-size: 9px; letter-spacing: .08em; }
+  .card h3 { margin: 7px 0 6px; font-size: clamp(15px, 4.7vw, 18px); line-height: 1.15; }
+  .card p { min-height: 34px; font-size: 11px; line-height: 1.35; }
+  .card dl { margin-top: 10px; padding: 7px 0; }
+  .card dl div { padding-inline: 1px; }
+  .card dt { font-size: 7px; letter-spacing: 0; }
+  .card dd { margin-top: 2px; font-size: 11px; }
+  .stone-link { padding-top: 8px; font-size: 8px; }
+  .stone-link b { font-size: 9px; }
+}
+
+/* v12 — a restrained memorial slab, using natural irregular grain instead of
+   a literal miniature tomb. These rules intentionally supersede the old model. */
+.card {
+  min-height: 292px;
+  padding: 48px 18px 17px;
+  border: 0;
+  border-radius: 22px 22px 6px 6px;
+  background-color: #b5b7b3;
+  background-image: linear-gradient(105deg,rgba(255,255,255,.2),transparent 28% 72%,rgba(40,42,39,.12)),url("images/granite-fine.svg");
+  background-size: 100% 100%,420px 420px;
+  box-shadow: inset 1px 1px rgba(255,255,255,.55),inset -2px -2px rgba(55,57,53,.2),0 3px 0 #777974,0 10px 21px rgba(39,40,37,.16);
+}
+.card::before {
+  inset: 0;
+  border: 0;
+  border-radius: inherit;
+  background: linear-gradient(180deg,rgba(255,255,255,.16),transparent 24%,transparent 80%,rgba(49,51,48,.08));
+  box-shadow: none;
+}
+.card::after { right: 3%; bottom: -7px; left: 3%; height: 10px; opacity: .55; filter: blur(7px); }
+.card:hover { transform: translateY(-3px); border-color: transparent; filter: brightness(1.025); box-shadow: inset 1px 1px rgba(255,255,255,.6),inset -2px -2px rgba(55,57,53,.2),0 3px 0 #777974,0 14px 25px rgba(39,40,37,.2); }
+.stone-star {
+  top: 13px;
+  width: 34px;
+  height: 34px;
+  border: 1px solid rgba(112,61,27,.5);
+  background: #b82724;
+  color: #f2d052;
+  font-size: 21px;
+  text-shadow: 0 1px rgba(91,42,13,.25);
+  box-shadow: inset 0 1px 2px rgba(255,255,255,.3),inset 0 -2px 4px rgba(70,24,22,.34),0 2px 3px rgba(61,39,24,.22);
+}
+.stone-heading { margin-top: 8px; font-size: 12px; letter-spacing: .14em; opacity: .88; }
+.card h3 { margin: 10px 0 8px; font-size: clamp(18px,1.55vw,22px); line-height: 1.18; }
+.card p.stone-hometown { width: 100%; min-height: 38px; overflow-wrap: anywhere; font-size: 13px; font-weight: 500; line-height: 1.4; }
+.stone-life { display:grid; gap:2px; margin-top:7px; }
+.card .stone-life p { display:flex; min-height:0; align-items:baseline; justify-content:center; gap:6px; margin:0; color:#4e4843; font-size:12px; font-weight:650; line-height:1.3; }
+.stone-life span { text-transform:uppercase; letter-spacing:.06em; opacity:.78; }
+.stone-life b { color:#681917; font-size:14px; }
+.stone-location { display: flex; min-height: 0!important; flex-wrap: wrap; justify-content: center; gap: 2px 6px; margin: 14px 0 0!important; padding-top: 10px; border-top: 1px solid rgba(71,68,64,.28); color: #514d48!important; font-size: 11px!important; font-weight: 600!important; line-height: 1.35!important; }
+.stone-location i { color: rgba(95,24,22,.55); font-style: normal; }
+.stone-link { width: 24px; height: 24px; margin-top: auto; padding: 5px 0 0; color: #691d1b; font-size: 14px; line-height: 1; }
+.card:nth-child(6n+1) { background-position: 0 0,0 0; }
+.card:nth-child(6n+2) { background-position: 0 0,23% 41%; filter: brightness(.98) saturate(.92); }
+.card:nth-child(6n+3) { background-position: 0 0,61% 17%; filter: brightness(1.025) sepia(.025); }
+.card:nth-child(6n+4) { background-position: 0 0,89% 72%; filter: brightness(.965) contrast(1.02); }
+.card:nth-child(6n+5) { background-position: 0 0,38% 91%; filter: brightness(1.015) saturate(.88); }
+.card:nth-child(6n) { background-position: 0 0,74% 54%; filter: brightness(.985) contrast(.98); }
+
+@media (max-width: 620px) {
+  .card { min-height: 225px; padding: 36px 7px 10px; border-radius: 13px 13px 4px 4px; box-shadow: inset 1px 1px rgba(255,255,255,.5),inset -1px -1px rgba(55,57,53,.18),0 2px 0 #777974,0 7px 13px rgba(39,40,37,.14); }
+  .stone-star { top: 8px; width: 28px; height: 28px; font-size: 17px; }
+  .stone-heading { margin-top: 7px; font-size: 9px; letter-spacing: .09em; }
+  .card h3 { margin: 7px 0 5px; font-size: clamp(14px,4.35vw,17px); }
+  .card p.stone-hometown { min-height: 30px; font-size: 10px; line-height: 1.3; }
+  .stone-life { gap:1px; margin-top:4px; }
+  .card .stone-life p { gap:3px; font-size:8px; }
+  .stone-life b { font-size:10px; }
+  .stone-location { gap: 1px 4px; margin-top: 9px!important; padding-top: 7px; font-size: 8px!important; }
+  .stone-link { width: 19px; height: 19px; padding-top: 3px; font-size: 11px; }
+  .search, .search input, .search select, .section-title>div { min-width: 0; }
+  .search select { padding-right: 48px; background-position: right 17px center; }
+  .suggestions { top: calc(100% + 5px); max-height: 295px; }
+  .suggestion { padding: 10px; }
+  .suggestion { padding-right: 70px; }
+  .suggestion small { right:8px;font-size:9px; }
+  .section-title { display: grid; grid-template-columns: minmax(0,1fr) auto; gap: 10px; }
+  .section-title p { white-space: nowrap; }
+  .pagination { flex-wrap: wrap; row-gap: 10px; }
+}
+
+@media (max-width: 350px) {
+  .hero__inner, .site-header__inner { width: calc(100% - 32px); }
+  .hero h1 { font-size: 38px; }
+  .free-badge { padding: 8px 12px; }
+  .results { padding-top: 44px; }
+  .section-title { grid-template-columns: 1fr; }
+  .section-title h2 { font-size: 29px; line-height: 1.15; }
+  .section-title p { margin: 0; }
+  .cards { gap: 12px 8px; }
+  .card { padding-inline: 6px; }
+  .stone-location { column-gap: 3px; }
+}
+/* Tribute form and moderated remembrance wall */
+.detail .eyebrow{color:#b78227}.detail .memorial-card{position:relative;isolation:isolate;overflow:hidden;margin-top:18px;padding:48px 42px;border:1px solid rgba(189,158,96,.38);border-radius:20px;background:linear-gradient(120deg,rgba(18,50,36,.98),rgba(34,73,53,.95)),url("images/granite-fine.svg");box-shadow:0 20px 55px rgba(24,45,34,.14)}.memorial-card__glow{position:absolute;z-index:-1;inset:auto -80px -180px auto;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(190,142,54,.2),transparent 68%)}.detail .memorial-card:after{content:"✦";position:absolute;right:38px;top:22px;color:rgba(225,186,109,.14);font-size:76px}.detail .memorial-card h1{color:#fff;text-shadow:0 2px 14px rgba(0,0,0,.18)}.detail .memorial-card .place{color:#d9e2dc;margin-bottom:10px}.memorial-card__copy{min-width:0}.memorial-card__verse{margin:13px 0 0;color:#d2b473;font:italic 14px/1.5 "Noto Serif VN",serif;letter-spacing:.025em}.detail .portrait{color:#9b6514;border-color:#a66e18;border-width:2px;background:rgba(184,135,49,.07)}.detail .detail-flag{border:0;background:rgba(255,255,255,.97);padding:10px;width:110px;height:84px;border-radius:12px;box-shadow:0 10px 30px rgba(3,18,10,.27),0 0 0 1px rgba(255,223,145,.28)}.detail-flag svg{display:block;width:100%;height:auto;filter:drop-shadow(0 2px 3px rgba(72,26,20,.2))}.detail .facts{border-radius:14px;overflow:hidden;box-shadow:0 10px 28px rgba(35,53,43,.06)}.detail .facts b{font-size:16px;color:#213d2f}.detail .source{border-left-color:#a66e18;background:#eee1c3;border-radius:0 10px 10px 0}.detail .tribute-empty span{color:#9b6514}
+.tribute-section{margin:56px 0 34px;padding-top:42px;border-top:1px solid #d5cebd;scroll-margin-top:80px}.tribute-heading{margin-bottom:22px}.tribute-heading h2{font:clamp(30px,4vw,44px)/1.15 "Noto Serif VN",serif;margin:8px 0}.tribute-heading p{max-width:680px;color:var(--muted);margin:0}.tribute-layout{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(300px,.95fr);gap:24px;align-items:start}.tribute-form{padding:26px;background:#fffdf8;border:1px solid #d7cebc;border-radius:14px;box-shadow:0 12px 35px rgba(35,53,43,.07)}.tribute-fields{display:grid;grid-template-columns:1fr 1fr;gap:14px}.tribute-form label{display:block;font-size:12px;font-weight:700;color:#405147;margin-bottom:15px}.tribute-form input,.tribute-form textarea{display:block;width:100%;margin-top:7px;border:1px solid #cfc7b7;border-radius:9px;background:#fff;padding:12px 13px;color:var(--ink);font:15px/1.5 "Noto Sans VN",sans-serif;outline:none;transition:.2s}.tribute-form textarea{min-height:128px;resize:vertical}.tribute-form input:focus,.tribute-form textarea:focus{border-color:var(--green);box-shadow:0 0 0 3px rgba(36,78,58,.1)}.tribute-form label small{display:block;color:#a2302a;font-weight:600;margin-top:5px}.tribute-form__footer{display:flex;gap:18px;align-items:center;justify-content:space-between}.tribute-form__footer p{max-width:420px;margin:0;color:var(--muted);font-size:11px}.tribute-form button{flex:none;border:0;border-radius:8px;padding:12px 18px;background:var(--green);color:#fff;font-weight:700;cursor:pointer}.tribute-form button:hover{background:#183b2b}.tribute-list{display:grid;gap:12px}.tribute-item,.tribute-empty{position:relative;margin:0;padding:20px 22px;background:rgba(255,253,248,.82);border:1px solid #ded6c6;border-radius:12px;overflow:hidden}.tribute-item--editorial{border-color:#d8c8a7;background:linear-gradient(135deg,#fffdf8,#f1eadc)}.tribute-item--editorial:before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:#a87320}.tribute-type{display:block;margin-bottom:8px;color:#936018;font-size:9px;font-weight:700;letter-spacing:.12em}.tribute-item--community .tribute-type{color:#49705c}.tribute-item p{font:italic 17px/1.65 "Noto Serif VN",serif;margin:0;color:#34483d}.tribute-item footer{display:flex;justify-content:space-between;gap:12px;padding:13px 0 0;background:none;color:var(--muted);text-align:left;font-size:11px}.tribute-item footer strong{color:var(--green)}.tribute-item--editorial footer span{color:#a87320}.tribute-empty{text-align:center;color:var(--muted)}.tribute-empty span{display:block;color:var(--gold);font-size:28px}.tribute-notice{padding:13px 15px;border-radius:9px;margin-bottom:16px;font-size:14px}.tribute-notice--success{background:#e7f2eb;color:#24553c;border:1px solid #b9d5c2}.tribute-notice--error{background:#f8e9e7;color:#8b2925;border:1px solid #e1b7b2}
+@media(max-width:760px){.detail .memorial-card{padding:28px 18px;gap:14px;border-radius:15px}.detail .memorial-card:after{right:15px;top:8px;font-size:46px}.detail .detail-flag{width:70px;height:54px;padding:6px;border-radius:8px}.detail .memorial-card h1{font-size:clamp(30px,10vw,46px);margin:8px 0}.memorial-card__verse{font-size:11px}.tribute-section{margin-top:40px;padding-top:32px}.tribute-layout{grid-template-columns:1fr}.tribute-form{padding:18px}.tribute-fields{grid-template-columns:1fr;gap:0}.tribute-form__footer{align-items:stretch;flex-direction:column}.tribute-form button{width:100%}}
+
+/* Refined detail hero: a direct Vietnamese flag and restrained memorial styling. */
+.detail .eyebrow{color:#d19a39}.detail .memorial-card{padding:42px;border:1px solid rgba(189,158,96,.34);border-top:3px solid #b88731;border-radius:9px;background:linear-gradient(115deg,#123526 0%,#1d4b36 72%,#2c573f 100%);box-shadow:0 18px 45px rgba(24,45,34,.13)}.detail .memorial-card:after{display:none}.memorial-card__glow{inset:auto -100px -220px auto;background:radial-gradient(circle,rgba(190,142,54,.12),transparent 67%)}.detail .memorial-card .place{color:#e2e9e4}.memorial-card__verse{color:#e0b965}.detail .portrait{border:0}.detail .detail-flag{display:block;width:96px;height:64px;padding:0;border:0;border-radius:5px;background:#da251d;overflow:hidden;box-shadow:0 8px 22px rgba(2,15,8,.24)}.detail-flag svg{display:block;width:100%;height:100%;filter:none}.detail .facts{border-radius:10px}
+@media(max-width:760px){.detail .memorial-card{padding:26px 18px;border-radius:7px}.detail .detail-flag{width:66px;height:44px;padding:0;border-radius:4px}}
+
+/* Memorial profile v2 — person-first, inspired by restrained military archives. */
+.detail{max-width:1120px;padding-top:44px}.detail .back{display:inline-flex;align-items:center;gap:7px;color:#345847;font-size:13px;text-decoration:none}.detail .back:hover{text-decoration:underline}.detail .memorial-card{display:grid;grid-template-columns:96px minmax(0,1fr);gap:32px;align-items:center;margin-top:24px;padding:52px 56px;border:1px solid #d8cfbd;border-left:7px solid #174b35;border-top:1px solid #d8cfbd;border-radius:2px;background:linear-gradient(100deg,rgba(255,253,247,.98),rgba(247,242,230,.94)),url("images/granite-fine.svg");box-shadow:0 16px 42px rgba(40,50,44,.08)}.detail .memorial-card:before{content:"";position:absolute;left:118px;top:44px;bottom:44px;width:1px;background:linear-gradient(transparent,#c8b384 18%,#c8b384 82%,transparent)}.detail .memorial-card h1{margin:9px 0 8px;color:#173b2c;text-shadow:none;font-size:clamp(43px,5.3vw,68px);letter-spacing:-.025em}.detail .memorial-card .eyebrow{color:#9c6816;font-size:11px}.detail .memorial-card .place{color:#4e6157;font-size:17px}.detail .detail-flag{width:80px;height:54px;border-radius:2px;box-shadow:0 5px 14px rgba(76,33,24,.14)}.detail .memorial-card__glow{display:none}.memorial-card__verse{color:#80682f;font-size:13px}.detail .facts{position:relative;z-index:2;margin:-1px 18px 34px;border:1px solid #d8cfbd;border-top:0;border-radius:0 0 8px 8px;background:#fffdf8;box-shadow:0 10px 26px rgba(35,53,43,.05)}.detail .facts div{padding:18px 20px}.detail .facts span{color:#7b7569;font-size:10px;letter-spacing:.055em}.detail .facts b{font-size:15px}.tribute-section{margin-top:48px;padding-top:45px;border-top:1px solid #d0c5b0}.tribute-heading{position:relative;padding-left:20px}.tribute-heading:before{content:"";position:absolute;left:0;top:2px;width:3px;height:52px;background:#a87320}.tribute-heading h2{color:#173b2c}.tribute-layout{gap:28px}.tribute-form{border-radius:4px;border-top:3px solid #1f533c;box-shadow:0 10px 30px rgba(35,53,43,.055)}.tribute-item,.tribute-empty{border-radius:4px}.tribute-item--editorial{background:#faf6eb;border-color:#d8c8a7}.tribute-item p{font-size:16px}.detail .source{margin-top:38px;background:#f0e8d7;color:#415147}
+@media(max-width:760px){.detail{padding:28px 14px}.detail .memorial-card{grid-template-columns:62px minmax(0,1fr);gap:14px;margin-top:16px;padding:28px 18px 28px 14px;border-left-width:5px}.detail .memorial-card:before{left:86px;top:24px;bottom:24px}.detail .detail-flag{width:54px;height:36px}.detail .memorial-card h1{font-size:clamp(28px,9vw,42px);line-height:1.1}.detail .memorial-card .eyebrow{font-size:8px;letter-spacing:.16em}.detail .memorial-card .place{font-size:13px}.memorial-card__verse{font-size:10px;line-height:1.45}.detail .facts{margin:0 4px 26px;grid-template-columns:repeat(2,1fr)}.detail .facts div{padding:14px 12px}.tribute-heading{padding-left:14px}.tribute-heading:before{height:44px}.tribute-item p{font-size:15px}}
+
+/* Memorial profile v3 — balanced single composition with a patriotic backdrop. */
+.memorial-profile{position:relative;margin-top:24px;border:1px solid rgba(151,116,53,.38);border-radius:18px;overflow:hidden;background:#fffdf8;box-shadow:0 20px 55px rgba(31,43,35,.13)}
+.detail .memorial-profile .memorial-card{min-height:420px;margin:0;padding:64px 52% 58px 64px;border:0;border-radius:0;background:linear-gradient(90deg,rgba(12,38,27,.96) 0%,rgba(15,44,31,.91) 37%,rgba(20,43,31,.6) 58%,rgba(20,35,26,.16) 100%),url("images/memorial-hero-v1.png") center/cover no-repeat;box-shadow:none;color:#fff;align-items:center;grid-template-columns:104px minmax(0,1fr);gap:28px}
+.detail .memorial-profile .memorial-card:before{left:184px;top:74px;bottom:74px;background:linear-gradient(transparent,rgba(219,178,92,.68) 18%,rgba(219,178,92,.68) 82%,transparent)}
+.detail .memorial-profile .memorial-card__copy{position:relative;z-index:1}
+.detail .memorial-profile .memorial-card .eyebrow{color:#efc76f;font-size:11px}
+.memorial-honor{display:inline-flex;margin-left:12px;padding-left:13px;border-left:1px solid rgba(238,199,111,.55);color:#f3dfae;font-size:10px;font-weight:700;letter-spacing:.16em}
+.detail .memorial-profile .memorial-card h1{max-width:580px;margin:12px 0 10px;color:#fff;font-size:clamp(48px,5.5vw,74px);line-height:1.02;text-shadow:0 3px 22px rgba(0,0,0,.34)}
+.detail .memorial-profile .memorial-card .place{margin:0;color:#e9eee9;font-size:17px;text-shadow:0 1px 9px rgba(0,0,0,.45)}
+.detail .memorial-profile .memorial-card__verse{margin-top:18px;color:#f0cf83;font-size:14px;text-shadow:0 1px 8px rgba(0,0,0,.42)}
+.detail .memorial-profile .detail-flag{width:92px;height:61px;border-radius:3px;box-shadow:0 9px 28px rgba(0,0,0,.28)}
+.detail .memorial-profile .facts{position:relative;z-index:3;margin:0;border:0;border-top:1px solid #ddd4c3;border-radius:0;background:rgba(255,253,248,.98);box-shadow:none}
+.detail .memorial-profile .facts div{min-width:0;padding:21px 22px}
+.detail .memorial-profile .facts span{margin-bottom:7px;color:#7d7568;font-size:10px;letter-spacing:.07em}
+.detail .memorial-profile .facts b{overflow-wrap:anywhere;color:#173b2c;font-size:16px}
+
+@media(max-width:900px){
+  .detail .memorial-profile .memorial-card{min-height:380px;padding:52px 36% 48px 42px;background-position:62% center;grid-template-columns:86px minmax(0,1fr);gap:24px}
+  .detail .memorial-profile .memorial-card:before{left:148px}
+}
+@media(max-width:760px){
+  .memorial-profile{margin-top:16px;border-radius:12px}
+  .detail .memorial-profile .memorial-card{min-height:410px;padding:168px 20px 28px;border-left:0;background:linear-gradient(180deg,rgba(10,30,21,.16) 0%,rgba(11,32,23,.46) 34%,rgba(10,33,23,.94) 64%,rgba(10,31,22,.98) 100%),url("images/memorial-hero-v1.png") 69% center/cover no-repeat;grid-template-columns:64px minmax(0,1fr);gap:15px;align-items:start}
+  .detail .memorial-profile .memorial-card:before{left:98px;top:180px;bottom:30px}
+  .detail .memorial-profile .detail-flag{width:60px;height:40px}
+  .detail .memorial-profile .memorial-card .eyebrow{font-size:8px;letter-spacing:.15em}
+  .memorial-honor{display:none}
+  .detail .memorial-profile .memorial-card h1{margin:8px 0 7px;font-size:clamp(31px,10vw,45px);line-height:1.06}
+  .detail .memorial-profile .memorial-card .place{font-size:13px}
+  .detail .memorial-profile .memorial-card__verse{margin-top:11px;font-size:10px}
+  .detail .memorial-profile .facts{grid-template-columns:repeat(2,minmax(0,1fr));margin:0}
+  .detail .memorial-profile .facts div{padding:15px 13px;border-right:1px solid #e1dacd;border-bottom:1px solid #e1dacd}
+  .detail .memorial-profile .facts div:last-child{grid-column:1/-1;border-bottom:0}
+  .detail .memorial-profile .facts b{font-size:14px}
+}
+
+/* Tribute sanctuary v36 — warm paper, remembrance flame and letter-like tributes. */
+.tribute-section{position:relative;margin:64px 0 40px;padding:54px 0 10px;border-top:1px solid #cdbf9f}
+.tribute-section:before{content:"";position:absolute;left:50%;top:-1px;width:110px;height:2px;transform:translateX(-50%);background:linear-gradient(90deg,transparent,#b5812d,transparent)}
+.tribute-heading{display:grid;grid-template-columns:70px minmax(0,1fr) minmax(210px,310px);gap:24px;align-items:center;margin:0 0 34px;padding:0}
+.tribute-heading:before{display:none}
+.tribute-heading__symbol{position:relative;width:58px;height:72px;display:grid;place-items:end center}
+.tribute-heading__symbol:before{content:"";width:30px;height:45px;border-radius:55% 45% 58% 42%;transform:rotate(45deg);background:radial-gradient(circle at 68% 32%,#fff4bc 0 9%,#e6b74d 20%,#c97924 52%,#8e351b 78%);box-shadow:0 0 25px rgba(196,124,32,.26)}
+.tribute-heading__symbol:after{content:"";position:absolute;bottom:0;width:48px;height:9px;border-radius:50%;background:radial-gradient(ellipse,#b7812e 0 17%,#173d2d 20% 55%,transparent 58%)}
+.tribute-heading h2{margin:7px 0 10px;color:#153929;font:clamp(32px,4vw,48px)/1.08 "Noto Serif VN",serif;letter-spacing:-.025em}
+.tribute-heading h2 em{color:#a26b1e;font-weight:400}
+.tribute-heading p{max-width:650px;color:#617067;font-size:14px;line-height:1.75}
+.tribute-heading blockquote{margin:0;padding:18px 0 18px 25px;border-left:1px solid #c2a265;color:#84652d;font:italic 16px/1.75 "Noto Serif VN",serif;text-align:left}
+.tribute-layout{grid-template-columns:minmax(320px,.84fr) minmax(0,1.16fr);gap:34px}
+.tribute-form{position:sticky;top:74px;padding:0 28px 28px;overflow:hidden;border:1px solid #d3c4a7;border-top:0;border-radius:14px;background:linear-gradient(145deg,#fffefa,#f7f0df);box-shadow:0 20px 50px rgba(48,48,35,.09)}
+.tribute-form:before{content:"";display:block;height:5px;margin:0 -28px 25px;background:linear-gradient(90deg,#173f2e,#b48231 50%,#173f2e)}
+.tribute-form__header{display:flex;gap:15px;align-items:center;margin-bottom:23px;padding-bottom:21px;border-bottom:1px solid #ded3bd}
+.tribute-form__header span{display:block;color:#a16e25;font-size:9px;font-weight:800;letter-spacing:.18em}
+.tribute-form__header h3{margin:3px 0 2px;color:#173b2c;font:25px/1.2 "Noto Serif VN",serif}
+.tribute-form__header p{margin:0;color:#748078;font-size:11px}
+.tribute-form__flame{flex:none;width:37px;height:37px;border-radius:50%;background:#173f2e;position:relative}
+.tribute-form__flame:before{content:"";position:absolute;left:13px;top:7px;width:11px;height:18px;border-radius:60% 40% 60% 40%;transform:rotate(42deg);background:linear-gradient(135deg,#ffe79a,#d28a27 70%);box-shadow:0 0 10px rgba(211,145,40,.38)}
+.tribute-form label{color:#344c40;font-size:11px;letter-spacing:.025em}
+.tribute-form input,.tribute-form textarea{border-color:#d4cab7;border-radius:7px;background:rgba(255,255,255,.86);padding:13px 14px}
+.tribute-form textarea{min-height:150px}
+.tribute-form input:focus,.tribute-form textarea:focus{border-color:#a97a2d;box-shadow:0 0 0 3px rgba(169,122,45,.11)}
+.tribute-form__footer{padding-top:4px}
+.tribute-form__footer p span{color:#2f674b;font-weight:800}
+.tribute-form button{border-radius:7px;padding:13px 17px;background:linear-gradient(135deg,#1d513a,#123b2a);box-shadow:0 8px 20px rgba(24,67,48,.16)}
+.tribute-form button span{margin-right:5px;color:#f0c76f}
+.tribute-list{gap:16px}
+.tribute-list__heading{display:flex;align-items:end;justify-content:space-between;gap:16px;padding:0 3px 12px;border-bottom:1px solid #d5c9b2}
+.tribute-list__heading span{color:#a06c22;font-size:9px;font-weight:800;letter-spacing:.15em}
+.tribute-list__heading strong{color:#284b3b;font:italic 14px "Noto Serif VN",serif}
+.tribute-item{display:grid;grid-template-columns:42px minmax(0,1fr);gap:15px;padding:24px 25px 21px;border:1px solid #d8cdb9;border-radius:10px;background:linear-gradient(145deg,rgba(255,254,250,.98),rgba(247,242,230,.94));box-shadow:0 10px 28px rgba(44,50,42,.055)}
+.tribute-item:after{content:"";position:absolute;right:-22px;bottom:-22px;width:78px;height:78px;border:1px solid rgba(166,119,38,.13);border-radius:50%;box-shadow:0 0 0 8px rgba(166,119,38,.035),0 0 0 17px rgba(166,119,38,.025)}
+.tribute-item--editorial{border-color:#d7c29a;background:linear-gradient(145deg,#fffdf7,#f3ead7)}
+.tribute-item--editorial:before{width:3px;background:linear-gradient(#d2a34c,#8a581b)}
+.tribute-item__mark{display:grid;place-items:center;width:38px;height:38px;border:1px solid #bd9b5c;border-radius:50%;color:#b17b28;background:#fffaf0;font-size:14px}
+.tribute-item__mark--lotus{font-size:21px;color:#976522}
+.tribute-item__body{min-width:0}
+.tribute-type{margin:1px 0 9px;color:#95611c;font-size:8px;letter-spacing:.145em}
+.tribute-item--community .tribute-type{color:#3f7158}
+.tribute-item p{color:#2e4338;font-size:17px;line-height:1.72}
+.tribute-item footer{position:relative;z-index:1;margin-top:15px;padding-top:13px;border-top:1px solid rgba(174,155,119,.34)}
+.tribute-item footer strong{font-family:"Noto Serif VN",serif;font-size:12px}
+.tribute-item--editorial footer span{color:#9a702b;font-size:9px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+@media(max-width:900px){.tribute-heading{grid-template-columns:58px minmax(0,1fr)}.tribute-heading blockquote{display:none}.tribute-layout{grid-template-columns:minmax(280px,.9fr) minmax(0,1.1fr);gap:22px}}
+@media(max-width:760px){.tribute-section{margin-top:44px;padding-top:40px}.tribute-heading{grid-template-columns:43px minmax(0,1fr);gap:13px;margin-bottom:25px}.tribute-heading__symbol{width:42px;height:57px}.tribute-heading__symbol:before{width:23px;height:34px}.tribute-heading__symbol:after{width:38px}.tribute-heading h2{font-size:30px}.tribute-heading p{grid-column:1/-1;font-size:13px}.tribute-layout{grid-template-columns:1fr;gap:27px}.tribute-form{position:relative;top:auto;padding:0 17px 20px}.tribute-form:before{margin:0 -17px 19px}.tribute-form__header h3{font-size:22px}.tribute-list__heading{align-items:start;flex-direction:column;gap:4px}.tribute-item{grid-template-columns:32px minmax(0,1fr);gap:11px;padding:19px 16px 17px}.tribute-item__mark{width:30px;height:30px;font-size:11px}.tribute-item__mark--lotus{font-size:17px}.tribute-item p{font-size:15px;line-height:1.65}.tribute-item footer{gap:7px;flex-direction:column}.tribute-item--editorial footer span{align-self:flex-start}}
+
+/* Detail page: purpose-built mobile composition. */
+@media(max-width:760px){
+  .detail{width:100%;max-width:100%;padding:22px 12px 34px;overflow:hidden}
+  .detail .back{margin:0 2px 14px;font-size:12px}
+  .detail .memorial-profile{overflow:hidden;border:1px solid #d8cfbd;border-radius:14px;background:#fffdf8;box-shadow:0 13px 34px rgba(33,48,40,.09)}
+  .detail .memorial-profile .memorial-card{display:flex;min-height:382px;margin:0;padding:152px 18px 24px;flex-direction:column;align-items:flex-start;justify-content:flex-end;gap:11px;border:0;border-radius:0;background:linear-gradient(180deg,rgba(7,24,16,.08) 0%,rgba(8,28,19,.32) 34%,rgba(8,31,21,.91) 62%,rgba(7,27,19,.99) 100%),url("images/memorial-hero-v1.png") 69% center/cover no-repeat}
+  .detail .memorial-profile .memorial-card:before{display:none}
+  .detail .memorial-profile .detail-flag{width:58px;height:39px;margin:0;border-radius:3px;box-shadow:0 6px 18px rgba(0,0,0,.28)}
+  .detail .memorial-profile .memorial-card__copy{width:100%;padding-top:10px;border-top:1px solid rgba(224,186,104,.47)}
+  .detail .memorial-profile .memorial-card .eyebrow{font-size:8px;letter-spacing:.18em}
+  .detail .memorial-profile .memorial-honor{margin-top:4px;font-size:8px;letter-spacing:.17em}
+  .detail .memorial-profile .memorial-card h1{max-width:100%;margin:7px 0 6px;font-size:clamp(30px,9.5vw,42px);line-height:1.02;overflow-wrap:anywhere}
+  .detail .memorial-profile .memorial-card .place{font-size:12px;line-height:1.45;overflow-wrap:anywhere}
+  .detail .memorial-profile .memorial-card__verse{max-width:290px;margin-top:9px;font-size:9.5px;line-height:1.5}
+  .detail .memorial-profile .facts{margin:0;border:0;border-top:1px solid #ddd4c3;border-radius:0;box-shadow:none}
+  .detail .memorial-profile .facts div{min-width:0;padding:13px 12px}
+  .detail .memorial-profile .facts span{font-size:8px;letter-spacing:.055em}
+  .detail .memorial-profile .facts b{font-size:13px;line-height:1.35;overflow-wrap:anywhere}
+
+  .tribute-section{margin:38px 0 24px;padding:34px 0 4px}
+  .tribute-section:before{width:84px}
+  .tribute-heading{display:flex;margin:0 0 24px;padding:0 5px;flex-direction:column;align-items:center;gap:8px;text-align:center}
+  .tribute-heading__symbol{width:38px;height:49px;margin-bottom:2px}
+  .tribute-heading__symbol:before{width:21px;height:31px;box-shadow:0 0 19px rgba(196,124,32,.22)}
+  .tribute-heading__symbol:after{width:34px}
+  .tribute-heading>div{width:100%;min-width:0}
+  .tribute-heading h2{margin:7px auto 10px;font-size:clamp(27px,8.7vw,34px);line-height:1.08}
+  .tribute-heading p{max-width:390px;margin:0 auto;grid-column:auto;font-size:12px;line-height:1.7}
+
+  .tribute-layout{gap:25px}
+  .tribute-form{width:100%;padding:0 15px 18px;border-radius:11px}
+  .tribute-form:before{margin:0 -15px 17px}
+  .tribute-form__header{gap:11px;margin-bottom:18px;padding-bottom:17px}
+  .tribute-form__flame{width:34px;height:34px}
+  .tribute-form__header h3{font-size:20px}
+  .tribute-form__header p{font-size:10px;line-height:1.45}
+  .tribute-form input,.tribute-form textarea{padding:11px 12px;font-size:16px}
+  .tribute-form textarea{min-height:132px}
+  .tribute-form__footer{gap:13px}
+  .tribute-form__footer p{font-size:10px;line-height:1.55}
+  .tribute-form button{min-height:44px;padding:11px 15px}
+  .tribute-list{min-width:0;gap:13px}
+  .tribute-list__heading{padding:0 2px 10px}
+  .tribute-item{width:100%;min-width:0;grid-template-columns:28px minmax(0,1fr);gap:10px;padding:17px 13px 15px;border-radius:9px}
+  .tribute-item__mark{width:28px;height:28px}
+  .tribute-type{font-size:7px;line-height:1.45;overflow-wrap:anywhere}
+  .tribute-item p{font-size:14px;line-height:1.62;overflow-wrap:anywhere}
+  .tribute-item footer{margin-top:12px;padding-top:10px}
+  .detail .source{margin-top:28px;padding:16px 15px;font-size:12px;overflow-wrap:anywhere}
+}
+
+@media(max-width:350px){
+  .detail{padding-inline:10px}
+  .detail .memorial-profile .memorial-card{min-height:365px;padding:142px 15px 21px}
+  .detail .memorial-profile .memorial-card h1{font-size:29px}
+  .detail .memorial-profile .facts div{padding:12px 10px}
+  .tribute-heading h2{font-size:27px}
+  .tribute-form{padding-inline:13px}
+  .tribute-form:before{margin-inline:-13px}
+  .tribute-item{grid-template-columns:1fr;padding:16px 14px}
+  .tribute-item__mark{margin-bottom:1px}
+}
+
+/* Tribute candles v38 — luminous, restrained and shared by every remembrance. */
+.tribute-candle{position:relative;display:block;flex:none;isolation:isolate}
+.tribute-candle i{position:absolute;display:block;pointer-events:none}
+.tribute-candle__glow{z-index:0;left:50%;top:3%;width:82%;aspect-ratio:1;transform:translateX(-50%);border-radius:50%;background:radial-gradient(circle,rgba(255,225,126,.8) 0,rgba(232,157,49,.36) 26%,rgba(193,99,25,.11) 52%,transparent 72%);filter:blur(4px);animation:candle-breathe 2.8s ease-in-out infinite}
+.tribute-candle__flame{z-index:3;left:50%;top:6%;width:28%;height:39%;transform:translateX(-50%) rotate(3deg);transform-origin:50% 92%;border-radius:54% 46% 58% 42% / 68% 65% 35% 32%;background:radial-gradient(ellipse at 52% 72%,#fffbd7 0 15%,#ffe17b 28%,#f29a2d 58%,#bd431d 80%,transparent 83%);filter:drop-shadow(0 0 5px rgba(255,196,69,.9));animation:candle-flicker 1.75s ease-in-out infinite alternate}
+.tribute-candle__flame:after{content:"";position:absolute;left:35%;bottom:17%;width:32%;height:43%;border-radius:50% 50% 42% 42%;background:linear-gradient(#fffef0,#fff3a4 62%,transparent);opacity:.94}
+.tribute-candle__wick{z-index:2;left:50%;top:42%;width:2px;height:13%;transform:translateX(-50%);border-radius:2px;background:#33291f}
+.tribute-candle__body{z-index:1;left:27%;bottom:2%;width:46%;height:51%;border-radius:5px 5px 8px 8px;background:linear-gradient(90deg,#d4b36c 0,#fff2c5 23%,#fff9df 52%,#e4c47e 84%,#b98c42);box-shadow:inset 0 2px rgba(255,255,255,.72),0 5px 10px rgba(69,47,20,.18)}
+.tribute-candle__body:before{content:"";position:absolute;inset:0 0 auto;height:12%;border-radius:50%;background:#fff5cd;box-shadow:inset 0 -1px rgba(126,83,32,.25)}
+.tribute-candle__body:after{content:"";position:absolute;right:13%;top:5%;width:12%;height:32%;border-radius:0 0 7px 7px;background:linear-gradient(#fff5d1,#ddbd78);opacity:.9}
+.tribute-candle--hero{width:62px;height:88px;place-items:initial}
+.tribute-candle--small{width:42px!important;height:54px!important;border:0!important;border-radius:0!important;background:none!important}
+.tribute-candle--card{width:38px!important;height:52px!important;border:0!important;border-radius:0!important;background:none!important}
+.tribute-item:nth-of-type(2n) .tribute-candle__flame{animation-delay:-.65s;animation-duration:1.95s}
+.tribute-item:nth-of-type(3n) .tribute-candle__flame{animation-delay:-1.1s;animation-duration:1.55s}
+.tribute-item__mark.tribute-candle{overflow:visible}
+.tribute-item{overflow:visible}
+@keyframes candle-flicker{0%{transform:translateX(-50%) rotate(-4deg) scale(.96,1.02);opacity:.93}35%{transform:translateX(-50%) rotate(4deg) scale(1.04,.98)}70%{transform:translateX(-50%) rotate(-1deg) scale(.98,1.05)}100%{transform:translateX(-50%) rotate(3deg) scale(1.03,.96);opacity:1}}
+@keyframes candle-breathe{0%,100%{transform:translateX(-50%) scale(.92);opacity:.68}50%{transform:translateX(-50%) scale(1.12);opacity:1}}
+@media(max-width:760px){.tribute-candle--hero{width:46px;height:66px}.tribute-heading__symbol{margin-bottom:5px}.tribute-candle--small{width:36px!important;height:48px!important}.tribute-candle--card{width:28px!important;height:42px!important}.tribute-item{align-items:start}}
+@media(prefers-reduced-motion:reduce){.tribute-candle__flame,.tribute-candle__glow{animation:none}}
+
+/* Taller candle proportions v39 — elegant silhouette on every viewport. */
+.tribute-candle__glow{top:-1%;width:94%;filter:blur(5px)}
+.tribute-candle__flame{top:2%;width:25%;height:34%;border-radius:56% 44% 60% 40% / 72% 67% 33% 28%;filter:drop-shadow(0 0 7px rgba(255,196,69,.95))}
+.tribute-candle__wick{top:35%;height:10%}
+.tribute-candle__body{left:29%;bottom:1%;width:42%;height:58%;border-radius:5px 5px 9px 9px;background:linear-gradient(90deg,#b98a3d 0,#eed18d 14%,#fff5cf 34%,#fffbed 55%,#e9cb83 83%,#a97731);box-shadow:inset 0 2px rgba(255,255,255,.8),inset -2px 0 4px rgba(130,83,27,.12),0 7px 13px rgba(69,47,20,.2)}
+.tribute-candle__body:after{height:25%}
+.tribute-candle--hero{width:64px;height:112px}
+.tribute-candle--small{width:42px!important;height:68px!important}
+.tribute-candle--card{width:38px!important;height:66px!important;margin-top:-5px}
+.tribute-heading{grid-template-columns:72px minmax(0,1fr) minmax(210px,310px)}
+.tribute-form__header{align-items:flex-start}
+.tribute-item{grid-template-columns:42px minmax(0,1fr)}
+@media(max-width:900px){.tribute-heading{grid-template-columns:64px minmax(0,1fr)}}
+@media(max-width:760px){
+  .tribute-candle--hero{width:50px;height:86px}
+  .tribute-candle--small{width:37px!important;height:60px!important}
+  .tribute-candle--card{width:30px!important;height:54px!important;margin-top:-4px}
+  .tribute-item{grid-template-columns:30px minmax(0,1fr)}
+}
+@media(max-width:350px){.tribute-candle--card{width:29px!important;height:52px!important;margin:0 0 3px}}
+
+/* True candle silhouette v40 — reset legacy flame ornaments and draw a wax candle. */
+.tribute-heading__symbol.tribute-candle:before,
+.tribute-heading__symbol.tribute-candle:after,
+.tribute-form__flame.tribute-candle:before,
+.tribute-form__flame.tribute-candle:after{content:none!important;display:none!important}
+.tribute-candle{overflow:visible!important;background:none!important;border:0!important;border-radius:0!important;box-shadow:none!important}
+.tribute-candle__glow{left:50%;top:1%;width:78%;height:43%;aspect-ratio:auto;border-radius:50%;background:radial-gradient(ellipse,rgba(255,238,157,.92) 0,rgba(255,184,54,.45) 30%,rgba(220,112,20,.14) 58%,transparent 76%);filter:blur(6px)}
+.tribute-candle__flame{left:50%;top:2%;width:24%;height:31%;border-radius:50% 50% 48% 48% / 68% 68% 32% 32%;clip-path:polygon(50% 0,72% 27%,92% 59%,82% 82%,65% 97%,50% 100%,34% 96%,17% 82%,9% 61%,24% 29%);background:radial-gradient(ellipse at 50% 75%,#fffde5 0 13%,#fff09a 25%,#ffc13f 47%,#ef7d1f 70%,#b83a18 91%);filter:drop-shadow(0 0 4px rgba(255,206,73,.95)) drop-shadow(0 0 9px rgba(224,111,24,.48));transform-origin:50% 94%}
+.tribute-candle__flame:after{left:39%;bottom:9%;width:22%;height:50%;border-radius:50% 50% 45% 45% / 72% 72% 28% 28%;background:linear-gradient(180deg,#fffef1,#fff6ad 65%,rgba(255,222,80,.2));opacity:.98}
+.tribute-candle__wick{left:50%;top:31%;width:2px;height:10%;background:linear-gradient(#17120e,#493623);box-shadow:0 0 2px rgba(255,173,52,.55)}
+.tribute-candle__body{left:34%;bottom:1%;width:32%;height:62%;border-radius:4px 4px 7px 7px;background:linear-gradient(90deg,#cda552 0,#f3dc9b 18%,#fff7d5 43%,#fffbe4 59%,#e8ca7d 84%,#b88636 100%);box-shadow:inset 1px 0 rgba(255,255,255,.58),inset -2px 0 3px rgba(118,72,20,.13),0 6px 10px rgba(66,43,16,.2)}
+.tribute-candle__body:before{inset:-2px 0 auto;height:8%;border-radius:50%;background:radial-gradient(ellipse at 48% 38%,#9b6928 0 8%,#f6df9e 12% 40%,#fff3c4 67%,#c89b49 100%);box-shadow:inset 0 -1px 2px rgba(118,72,20,.22)}
+.tribute-candle__body:after{right:12%;top:1%;width:14%;height:27%;border-radius:0 0 7px 7px;background:linear-gradient(#fff5ca,#d9b565);opacity:.82}
+.tribute-candle--hero{width:58px;height:108px}
+.tribute-candle--small{width:38px!important;height:66px!important}
+.tribute-candle--card{width:34px!important;height:62px!important}
+@media(max-width:760px){
+  .tribute-candle--hero{width:46px;height:84px}
+  .tribute-candle--small{width:34px!important;height:57px!important}
+  .tribute-candle--card{width:28px!important;height:51px!important}
+}
+
+/* Fixed geometry prevents inherited percentage sizing from flattening the candle. */
+.tribute-candle--hero .tribute-candle__glow{width:54px;height:42px}
+.tribute-candle--hero .tribute-candle__flame{width:19px;height:34px}
+.tribute-candle--hero .tribute-candle__wick{top:31px;height:12px}
+.tribute-candle--hero .tribute-candle__body{left:50%;width:27px;height:68px;transform:translateX(-50%)}
+.tribute-candle--small .tribute-candle__glow{width:38px;height:29px}
+.tribute-candle--small .tribute-candle__flame{width:13px;height:23px}
+.tribute-candle--small .tribute-candle__wick{top:21px;height:8px}
+.tribute-candle--small .tribute-candle__body{left:50%;width:18px;height:39px;transform:translateX(-50%)}
+.tribute-candle--card .tribute-candle__glow{width:34px;height:27px}
+.tribute-candle--card .tribute-candle__flame{width:12px;height:22px}
+.tribute-candle--card .tribute-candle__wick{top:20px;height:8px}
+.tribute-candle--card .tribute-candle__body{left:50%;width:17px;height:38px;transform:translateX(-50%)}
+@media(max-width:760px){
+  .tribute-candle--hero .tribute-candle__glow{width:45px;height:34px}
+  .tribute-candle--hero .tribute-candle__flame{width:16px;height:28px}
+  .tribute-candle--hero .tribute-candle__wick{top:26px;height:9px}
+  .tribute-candle--hero .tribute-candle__body{width:23px;height:52px}
+  .tribute-candle--small .tribute-candle__glow{width:34px;height:26px}
+  .tribute-candle--small .tribute-candle__flame{width:12px;height:21px}
+  .tribute-candle--small .tribute-candle__wick{top:19px;height:7px}
+  .tribute-candle--small .tribute-candle__body{width:17px;height:35px}
+  .tribute-candle--card .tribute-candle__glow{width:29px;height:23px}
+  .tribute-candle--card .tribute-candle__flame{width:11px;height:19px}
+  .tribute-candle--card .tribute-candle__wick{top:17px;height:7px}
+  .tribute-candle--card .tribute-candle__body{width:15px;height:31px}
+}
+
+/* Candle sanctuary v42 — a dark, warm setting lets every flame become the focus. */
+.tribute-section{
+  margin:64px -34px 42px;
+  padding:58px 34px 38px;
+  overflow:hidden;
+  border:1px solid rgba(218,176,91,.22);
+  border-radius:22px;
+  background:
+    radial-gradient(circle at 9% 14%,rgba(235,164,45,.12),transparent 25%),
+    radial-gradient(circle at 92% 74%,rgba(181,103,27,.08),transparent 28%),
+    linear-gradient(145deg,#101d19 0%,#142a22 48%,#0b1714 100%);
+  box-shadow:inset 0 1px rgba(255,224,153,.08),0 24px 60px rgba(10,24,19,.2);
+}
+.tribute-section:after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(115deg,transparent 0 48%,rgba(255,255,255,.018) 48.2% 48.5%,transparent 48.7%),radial-gradient(circle at 50% 0,rgba(255,213,119,.055),transparent 36%)}
+.tribute-section:before{z-index:2;top:0;height:2px;background:linear-gradient(90deg,transparent,#dca84f 30%,#ffe1a0 50%,#dca84f 70%,transparent)}
+.tribute-section>*{position:relative;z-index:1}
+.tribute-heading .eyebrow{color:#e3b75f}
+.tribute-heading h2{color:#fff9e9}
+.tribute-heading h2 em{color:#f0bd5b}
+.tribute-heading p{color:#c8d2cc}
+.tribute-heading blockquote{color:#dfc994;border-color:rgba(228,181,88,.42)}
+.tribute-form{border-color:rgba(225,190,119,.25);border-top-color:#d4a34c;background:linear-gradient(145deg,rgba(31,51,43,.96),rgba(17,34,28,.98));box-shadow:inset 0 1px rgba(255,255,255,.045),0 16px 36px rgba(0,0,0,.22)}
+.tribute-form:before{background:linear-gradient(90deg,rgba(220,167,75,.13),rgba(255,222,151,.045),transparent)}
+.tribute-form__header{border-color:rgba(224,199,145,.17)}
+.tribute-form__header span{color:#e2b45b}
+.tribute-form__header h3{color:#fff8e8}
+.tribute-form__header p,.tribute-form__footer p{color:#aebdb5}
+.tribute-form label{color:#dbe4df}
+.tribute-form input,.tribute-form textarea{border-color:rgba(205,190,158,.27);background:rgba(6,18,14,.5);color:#fffdf6;box-shadow:inset 0 1px 4px rgba(0,0,0,.18)}
+.tribute-form input::placeholder,.tribute-form textarea::placeholder{color:#81938a}
+.tribute-form input:focus,.tribute-form textarea:focus{border-color:#d8aa55;box-shadow:0 0 0 3px rgba(216,170,85,.13),inset 0 1px 4px rgba(0,0,0,.15)}
+.tribute-form button{background:linear-gradient(135deg,#bd8128,#8c5418);box-shadow:0 9px 22px rgba(0,0,0,.22),inset 0 1px rgba(255,241,199,.24)}
+.tribute-form button:hover{background:linear-gradient(135deg,#d19535,#9f611c)}
+.tribute-list__heading{border-color:rgba(224,199,145,.22)}
+.tribute-list__heading span{color:#e0b258}
+.tribute-list__heading strong{color:#e9efe9}
+.tribute-item{border-color:rgba(216,190,135,.21);background:linear-gradient(145deg,rgba(34,55,46,.97),rgba(18,35,29,.98));box-shadow:inset 0 1px rgba(255,255,255,.035),0 12px 28px rgba(0,0,0,.16)}
+.tribute-item--editorial{border-color:rgba(218,173,86,.3);background:linear-gradient(145deg,rgba(49,53,36,.98),rgba(28,36,28,.98))}
+.tribute-item:after{border-color:rgba(223,181,94,.1);box-shadow:0 0 0 8px rgba(223,181,94,.022),0 0 0 17px rgba(223,181,94,.014)}
+.tribute-type,.tribute-item--community .tribute-type{color:#dfb45d}
+.tribute-item p{color:#f0eee5}
+.tribute-item footer{border-color:rgba(224,199,145,.16);color:#aab8b0}
+.tribute-item footer strong{color:#e7c16f}
+.tribute-item--editorial footer span{color:#cfaa5d}
+.tribute-candle__glow{filter:blur(7px);opacity:1}
+
+@media(max-width:760px){
+  .tribute-section{margin:38px -4px 26px;padding:40px 14px 22px;border-radius:16px}
+  .tribute-heading{padding-inline:3px}
+  .tribute-form{padding-inline:14px}
+  .tribute-form:before{margin-inline:-14px}
+  .tribute-item{padding-inline:13px}
+}
+
+/* Tribute procession v43 — remembrance first, contribution form last. */
+.tribute-layout{display:flex;flex-direction:column;gap:46px}
+.tribute-list{gap:0}
+.tribute-list__heading{align-items:center;margin-bottom:22px;padding:0 4px 17px}
+.tribute-list__heading>div{display:grid;gap:4px}
+.tribute-list__heading>div>span{color:#e5b95f;font-size:9px;font-weight:800;letter-spacing:.17em}
+.tribute-list__heading>div>strong{color:#fff7e6;font:30px/1.2 "Noto Serif VN",serif}
+.tribute-list__heading>p{margin:0;color:#b9c5be;font:italic 13px "Noto Serif VN",serif}
+.tribute-list__grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:17px}
+.tribute-item{min-height:220px;grid-template-columns:52px minmax(0,1fr);gap:18px;padding:28px 27px 23px;border-radius:14px}
+.tribute-item:nth-child(3n+2){background:linear-gradient(150deg,rgba(39,59,49,.98),rgba(15,31,25,.98))}
+.tribute-item:nth-child(3n){background:linear-gradient(145deg,rgba(42,48,34,.98),rgba(22,32,25,.98))}
+.tribute-item:before{content:"";position:absolute;left:25px;right:25px;top:0;height:1px;background:linear-gradient(90deg,transparent,rgba(241,199,109,.42),transparent)}
+.tribute-item--editorial:before{left:25px;right:25px;bottom:auto;width:auto;background:linear-gradient(90deg,transparent,rgba(241,199,109,.55),transparent)}
+.tribute-item__body{display:flex;min-height:100%;flex-direction:column}
+.tribute-item__body:before{content:"“";position:absolute;right:18px;top:19px;color:rgba(235,196,113,.11);font:72px/1 "Noto Serif VN",serif}
+.tribute-item p{position:relative;z-index:1;margin:auto 0 0;font-size:17px;line-height:1.8}
+.tribute-item footer{margin-top:auto}
+.tribute-candle--card{margin:2px auto 0!important}
+.tribute-form-wrap{display:grid;grid-template-columns:minmax(230px,.72fr) minmax(0,1.55fr);gap:30px;align-items:start;padding-top:38px;border-top:1px solid rgba(224,199,145,.2)}
+.tribute-form-intro{padding:25px 8px 0 3px}
+.tribute-form-intro>span{display:block;margin-bottom:9px;color:#e3b55b;font-size:9px;font-weight:800;letter-spacing:.18em}
+.tribute-form-intro h3{margin:0 0 12px;color:#fff8e9;font:32px/1.15 "Noto Serif VN",serif}
+.tribute-form-intro p{max-width:300px;margin:0;color:#b5c1ba;font-size:13px;line-height:1.75}
+.tribute-form{position:relative;top:auto;width:100%;padding:28px;border-radius:14px}
+.tribute-form__header h3{font-size:24px}
+.tribute-form__footer button{min-width:210px}
+
+@media(max-width:900px){
+  .tribute-list__grid{grid-template-columns:1fr}
+  .tribute-item{min-height:190px}
+  .tribute-form-wrap{grid-template-columns:1fr;gap:18px}
+  .tribute-form-intro{padding:0;text-align:center}
+  .tribute-form-intro p{max-width:470px;margin-inline:auto}
+}
+@media(max-width:760px){
+  .tribute-layout{gap:34px}
+  .tribute-list__heading{align-items:flex-start;gap:7px;margin-bottom:17px;flex-direction:column}
+  .tribute-list__heading>div>strong{font-size:24px}
+  .tribute-list__heading>p{font-size:11px}
+  .tribute-list__grid{gap:13px}
+  .tribute-item{min-height:0;grid-template-columns:34px minmax(0,1fr);gap:12px;padding:21px 16px 18px}
+  .tribute-item:before,.tribute-item--editorial:before{left:16px;right:16px}
+  .tribute-item__body:before{right:11px;top:15px;font-size:54px}
+  .tribute-item p{margin-top:8px;font-size:14.5px;line-height:1.72}
+  .tribute-form-wrap{padding-top:29px}
+  .tribute-form-intro h3{font-size:26px}
+  .tribute-form{padding:0 14px 18px}
+  .tribute-form__footer button{min-width:0}
+}
+
+/* Refined 360 invitation v46 — a standalone chapter after the martyr list. */
+.site-header{height:54px}
+.site-header nav{align-items:center}
+.site-header nav a{font-weight:400}
+.heritage-facts{width:min(1100px,calc(100% - 48px));grid-template-columns:repeat(4,1fr)}
+.digital-tour-card{position:relative;isolation:isolate;display:grid;width:min(1120px,calc(100% - 48px));min-height:220px;grid-template-columns:235px minmax(0,1fr) auto;align-items:center;gap:38px;margin:18px auto 84px;padding:28px 38px;overflow:hidden;border:1px solid rgba(206,166,84,.46);border-radius:14px;background:linear-gradient(112deg,rgba(11,39,27,.98) 0%,rgba(24,70,49,.97) 58%,rgba(31,79,56,.96) 100%),url("images/granite-fine.svg");color:#fff;text-decoration:none;box-shadow:0 22px 54px rgba(19,44,31,.18),inset 0 1px rgba(255,255,255,.06);transition:transform .25s ease,box-shadow .25s ease}
+.digital-tour-card:before{content:"";position:absolute;z-index:-1;right:-90px;top:-180px;width:430px;height:430px;border:1px solid rgba(232,195,116,.16);border-radius:50%;box-shadow:0 0 0 38px rgba(232,195,116,.025),0 0 0 78px rgba(232,195,116,.018)}
+.digital-tour-card:after{content:"";position:absolute;z-index:-1;inset:0;background:linear-gradient(105deg,transparent 30%,rgba(255,255,255,.055) 48%,transparent 66%);transform:translateX(-110%);transition:transform .7s ease}
+.digital-tour-card:hover{transform:translateY(-3px);box-shadow:0 28px 66px rgba(19,44,31,.25),inset 0 -3px #c9973e}
+.digital-tour-card:hover:after{transform:translateX(110%)}
+.digital-tour-card__visual{display:grid;place-items:center;gap:13px;padding-right:34px;border-right:1px solid rgba(226,191,119,.25)}
+.digital-tour-card__visual>small{color:#cdb577;font-size:7px;font-weight:700;letter-spacing:.18em}
+.digital-tour-card__orbit{position:relative;display:grid;width:105px;height:105px;place-items:center;border:1px solid rgba(236,201,132,.57);border-radius:50%;background:radial-gradient(circle,rgba(201,152,60,.16),rgba(3,24,14,.2) 67%);box-shadow:0 0 0 9px rgba(232,195,116,.035),inset 0 0 32px rgba(0,0,0,.18)}
+.digital-tour-card__orbit b{color:#f1cd82;font:700 23px/1 "Noto Serif VN",serif}
+.digital-tour-card__orbit i{position:absolute;left:50%;top:50%;width:130px;height:42px;border:1px solid rgba(239,205,139,.43);border-radius:50%;transform:translate(-50%,-50%)}
+.digital-tour-card__content{display:grid;gap:8px}
+.digital-tour-card__content>small{color:#d9b76d;font-size:8px;font-weight:700;letter-spacing:.2em}
+.digital-tour-card__content>strong{color:#fffaf0;font:700 clamp(29px,3.3vw,42px)/1.08 "Noto Serif VN",serif}
+.digital-tour-card__content>strong em{color:#e7bd67;font-weight:400}
+.digital-tour-card__content>span{max-width:560px;color:#c8d6ce;font-size:12px;line-height:1.65}
+.digital-tour-card__action{display:flex;align-items:center;gap:18px;padding:13px 17px;border:1px solid rgba(231,194,115,.48);border-radius:999px;color:#f4d38d;font-size:11px;font-weight:700;white-space:nowrap}
+.digital-tour-card__action i{font-size:18px;font-style:normal;transition:transform .2s ease}
+.digital-tour-card:hover .digital-tour-card__action i{transform:translateX(4px)}
+
+@media(max-width:760px){
+  .site-header{height:48px}
+  .heritage-facts{width:calc(100% - 24px);grid-template-columns:repeat(2,minmax(0,1fr))}
+  .digital-tour-card{width:calc(100% - 28px);min-height:0;grid-template-columns:72px minmax(0,1fr);gap:17px;margin:4px auto 58px;padding:23px 18px;border-radius:12px}
+  .digital-tour-card__visual{align-self:stretch;gap:8px;padding-right:15px}
+  .digital-tour-card__visual>small{display:none}
+  .digital-tour-card__orbit{width:58px;height:58px;box-shadow:0 0 0 5px rgba(232,195,116,.035)}
+  .digital-tour-card__orbit b{font-size:14px}
+  .digital-tour-card__orbit i{width:72px;height:24px}
+  .digital-tour-card__content{gap:6px}
+  .digital-tour-card__content>small{font-size:6.5px;letter-spacing:.15em}
+  .digital-tour-card__content>strong{font-size:clamp(23px,7.5vw,31px)}
+  .digital-tour-card__content>span{font-size:10px;line-height:1.55}
+  .digital-tour-card__action{grid-column:1/-1;justify-content:center;margin-top:2px;padding:11px 15px}
+}
+
+/* Panorama-led 360 invitation v47. */
+.digital-tour-card{display:grid;min-height:276px;grid-template-columns:minmax(400px,1.45fr) minmax(390px,1fr);gap:0;padding:0;background:#123b2a}
+.digital-tour-card:before{display:none}
+.digital-tour-card__visual{position:relative;display:block;height:100%;min-height:276px;padding:0;border:0;background-color:#0d3021;background-image:linear-gradient(90deg,transparent 58%,rgba(18,59,42,.16) 78%,#123b2a 100%),linear-gradient(0deg,rgba(7,28,18,.47),transparent 48%),var(--home-tour-image,url("images/nghia-trang-viet-lao-panorama-360.jpg"));background-position:center;background-size:100% 100%,100% 100%,contain;background-repeat:no-repeat}
+
+/* Dedicated martyr directory and two-row responsive homepage preview v48. */
+.view-all-records{display:flex;align-items:center;justify-content:center;gap:18px;margin-top:30px;text-align:center}.view-all-records a{display:inline-flex;align-items:center;gap:12px;padding:13px 20px;border-radius:5px;background:#244e3a;color:#fff;font-size:13px;font-weight:700;text-decoration:none}.view-all-records a:hover{background:#173c2b}.view-all-records a span{color:#e1ba6d;font-size:18px}.view-all-records p{margin:0;color:var(--muted);font-size:12px}.list-hero{padding:60px 24px 52px;background:linear-gradient(115deg,#173c2b,#285b42);color:#fff}.list-hero>div{width:min(1132px,100%);margin:auto}.list-hero h1{margin:10px 0 6px;font:clamp(38px,5vw,60px)/1.1 "Noto Serif VN",serif}.list-hero p{margin:0;color:#dce5df}.results--directory{padding-top:0}.directory-search{position:relative;z-index:3;max-width:none;margin:-25px 0 44px;box-shadow:0 14px 34px rgba(10,30,22,.2)}
+@media(max-width:980px){.cards--home-preview .card:nth-child(n+7){display:none}}
+@media(max-width:620px){.cards--home-preview .card:nth-child(n+5){display:none}.view-all-records{flex-direction:column;gap:8px}.list-hero{padding:42px 18px 40px}.results--directory{padding-top:0}.directory-search{margin-top:-20px;margin-bottom:34px}}
+.digital-tour-card__visual>small{position:absolute;left:24px;bottom:20px;display:block;padding:7px 10px;border:1px solid rgba(255,255,255,.34);border-radius:999px;background:rgba(10,34,23,.62);color:#fff7e8;font-size:7px;letter-spacing:.14em;backdrop-filter:blur(6px)}
+.digital-tour-card__orbit{position:absolute;left:25px;top:22px;width:72px;height:72px;background:rgba(8,36,23,.72);box-shadow:0 0 0 7px rgba(255,255,255,.08),inset 0 0 26px rgba(0,0,0,.16);backdrop-filter:blur(5px)}
+.digital-tour-card__orbit b{font-size:17px}
+.digital-tour-card__orbit i{width:88px;height:29px}
+.digital-tour-card__body{display:flex;min-width:0;flex-direction:column;align-items:flex-start;justify-content:center;gap:21px;padding:34px 38px 33px 30px}
+.digital-tour-card__content>strong{font-size:clamp(27px,2.7vw,38px)}
+.digital-tour-card__action{padding:12px 18px;background:rgba(236,195,111,.08)}
+
+@media(max-width:850px){
+  .digital-tour-card{grid-template-columns:1fr;min-height:0}
+  .digital-tour-card__visual{min-height:210px;background-position:center}
+  .digital-tour-card__body{padding:28px 28px 30px}
+}
+@media(max-width:760px){
+  .digital-tour-card{display:grid;grid-template-columns:1fr;gap:0;padding:0}
+  .digital-tour-card__visual{min-height:150px}
+  .digital-tour-card__visual>small{left:14px;bottom:12px;display:block;font-size:6px}
+  .digital-tour-card__orbit{left:16px;top:15px;width:54px;height:54px}
+  .digital-tour-card__orbit b{font-size:13px}
+  .digital-tour-card__orbit i{width:66px;height:22px}
+  .digital-tour-card__body{gap:17px;padding:23px 20px 22px}
+  .digital-tour-card__content>strong{font-size:clamp(24px,7.5vw,30px)}
+.digital-tour-card__action{width:100%;margin:0;box-sizing:border-box}
+}
+
+/* High-contrast controls for the dark 360 panorama card. */
+.digital-tour-card__action{
+  justify-content:space-between;
+  min-height:46px;
+  border:1px solid #f2d99f;
+  background:linear-gradient(135deg,#f0cd7c,#d9a943);
+  color:#173c2b;
+  box-shadow:0 8px 22px rgba(4,24,14,.24),inset 0 1px rgba(255,255,255,.52);
+  transition:background .22s ease,color .22s ease,border-color .22s ease,box-shadow .22s ease;
+}
+.digital-tour-card__action i{
+  display:grid;
+  width:27px;
+  height:27px;
+  place-items:center;
+  border-radius:50%;
+  background:#173c2b;
+  color:#fff4d7;
+  font-size:14px;
+}
+.digital-tour-card:hover .digital-tour-card__action{
+  border-color:#fff0c2;
+  background:linear-gradient(135deg,#ffe3a0,#edc66d);
+  color:#0f3021;
+  box-shadow:0 11px 28px rgba(4,24,14,.3),inset 0 1px #fff4d4;
+}
+.digital-tour-card__orbit{
+  border-color:rgba(255,239,194,.92);
+  background:rgba(15,53,36,.9);
+  box-shadow:0 0 0 7px rgba(240,205,126,.2),inset 0 0 24px rgba(0,0,0,.2);
+}
+.digital-tour-card__orbit b{color:#ffe19a;text-shadow:0 1px 8px rgba(0,0,0,.45)}
+.digital-tour-card__orbit i{border-color:rgba(255,225,154,.76)}
+
+@media(max-width:760px){
+  .digital-tour-card__action{min-height:44px;padding:8px 10px 8px 16px;font-size:11px}
+  .digital-tour-card__action i{width:28px;height:28px}
+}
+
+/* Unified memorial detail v49 — one continuous visual language. */
+.detail{width:min(1120px,calc(100% - 48px));max-width:none;margin:0 auto;padding:34px 0 72px}.detail-breadcrumb{display:flex;align-items:center;gap:9px;margin:0 0 20px;color:#928b7d;font-size:11px}.detail-breadcrumb .back{color:#315d48;font-weight:700}.memorial-profile{position:relative}.detail .memorial-card{min-height:290px;margin:0;padding:48px 54px 52px;border:1px solid rgba(197,164,98,.4);border-left:0;border-radius:14px 14px 0 0;background:linear-gradient(112deg,rgba(14,52,36,.98),rgba(31,79,56,.96)),url("images/granite-fine.svg");box-shadow:0 22px 52px rgba(24,51,37,.16)}.detail .memorial-card:before{left:140px;top:47px;bottom:47px;background:linear-gradient(transparent,rgba(220,183,107,.55) 18%,rgba(220,183,107,.55) 82%,transparent)}.detail .memorial-card__copy{padding-left:4px}.detail .memorial-card .eyebrow{color:#e0bb6d}.detail .memorial-honor{display:inline-block;margin-left:10px;padding-left:12px;border-left:1px solid rgba(224,187,109,.4);color:#c9d6cf;font-size:9px;font-weight:700;letter-spacing:.14em}.detail .memorial-card h1{max-width:760px;margin:13px 0 8px;color:#fffdf6;font-size:clamp(42px,5.4vw,67px);letter-spacing:-.02em}.detail .memorial-card .place{color:#d8e4dd}.detail .memorial-card__verse{color:#dfbc73}.detail .facts{z-index:3;margin:0;border:1px solid #d8cfbd;border-top:0;border-radius:0 0 14px 14px;background:#fffdf8;box-shadow:0 16px 34px rgba(35,53,43,.08)}.detail .facts div{min-height:88px;padding:20px 22px}.detail .facts span{margin-bottom:7px;color:#887f70}.detail .facts b{color:#234936}.tribute-section{margin:38px 0 30px;padding:48px 42px 40px;border:1px solid #d8cfbd;border-radius:14px;background:linear-gradient(145deg,#fdfaf2,#f3eddf);box-shadow:0 18px 44px rgba(35,53,43,.08)}.tribute-section:before{background:linear-gradient(90deg,transparent,#b88731 30%,#e3c279 50%,#b88731 70%,transparent)}.tribute-section:after{background:radial-gradient(circle at 8% 8%,rgba(184,135,49,.08),transparent 24%)}.tribute-heading .eyebrow{color:#9b681b}.tribute-heading h2{color:#173c2b}.tribute-heading h2 em{color:#a87320}.tribute-heading p{color:#5f6d65}.tribute-heading blockquote{color:#806a3e;border-color:#c9ae74}.tribute-list__heading{border-color:#d7cbb3}.tribute-list__heading>div>span{color:#9b681b}.tribute-list__heading>div>strong{color:#173c2b}.tribute-list__heading>p{color:#756f64}.tribute-item,.tribute-item:nth-child(3n+2),.tribute-item:nth-child(3n){border-color:#d9cfbd;background:rgba(255,253,248,.92);box-shadow:0 10px 24px rgba(38,54,45,.06)}.tribute-item--editorial{border-color:#d5c39e;background:linear-gradient(145deg,#fbf6e9,#f1e8d5)}.tribute-item:before,.tribute-item--editorial:before{background:linear-gradient(90deg,transparent,rgba(184,135,49,.5),transparent)}.tribute-item__body:before{color:rgba(168,115,32,.1)}.tribute-type,.tribute-item--community .tribute-type{color:#956319}.tribute-item p{color:#34483d}.tribute-item footer{border-color:#ded4c1;color:#7c7a71}.tribute-item footer strong{color:#315d48}.tribute-item--editorial footer span{color:#9a752e}.tribute-form-wrap{border-color:#d4c6aa}.tribute-form-intro>span{color:#9b681b}.tribute-form-intro h3{color:#173c2b}.tribute-form-intro p{color:#68756e}.tribute-form{border-color:#d5c7ad;border-top-color:#315d48;background:#fffdf8;box-shadow:0 12px 30px rgba(35,53,43,.08)}.tribute-form:before{background:linear-gradient(90deg,rgba(49,93,72,.1),rgba(184,135,49,.07),transparent)}.tribute-form__header{border-color:#ded4c1}.tribute-form__header span{color:#9b681b}.tribute-form__header h3{color:#173c2b}.tribute-form__header p,.tribute-form__footer p{color:#6c756f}.tribute-form label{color:#405147}.tribute-form input,.tribute-form textarea{border-color:#cec5b5;background:#fff;color:#182820;box-shadow:none}.tribute-form input::placeholder,.tribute-form textarea::placeholder{color:#9a9d98}.tribute-form input:focus,.tribute-form textarea:focus{border-color:#315d48;box-shadow:0 0 0 3px rgba(49,93,72,.1)}.tribute-form button{background:#315d48;box-shadow:none}.tribute-form button:hover{background:#214936}.detail .source{display:flex;align-items:center;justify-content:space-between;gap:30px;margin:0;padding:26px 30px;border:1px solid #d8cfbd;border-left:4px solid #b88731;border-radius:8px;background:#fffdf8;color:#46554d}.detail .source>div>span{display:block;margin-bottom:4px;color:#9b681b;font-size:8px;font-weight:800;letter-spacing:.17em}.detail .source strong{display:block;color:#173c2b;font:24px/1.2 "Noto Serif VN",serif}.detail .source p{margin:7px 0 0;font-size:12px}.detail .source>a{flex:none;padding:11px 15px;border:1px solid #c9b47e;border-radius:5px;color:#315d48;font-size:11px;font-weight:700;text-decoration:none}
+@media(max-width:760px){.detail{width:calc(100% - 28px);padding:22px 0 46px}.detail-breadcrumb{margin-bottom:14px}.detail .memorial-card{min-height:0;margin:0;padding:30px 18px 30px 15px;border-radius:10px 10px 0 0}.detail .memorial-card:before{left:86px}.detail .memorial-honor{display:block;margin:5px 0 0;padding:0;border:0}.detail .facts{margin:0;grid-template-columns:repeat(2,1fr);border-radius:0 0 10px 10px}.detail .facts div{min-height:72px;padding:14px 12px}.tribute-section{margin:28px 0 22px;padding:36px 14px 22px;border-radius:11px}.detail .source{align-items:flex-start;flex-direction:column;gap:17px;padding:21px 19px}.detail .source>a{width:100%;text-align:center}}
+
+/* Directory layout and homepage archive link v50. */
+.results--home .view-all-records{position:relative;display:grid;grid-template-columns:46px minmax(0,1fr) 42px;gap:17px;align-items:center;width:100%;margin:30px 0 0;padding:18px 20px;border:1px solid #d6cbb7;border-radius:10px;background:linear-gradient(105deg,#fffdf8,#f3eddf);color:#173c2b;text-align:left;text-decoration:none;box-shadow:0 9px 24px rgba(35,53,43,.06);transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease}.results--home .view-all-records:hover{transform:translateY(-2px);border-color:#b88731;box-shadow:0 14px 30px rgba(35,53,43,.11)}.view-all-records__mark{display:grid;width:44px;height:44px;place-items:center;border:1px solid #c7a761;border-radius:50%;background:#244e3a;color:#e1ba6d;font-size:17px}.view-all-records__copy{display:grid;gap:2px}.view-all-records__copy small{color:#a16b1c;font-size:8px;font-weight:800;letter-spacing:.17em}.view-all-records__copy strong{font:700 19px/1.25 "Noto Serif VN",serif}.view-all-records__copy>span{color:#70786f;font-size:11px}.view-all-records__arrow{display:grid;width:40px;height:40px;place-items:center;border:1px solid #c8b98f;border-radius:50%;color:#315d48;font-size:18px;transition:transform .2s ease,background .2s ease}.view-all-records:hover .view-all-records__arrow{transform:translateX(3px);background:#244e3a;color:#fff}
+.list-hero{position:relative;isolation:isolate;min-height:260px;padding:56px 24px 72px;overflow:hidden;background:linear-gradient(90deg,rgba(13,50,35,.98),rgba(31,82,57,.91)),url("images/nghia-trang-viet-lao-toan-canh.jpg") center 55%/cover;color:#fff}.list-hero:after{content:"";position:absolute;z-index:-1;inset:0;background:linear-gradient(180deg,rgba(255,255,255,.035),transparent 45%),radial-gradient(circle at 82% 18%,rgba(218,175,84,.15),transparent 30%)}.list-hero>div{width:min(1132px,100%);margin:auto}.list-hero h1{margin:10px 0 8px;font:clamp(42px,5vw,62px)/1.08 "Noto Serif VN",serif}.list-hero p{max-width:570px;margin:0;color:#dce7e0;font-size:15px}.results.results--directory{width:min(1180px,calc(100% - 48px));max-width:none;margin:0 auto;padding:0 24px 72px}.directory-search.search{z-index:4;width:100%;max-width:none;margin:-32px 0 52px;padding:7px;border:1px solid rgba(188,169,128,.48);border-radius:10px;background:#fff;box-shadow:0 20px 46px rgba(18,43,31,.19)}.directory-search .search-main{grid-template-columns:minmax(300px,1fr) 210px 132px}.directory-search .search-main>*,.directory-search .search-input-wrap>input{min-height:52px}.directory-search .search-main>button{margin:0;border-radius:6px;background:#a87320}.directory-search .advanced-filters{margin:0 -7px -7px;border-radius:0 0 10px 10px}.results--directory .section-title{margin-bottom:27px}.results--directory .pagination{margin-top:46px}.results--directory .pagination a{border:1px solid #315d48;background:#315d48}.results--directory .pagination span{font-size:12px}
+@media(max-width:760px){.results--home .view-all-records{grid-template-columns:38px minmax(0,1fr) 34px;gap:11px;margin-top:22px;padding:14px 12px}.view-all-records__mark{width:36px;height:36px;font-size:14px}.view-all-records__copy strong{font-size:15px}.view-all-records__copy>span{font-size:9px}.view-all-records__arrow{width:32px;height:32px}.list-hero{min-height:215px;padding:42px 18px 58px}.list-hero h1{font-size:clamp(39px,11.5vw,50px)}.list-hero p{font-size:13px;line-height:1.65}.results.results--directory{width:100%;padding:0 12px 52px}.directory-search.search{margin:-21px 0 36px;padding:6px;border-radius:8px}.directory-search .search-main{grid-template-columns:1fr}.directory-search .search-main>*{min-height:46px}.directory-search .search-main>button{min-height:46px;margin-top:5px}.directory-search .advanced-filters{margin:0 -6px -6px}.results--directory .section-title{margin-bottom:25px}.results--directory .section-title h2{font-size:31px}.results--directory .cards{gap:14px 10px}}
+
+/* Tight transition from the 360 feature into the homepage records v51. */
+.heritage-facts+.digital-tour-card{margin-bottom:0}.digital-tour-card+.results--home{padding-top:32px}
+@media(max-width:760px){.heritage-facts+.digital-tour-card{margin-bottom:0}.digital-tour-card+.results--home{padding-top:27px}}
+.results--home:has(+.digital-tour-card){padding-bottom:28px}
+.results--home+.digital-tour-card{margin-top:0;margin-bottom:0}
+.digital-tour-card+.memory-journey{margin-top:64px}
+@media(max-width:760px){.results--home:has(+.digital-tour-card){padding-bottom:22px}.digital-tour-card+.memory-journey{margin-top:52px}}
+
+/* Homepage search is intentionally direct: one query field and one action. */
+.hero .search--home{max-width:920px}
+.hero .search--home .search-main{grid-template-columns:minmax(0,1fr) 132px}
+.hero .search--home .search-input-wrap,
+.hero .search--home .search-input-wrap>input,
+.hero .search--home button{min-height:54px}
+.hero .search--home button{margin:0;border-radius:5px}
+
+@media(max-width:760px){
+  .hero{
+    min-height:620px;
+    padding-bottom:38px;
+  }
+  .hero__inner{width:calc(100% - 28px)}
+  .hero .eyebrow{font-size:9px;letter-spacing:.2em}
+  .hero h1{margin:13px 0 13px;font-size:clamp(39px,12vw,52px);line-height:1.02}
+  .hero__inner>p{max-width:34em;margin:0;font-size:13px;line-height:1.6}
+  .hero .search--home{
+    margin-top:22px;
+    padding:5px;
+    border-radius:9px;
+    background:rgba(255,255,255,.96);
+    box-shadow:0 18px 42px rgba(4,20,12,.34),0 0 0 1px rgba(255,255,255,.52);
+  }
+  .hero .search--home .search-main{grid-template-columns:minmax(0,1fr) 88px}
+  .hero .search--home .search-input-wrap,
+  .hero .search--home .search-input-wrap>input,
+  .hero .search--home button{min-height:48px}
+  .hero .search--home input{padding:11px 10px;font-size:12px}
+  .hero .search--home button{padding:0 8px;border-radius:6px;font-size:11px;white-space:nowrap}
+  .hero .stats{gap:9px;margin-top:20px;padding-left:2px}
+  .hero .stats b{font-size:25px}
+  .hero .stats span{font-size:10px;line-height:1.4}
+}
+
+@media(max-width:370px){
+  .hero .search--home .search-main{grid-template-columns:minmax(0,1fr) 76px}
+  .hero .search--home input{font-size:11px}
+  .hero .search--home button{font-size:10px}
+}
+
+/* Inline homepage image management, visible to authenticated superusers only. */
+.home-image-admin{position:absolute;z-index:20;top:14px;right:14px;margin:0;color:#fff;font-family:"Noto Sans VN",sans-serif}
+.home-image-admin input[type=file]{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap}
+.home-image-admin label{display:flex;min-height:34px;align-items:center;gap:7px;padding:7px 11px;border:1px solid rgba(255,255,255,.72);border-radius:999px;background:rgba(17,53,37,.9);color:#fff;font-size:10px;font-weight:700;line-height:1;cursor:pointer;box-shadow:0 7px 22px rgba(8,27,18,.28);backdrop-filter:blur(8px);transition:background .18s ease,transform .18s ease}
+.home-image-admin label:hover{background:#b88731;transform:translateY(-1px)}
+.home-image-admin label span{color:#f3d58e;font-size:15px}
+.home-image-admin--hero{top:18px;right:max(18px,calc((100% - 1180px)/2))}
+.home-image-admin--tour{top:12px;right:12px}
+.about-photo,.about-homecoming__image,.about-stele figure{position:relative}
+.home-admin-messages{position:fixed;z-index:1000;top:68px;left:50%;width:min(520px,calc(100% - 28px));transform:translateX(-50%)}
+.home-admin-message{margin:0 0 8px;padding:12px 16px;border:1px solid #b8d1c0;border-radius:8px;background:#edf7f0;color:#1c5136;font-size:12px;font-weight:700;box-shadow:0 12px 32px rgba(18,48,33,.16)}
+.home-admin-message--error{border-color:#deb8b4;background:#fff0ee;color:#842d27}
+@media(max-width:760px){.home-image-admin{top:9px;right:9px}.home-image-admin label{min-height:30px;padding:6px 9px;font-size:9px}.home-image-admin--hero{top:10px;right:10px}.home-admin-messages{top:58px}}
+
+/* Private, moderated connection point for relatives of a martyr. */
+.detail-notices{margin:26px 0 -10px}.family-connect{display:grid;grid-template-columns:minmax(0,.88fr) minmax(420px,1.12fr);gap:44px;align-items:start;margin:54px 0 18px;padding:42px;border:1px solid #d3c5a8;border-top:3px solid #a87320;border-radius:10px;background:linear-gradient(135deg,#fffdf7,#f2ead9);box-shadow:0 16px 38px rgba(40,53,44,.07);scroll-margin-top:74px}.family-connect__intro{display:grid;grid-template-columns:54px minmax(0,1fr);gap:18px;align-items:start}.family-connect__mark{display:grid;width:50px;height:50px;place-items:center;border:1px solid #b9934d;border-radius:50%;background:#173f2e;color:#f0c76f;font-size:23px}.family-connect h2{margin:8px 0 13px;color:#173b2c;font:clamp(28px,3.5vw,42px)/1.1 "Noto Serif VN",serif}.family-connect h2 em{color:#a46e20;font-weight:400}.family-connect__intro p{margin:0;color:#617067;font-size:13px;line-height:1.75}.family-connect__verified{display:inline-flex;align-items:center;gap:7px;margin-top:16px;color:#256044;font-size:11px}.family-connect__panel{overflow:hidden;border:1px solid #cec0a4;border-radius:8px;background:rgba(255,255,255,.78)}.family-connect__panel summary{display:flex;min-height:78px;align-items:center;justify-content:space-between;gap:20px;padding:17px 20px;list-style:none;color:#173b2c;cursor:pointer}.family-connect__panel summary::-webkit-details-marker{display:none}.family-connect__panel summary span{display:grid;gap:4px}.family-connect__panel summary small{color:#a16d22;font-size:8px;font-weight:800;letter-spacing:.16em}.family-connect__panel summary b{font:21px/1.2 "Noto Serif VN",serif}.family-connect__panel summary i{display:grid;width:36px;height:36px;place-items:center;border-radius:50%;background:#1d5039;color:#f4d17e;font-style:normal;transition:transform .2s}.family-connect__panel[open] summary i{transform:rotate(90deg)}.family-form{padding:22px 20px 20px;border-top:1px solid #ddd1bb}.family-form label{display:block;margin:0 0 15px;color:#354b40;font-size:11px;font-weight:700}.family-form label>b,.family-form__check b{color:#9e3d31}.family-form input:not([type=checkbox]),.family-form select,.family-form textarea{display:block;width:100%;margin-top:7px;padding:12px 13px;border:1px solid #d0c5b1;border-radius:6px;background:#fff;color:#20362b;font:inherit}.family-form textarea{min-height:125px;resize:vertical}.family-form input:focus,.family-form select:focus,.family-form textarea:focus{outline:0;border-color:#9f7129;box-shadow:0 0 0 3px rgba(159,113,41,.1)}.family-form label>small{display:block;margin-top:5px;color:#9b322b;font-size:10px}.family-form__grid{display:grid;grid-template-columns:1fr 1fr;gap:0 13px}.family-form__file{padding:13px;border:1px dashed #bda875;border-radius:7px;background:#faf6ec}.family-form__file>span{display:block;margin:3px 0 8px;color:#81796b;font-size:9px;font-weight:400}.family-form__file input{padding:8px!important;background:transparent!important}.family-form__check{display:grid!important;grid-template-columns:17px minmax(0,1fr);gap:8px;align-items:start;font-weight:500!important;line-height:1.55}.family-form__check input{width:16px;height:16px;margin:1px 0 0;accent-color:#265c43}.family-form__check small{grid-column:2}.family-form footer{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-top:19px;padding-top:17px;border-top:1px solid #ddd1bb}.family-form footer p{margin:0;color:#647269;font-size:9px}.family-form footer button{flex:none;min-height:42px;padding:11px 15px;border:0;border-radius:6px;background:#1d5039;color:#fff;font-size:10px;font-weight:800;cursor:pointer}.family-form footer button span{margin-left:7px;color:#f0c76f}
+@media(max-width:900px){.family-connect{grid-template-columns:1fr;gap:28px}}
+@media(max-width:760px){.family-connect{gap:22px;margin:34px 0 8px;padding:25px 14px 16px;border-radius:9px}.family-connect__intro{grid-template-columns:40px minmax(0,1fr);gap:11px}.family-connect__mark{width:38px;height:38px;font-size:18px}.family-connect h2{margin-top:6px;font-size:28px}.family-connect__intro p{grid-column:1/-1;font-size:12px}.family-connect__panel summary{min-height:67px;padding:14px}.family-connect__panel summary b{font-size:17px}.family-connect__panel summary i{width:32px;height:32px}.family-form{padding:18px 13px 15px}.family-form__grid{grid-template-columns:1fr}.family-form input:not([type=checkbox]),.family-form select,.family-form textarea{font-size:16px}.family-form footer{align-items:stretch;flex-direction:column}.family-form footer button{width:100%;min-height:46px}}

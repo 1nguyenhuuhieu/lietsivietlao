@@ -1,0 +1,11 @@
+.family-connect{border-color:rgba(218,176,91,.22);border-top-color:#c99841;background:radial-gradient(circle at 8% 10%,rgba(203,145,42,.08),transparent 25%),linear-gradient(145deg,#152a21,#0e211a);box-shadow:0 22px 58px rgba(0,0,0,.25)}
+.family-connect__mark{border-color:rgba(230,190,105,.55);background:#0a1d15;color:#e8bd62}
+.family-connect h2{color:#fff8e8}.family-connect h2 em{color:#efbd5d}.family-connect__intro p{color:#b9c8bf}.family-connect__verified{color:#91d2ad}
+.family-connect__panel{border-color:rgba(225,190,119,.24);background:linear-gradient(145deg,#1d3229,#10221b)}
+.family-connect__panel summary{color:#f8f1e2}.family-connect__panel summary small{color:#dcad52}.family-connect__panel summary i{background:#c99841;color:#10241b}
+.family-form{border-color:rgba(224,199,145,.18)}.family-form label{color:#dbe4df}
+.family-form input:not([type=checkbox]),.family-form select,.family-form textarea{border-color:rgba(218,190,132,.28);background:rgba(5,16,12,.58);color:#fffdf6}
+.family-form input::placeholder,.family-form textarea::placeholder{color:#829188}.family-form select option{background:#10221b;color:#fff}
+.family-form__file{border-color:rgba(218,190,132,.38);background:rgba(7,22,16,.42)}.family-form__file>span,.family-form footer p{color:#9fafa6}
+.family-form footer{border-color:rgba(224,199,145,.18)}.family-form footer button{background:linear-gradient(135deg,#d1a14b,#a97020);color:#10241b}.family-form footer button span{color:#10241b}
+.detail-notices .tribute-notice{border-color:rgba(130,192,153,.35);background:#163426;color:#d9eee1}

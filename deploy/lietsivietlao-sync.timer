@@ -1,0 +1,11 @@
+[Unit]
+Description=Run Ky uc Viet Lao public-data sync every day
+
+[Timer]
+OnCalendar=*-*-* 02:20:00 Asia/Bangkok
+Persistent=true
+RandomizedDelaySec=15m
+Unit=lietsivietlao-sync.service
+
+[Install]
+WantedBy=timers.target

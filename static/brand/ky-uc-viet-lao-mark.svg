@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 78 50" role="img" aria-labelledby="title desc">
+  <title id="title">Việt Nam – Lào</title>
+  <desc id="desc">Hai quốc kỳ Việt Nam và Lào trong hai huy hiệu tròn lồng vào nhau</desc>
+  <defs>
+    <clipPath id="laos-disc"><circle cx="51" cy="25" r="20"/></clipPath>
+    <filter id="shadow" x="-30%" y="-35%" width="170%" height="180%">
+      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#10271d" flood-opacity=".28"/>
+    </filter>
+  </defs>
+
+  <g filter="url(#shadow)">
+    <!-- Laos sits slightly behind, making the two-country bond visible. -->
+    <g clip-path="url(#laos-disc)">
+      <rect x="31" y="5" width="40" height="40" fill="#ce2b37"/>
+      <rect x="31" y="15" width="40" height="20" fill="#244a91"/>
+      <circle cx="51" cy="25" r="7.2" fill="#fff"/>
+    </g>
+
+    <!-- Vietnam overlaps in front. -->
+    <circle cx="27" cy="25" r="20.5" fill="#d9232e"/>
+    <path d="M27 13.2 29.8 21h8.3l-6.7 4.8 2.6 8-7-4.9-7 4.9 2.6-8-6.7-4.8h8.3Z" fill="#ffdf55"/>
+  </g>
+</svg>

@@ -1,0 +1,18 @@
+[Unit]
+Description=Daily public-data sync for Ky uc Viet Lao
+After=network-online.target postgresql.service
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=hieunh
+Group=www-data
+WorkingDirectory=/home/hieunh/lietsivietlao
+EnvironmentFile=/home/hieunh/lietsivietlao/.env
+ExecStart=/home/hieunh/lietsivietlao/.venv/bin/python manage.py crawl_graves --start-page 1 --end-page 217 --delay 1.2
+Nice=10
+IOSchedulingClass=best-effort
+IOSchedulingPriority=7
+PrivateTmp=true
+ProtectSystem=full
+NoNewPrivileges=true

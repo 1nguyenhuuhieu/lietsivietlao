@@ -1,0 +1,50 @@
+.map-experience{padding:48px max(4vw,20px) 0;background:#10271c;color:#fff}.map-toolbar{max-width:1380px;margin:auto;display:flex;align-items:end;justify-content:space-between;gap:30px;padding-bottom:28px}.map-toolbar h1{font:clamp(38px,5vw,68px)/1.02 "Noto Serif VN",serif;margin:10px 0}.map-toolbar h1 em{color:#e1ba6d;font-weight:400}.map-toolbar p{max-width:680px;margin:0;color:#cbd8d1}.map-legend{flex:none;padding:14px 16px;border:1px solid #ffffff2b;background:#ffffff0a}.map-legend span,.map-legend b{display:block}.map-legend i{display:inline-block;width:9px;height:9px;border-radius:50%;background:#e3bb64;box-shadow:0 0 0 5px #e3bb6430}.map-legend b{margin-top:5px;color:#e1ba6d}.aerial-map{position:relative;max-width:1380px;aspect-ratio:16/8.3;margin:auto;overflow:hidden;border-radius:16px 16px 0 0;background:linear-gradient(180deg,#07170c22,#07170c77),url("images/nghia-trang-viet-lao-toan-canh.jpg") center/cover;box-shadow:0 30px 80px #050e09}.map-depth{position:absolute;inset:0;background:linear-gradient(90deg,#07170c99,transparent 22%,transparent 78%,#07170c66),linear-gradient(0deg,#07170c99,transparent 30%);pointer-events:none}.map-point{position:absolute;z-index:2;border:0;background:none;color:#fff;cursor:pointer;text-align:center}.map-point i{display:grid;place-items:center;width:38px;height:38px;margin:auto;border:2px solid #fff;border-radius:50%;background:#b88731;color:#fff;font:700 12px "Noto Sans VN";box-shadow:0 0 0 8px #e3bb6435,0 8px 20px #07170c;animation:pulse 2.2s infinite}.map-point span{display:block;margin-top:9px;padding:5px 9px;border-radius:4px;background:#10271ddd;font-size:11px;white-space:nowrap}.map-point:hover i{transform:scale(1.12)}.map-point.p1{left:48%;bottom:11%}.map-point.p2{left:34%;top:48%}.map-point.p3{left:49%;top:25%}.map-point.p4{left:18%;top:57%}.map-point.p5{right:17%;top:53%}.map-hint{position:absolute;left:22px;bottom:18px;padding:10px 13px;background:#fff;color:#183a2a;font-size:12px;font-weight:700}.tour-intro{max-width:1180px;margin:auto;padding:72px 24px}.tour-intro h2{font:clamp(32px,4vw,50px) "Noto Serif VN";margin:8px 0}.tour-intro p{max-width:720px;color:var(--muted)}@keyframes pulse{50%{box-shadow:0 0 0 13px #e3bb6415,0 8px 20px #07170c}}.scene-dialog{width:min(1080px,calc(100% - 32px));padding:0;border:0;border-radius:14px;background:#fff;box-shadow:0 30px 100px #0008}.scene-dialog::backdrop{background:#07150fc9;backdrop-filter:blur(5px)}.scene-dialog[open]{display:grid;grid-template-columns:1.2fr .8fr}.scene-close{position:absolute;z-index:5;right:12px;top:10px;width:38px;height:38px;border:0;border-radius:50%;background:#fff;color:#173528;font-size:25px;cursor:pointer}.scene-visual{position:relative;min-height:600px;background:linear-gradient(0deg,#07170c66,transparent 50%),url("images/nghia-trang-viet-lao-toan-canh.jpg") var(--scene-pos,50% 50%)/cover;transition:background-position .5s}.scene-badge{position:absolute;left:18px;top:18px;padding:7px 10px;background:#10271ddd;color:#e1ba6d;font-size:10px;font-weight:700}.scene-nav{position:absolute;z-index:3;top:50%;width:40px;height:40px;border:0;border-radius:50%;background:#fff;color:#183a2a;font-size:19px;cursor:pointer}.scene-nav.prev{left:15px}.scene-nav.next{right:15px}.scene-copy{padding:55px 38px 35px}.scene-number{color:#b88731;font-size:11px;font-weight:700;letter-spacing:.18em}.scene-copy h2{font:clamp(30px,4vw,48px) "Noto Serif VN";margin:8px 0 14px}.scene-description{color:#59635d;line-height:1.7}.narrate{margin:12px 0 25px;padding:12px 15px;border:1px solid #b88731;background:#fff;color:#244e3a;font-weight:700;cursor:pointer}.scene-gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.scene-gallery button{aspect-ratio:1.25;border:2px solid transparent;background:url("images/nghia-trang-viet-lao-toan-canh.jpg") var(--gallery-pos)/cover;cursor:pointer}.scene-gallery button:hover{border-color:#b88731}.scene-note{font-size:10px;color:#8a918c;margin-top:18px}.scene-open{overflow:hidden}
+@media(max-width:760px){.map-experience{padding-top:30px}.map-toolbar{display:block}.map-legend{display:inline-block;margin-top:18px}.aerial-map{aspect-ratio:1280/531;border-radius:12px;background-size:contain;background-repeat:no-repeat}.map-point i{width:32px;height:32px}.map-point span{font-size:9px}.map-point.p1{left:44%;bottom:12%}.map-point.p2{left:27%;top:47%}.map-point.p3{left:44%;top:24%}.map-point.p4{left:8%;top:61%}.map-point.p5{right:7%;top:57%}.map-hint{left:12px;bottom:10px}.scene-dialog[open]{display:block;max-height:92vh;overflow:auto}.scene-visual{min-height:43vh}.scene-copy{padding:30px 20px}.scene-nav{top:auto;bottom:15px}.scene-gallery{gap:5px}}
+
+/* Keep the overview image and its controls inside one card with a real bottom gutter. */
+.map-experience{padding-bottom:64px!important}
+.aerial-map{border-radius:16px}
+@media(max-width:760px){
+  .map-experience{padding-bottom:40px!important}
+}
+
+/* Refined overview markers: compact and translucent so the aerial image stays visible. */
+.map-point{
+  transform:translate(-50%,-50%);
+}
+.map-point i{
+  width:27px;
+  height:27px;
+  border:1px solid rgba(255,255,255,.72);
+  background:rgba(118,82,28,.62);
+  font-size:10px;
+  font-style:normal;
+  box-shadow:0 3px 10px rgba(4,18,11,.28),0 0 0 3px rgba(225,186,109,.08);
+  animation:none;
+  backdrop-filter:blur(3px);
+  -webkit-backdrop-filter:blur(3px);
+  transition:transform .18s ease,background .18s ease,box-shadow .18s ease;
+}
+.map-point span{
+  margin-top:5px;
+  padding:3px 7px;
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:5px;
+  background:rgba(8,31,21,.58);
+  color:rgba(255,255,255,.9);
+  font-size:10px;
+  line-height:1.25;
+  box-shadow:0 2px 8px rgba(0,0,0,.12);
+  backdrop-filter:blur(3px);
+  -webkit-backdrop-filter:blur(3px);
+}
+.map-point:hover i,.map-point:focus-visible i{
+  transform:scale(1.1);
+  background:rgba(151,105,35,.78);
+  box-shadow:0 4px 13px rgba(4,18,11,.34),0 0 0 4px rgba(225,186,109,.12);
+}
+@media(max-width:760px){
+  .map-point{min-width:38px;min-height:38px;display:grid;place-items:center}
+  .map-point i{width:23px;height:23px;font-size:9px}
+  .map-point span{display:none}
+}

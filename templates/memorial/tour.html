@@ -1,3 +1,42 @@
-{% extends 'memorial/base.html' %}{% block title %}Trải nghiệm 360° · Ký ức Việt – Lào{% endblock %}{% block content %}
-<section class="tour"><div><span class="eyebrow">KHÔNG GIAN TƯỞNG NIỆM SỐ</span><h1>Trải nghiệm<br><em>360°</em></h1><p>Chúng tôi đang khảo sát và xây dựng tour thực tế ảo từ ảnh toàn cảnh được chụp tại nghĩa trang.</p><div class="notice">Ảnh 360° sẽ chỉ được công bố sau khi có sự đồng ý của Ban quản lý.</div></div><div class="tour-placeholder"><span>360°</span><p>Điểm tham quan đầu tiên<br>đang được chuẩn bị</p></div></section>{% endblock %}
-
+{% extends 'memorial/base.html' %}{% load static %}
+{% block title %}Tham quan 360° Nghĩa trang Liệt sĩ Việt – Lào{% endblock %}
+{% block description %}Bản đồ tham quan tương tác Nghĩa trang Liệt sĩ Việt – Lào với các điểm khám phá, ảnh chi tiết và thuyết minh.{% endblock %}
+{% block og_title %}Tham quan 360° Nghĩa trang Liệt sĩ Việt – Lào{% endblock %}
+{% block og_description %}Khám phá bản đồ tương tác, các phân khu và điểm tưởng niệm tại Nghĩa trang Liệt sĩ Việt – Lào.{% endblock %}
+{% block body_class %}page-tour-360{% endblock %}
+{% block extra_css %}<link rel="stylesheet" href="{% static 'vendor/pannellum/pannellum.css' %}"><link rel="stylesheet" href="{% static 'tour-360.css' %}?v=3">{% endblock %}
+{% block extra_js %}<script defer src="{% static 'vendor/pannellum/pannellum.js' %}"></script><script defer src="{% static 'tour-panorama.js' %}?v=3"></script><script defer src="{% static 'tour-experience.js' %}?v=2"></script><script defer src="{% static 'cemetery-map.js' %}?v=4"></script>{% endblock %}
+{% block content %}
+<section class="map-experience" aria-labelledby="map-title">
+  <div class="map-toolbar"><div><span class="eyebrow">BẢN ĐỒ THAM QUAN TƯƠNG TÁC</span><h1 id="map-title">Nghĩa trang<wbr> Liệt sĩ<br><em>Việt Nam – Lào</em></h1><p>Khám phá toàn cảnh nghĩa trang và chạm vào từng điểm đánh dấu để xem thông tin, nghe thuyết minh và tìm hiểu các công trình tưởng niệm.</p></div><div class="map-legend"><span><i></i> Điểm tham quan</span><b>{{ tour_points|length }} điểm</b>{% if request.user.is_staff %}<a class="map-admin-link" href="{% url 'tour_manager' %}">Quản lý bản đồ</a>{% endif %}</div></div>
+  <div class="aerial-map" id="aerial-map" style="background-image:url('{% url 'tour_overview_image' %}?v={{ tour_configuration.updated_at|date:'U' }}')">
+    <div class="map-depth"></div>
+    {% for point in tour_points %}<button class="map-point" data-scene="{{ point.slug }}" data-description="{{ point.description }}" style="left:{{ point.x_percent|stringformat:'s' }}%;top:{{ point.y_percent|stringformat:'s' }}%" aria-label="Khám phá {{ point.title }}"><i>{{ point.number }}</i><span>{{ point.title }}</span></button>{% endfor %}
+    <div class="map-hint">Chạm vào một điểm để khám phá <span>↗</span></div>
+    <button class="map-fullscreen" id="map-fullscreen" type="button" aria-label="Xem bản đồ toàn màn hình"><span aria-hidden="true">⛶</span><b>Toàn màn hình</b></button>
+  </div>
+</section>
+<section class="real-panorama" aria-labelledby="real-panorama-title">
+  <div class="real-panorama__heading"><div><span class="eyebrow">KHÔNG GIAN 360° THỰC TẾ</span><h2 id="real-panorama-title">Toàn cảnh Nghĩa trang<br><em>Việt Nam – Lào</em></h2></div><p>Chạm và kéo để nhìn xung quanh, cuộn để thu phóng hoặc mở toàn màn hình để trải nghiệm không gian thực tế.</p></div>
+  <div class="real-panorama__viewer" id="real-panorama-viewer" data-panorama="{% static 'images/tour-360/nghia-trang-viet-lao-360-8192.jpg' %}"><div class="panorama-loading"><i></i><strong>Đang tải không gian 360°</strong><span>Ảnh chất lượng cao có thể mất vài giây</span></div><button class="panorama-fullscreen" id="panorama-fullscreen" type="button" aria-label="Xem toàn màn hình" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3H3v5M16 3h5v5M3 16v5h5M21 16v5h-5"/></svg></button></div>
+  <div class="real-panorama__meta" aria-label="Hướng dẫn và nguồn ảnh">
+    <span class="real-panorama__hint"><i aria-hidden="true">360°</i><span>Kéo để quan sát <b>·</b> Cuộn để thu phóng</span></span>
+    <span class="real-panorama__source">Ảnh 360° · Ký ức Việt – Lào</span>
+  </div>
+</section>
+<section class="site-plan" aria-labelledby="site-plan-title">
+  {% include 'memorial/_cemetery_map.html' %}
+</section>
+<dialog class="grave-dialog" id="grave-dialog" aria-labelledby="grave-dialog-title">
+  <div class="grave-dialog__head"><div><span>BẢN ĐỒ CHI TIẾT KHU MỘ</span><h2 id="grave-dialog-title">Khu <b></b></h2><p><strong>0</strong> phần mộ · <em></em></p></div><button type="button" class="grave-dialog__close" aria-label="Đóng">×</button></div>
+  <div class="grave-dialog__tools"><label><span>⌕</span><input type="search" placeholder="Tìm tên, hàng hoặc số mộ…" autocomplete="off"></label><div class="grave-zoom"><button type="button" data-zoom="out" aria-label="Thu nhỏ">−</button><span>100%</span><button type="button" data-zoom="in" aria-label="Phóng to">+</button></div><a href="#">Danh sách khu <span>→</span></a></div>
+  <div class="zone-map-wrap"><div class="zone-map-loading">Đang dựng bản đồ từ dữ liệu hàng và số mộ…</div><div class="zone-map" aria-live="polite"></div></div>
+  <aside class="grave-inspector" aria-live="polite"><button type="button" aria-label="Đóng thông tin">×</button><span>PHẦN MỘ ĐANG CHỌN</span><h3></h3><p></p><a href="#">Xem hồ sơ liệt sĩ <b>→</b></a></aside>
+</dialog>
+<section class="tour-intro"><span class="eyebrow">TUYẾN THAM QUAN SỐ</span><h2>Mỗi điểm là một câu chuyện</h2><p>Mỗi điểm tham quan lưu giữ một lát cắt của không gian tưởng niệm, giúp người xem hiểu rõ hơn về các công trình, khu phần mộ và tình hữu nghị đặc biệt Việt Nam – Lào.</p></section>
+<dialog class="scene-dialog" id="scene-dialog">
+  <button class="scene-close" type="button" aria-label="Đóng">×</button>
+  <div class="scene-visual"><div class="scene-badge">ĐIỂM THAM QUAN</div><button class="scene-nav prev" type="button" aria-label="Điểm trước">←</button><button class="scene-nav next" type="button" aria-label="Điểm sau">→</button></div>
+  <div class="scene-copy"><span class="scene-number"></span><h2></h2><p class="scene-description"></p><button class="narrate" type="button"><span>▶</span> Nghe thuyết minh</button><div class="scene-gallery" aria-label="Các góc quan sát"><button data-crop="a" aria-label="Góc quan sát 1"></button><button data-crop="b" aria-label="Góc quan sát 2"></button><button data-crop="c" aria-label="Góc quan sát 3"></button></div><p class="scene-note">Hình ảnh được trích từ bản đồ tổng quan của Nghĩa trang Liệt sĩ Việt – Lào.</p></div>
+</dialog>
+{% endblock %}

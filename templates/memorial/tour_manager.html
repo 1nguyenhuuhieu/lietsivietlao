@@ -1,0 +1,39 @@
+{% extends 'memorial/base.html' %}{% load static %}
+{% block title %}Quản trị bản đồ trải nghiệm 360°{% endblock %}
+{% block extra_css %}<link rel="stylesheet" href="{% static 'tour-manager.css' %}?v=2">{% endblock %}
+{% block extra_js %}<script defer src="{% static 'tour-manager.js' %}?v=2"></script>{% endblock %}
+{% block content %}
+<main class="tour-manager">
+  <header class="manager-heading">
+    <div><span>QUẢN TRỊ NỘI DUNG</span><h1>Bản đồ trải nghiệm 360°</h1><p>Tải ảnh tổng quan và kéo các điểm đến đúng vị trí trên ảnh.</p></div>
+    <a href="{% url 'tour' %}" target="_blank">Xem trang công khai <b>↗</b></a>
+  </header>
+  {% if messages %}<div class="manager-messages">{% for message in messages %}<div class="{{ message.tags }}">{{ message }}</div>{% endfor %}</div>{% endif %}
+  <section class="manager-card upload-card">
+    <div class="card-title"><span>01</span><div><h2>Ảnh tổng quan</h2><p>JPG, PNG hoặc WebP · tối đa 15 MB. Ảnh luôn hiển thị đủ và giữ đúng tỷ lệ.</p></div></div>
+    <form method="post" enctype="multipart/form-data" id="overview-upload-form">{% csrf_token %}<input type="hidden" name="action" value="upload">
+      <label class="upload-zone" for="overview-image"><input id="overview-image" name="overview_image" type="file" accept="image/jpeg,image/png,image/webp" required><span class="upload-icon">↑</span><strong>Chọn ảnh tổng quan</strong><small>Kéo thả ảnh vào đây hoặc bấm để chọn</small><em id="upload-file-name"></em></label>
+      <div class="upload-preview" id="upload-preview"><img src="{% url 'tour_overview_image' %}?v={{ tour_configuration.updated_at|date:'U' }}" alt="Xem trước ảnh tổng quan"><span>Ảnh đang sử dụng / xem trước ảnh mới</span></div>
+      <button class="primary-button" type="submit" id="upload-submit" disabled><span>↑</span> Tải lên & thay ảnh</button>
+      <div class="upload-progress" id="upload-progress"><i></i><span>Đang xử lý ảnh…</span></div>
+    </form>
+  </section>
+  <section class="manager-card positions-card">
+    <div class="card-title"><span>02</span><div><h2>Đánh dấu vị trí</h2><p>Kéo từng điểm trên ảnh. Tọa độ dùng phần trăm nên sẽ chính xác trên mọi màn hình.</p></div></div>
+    <div class="manager-map" id="manager-map" style="background-image:url('{% url 'tour_overview_image' %}?v={{ tour_configuration.updated_at|date:'U' }}')">
+      {% for point in tour_points %}<button type="button" class="manager-point{% if not point.is_active %} is-inactive{% endif %}" data-slug="{{ point.slug }}" style="left:{{ point.x_percent|stringformat:'s' }}%;top:{{ point.y_percent|stringformat:'s' }}%"><i>{{ point.number }}</i><span>{{ point.title }}</span></button>{% endfor %}
+    </div>
+    <div class="position-footer"><p><i></i> Kéo các điểm tròn đến vị trí mong muốn</p><div><button type="button" class="secondary-button" id="positions-reset">Hoàn tác</button><button type="button" class="primary-button" id="positions-save">Lưu vị trí</button></div></div>
+    <form hidden id="positions-form" method="post">{% csrf_token %}<input name="action" value="positions"><input name="points" id="positions-data"></form>
+    <div class="save-status" id="save-status" role="status"></div>
+  </section>
+  <section class="manager-card points-card">
+    <div class="card-title"><span>03</span><div><h2>Danh sách điểm tham quan</h2><p>Thêm, chỉnh sửa, ẩn hoặc xóa các điểm hiển thị trên ảnh.</p></div><button class="primary-button add-point-button" type="button" id="add-point"><span>+</span> Thêm điểm</button></div>
+    <div class="point-list">
+      {% for point in tour_points %}<article class="point-row" data-id="{{ point.pk }}" data-number="{{ point.number }}" data-title="{{ point.title }}" data-description="{{ point.description }}" data-active="{{ point.is_active|yesno:'true,false' }}"><span class="point-number">{{ point.number }}</span><div class="point-copy"><strong>{{ point.title }}</strong><small>{{ point.description|default:'Chưa có mô tả'|truncatechars:100 }}</small></div><span class="point-state{% if not point.is_active %} is-off{% endif %}">{% if point.is_active %}Đang hiển thị{% else %}Đang ẩn{% endif %}</span><div class="point-actions"><button type="button" class="edit-point" aria-label="Sửa {{ point.title }}">✎</button><button type="button" class="delete-point" aria-label="Xóa {{ point.title }}">×</button></div></article>{% empty %}<p class="empty-points">Chưa có điểm tham quan nào.</p>{% endfor %}
+    </div>
+  </section>
+</main>
+<dialog class="point-dialog" id="point-dialog"><form class="dialog-shell" id="point-form"><button class="dialog-close" type="button" aria-label="Đóng">×</button><span class="dialog-kicker">THÔNG TIN ĐIỂM</span><h2 id="point-dialog-title">Thêm điểm tham quan</h2>{% csrf_token %}<input type="hidden" name="action" value="point_save"><input type="hidden" name="point_id" id="point-id"><div class="form-grid"><label><span>Số thứ tự</span><input type="number" name="number" id="point-number" min="1" max="99" required></label><label class="title-field"><span>Tên điểm</span><input type="text" name="title" id="point-title" maxlength="120" placeholder="Ví dụ: Nhà tưởng niệm" required></label><label class="description-field"><span>Mô tả / thuyết minh</span><textarea name="description" id="point-description" rows="5" placeholder="Nhập nội dung giới thiệu…"></textarea></label></div><label class="toggle-field"><input type="checkbox" name="is_active" id="point-active" checked><span class="toggle-track"><i></i></span><span><strong>Hiển thị trên trang công khai</strong><small>Có thể tạm ẩn điểm mà không cần xóa</small></span></label><div class="dialog-status" id="point-form-status"></div><div class="dialog-actions"><button class="secondary-button" type="button" id="point-cancel">Hủy</button><button class="primary-button" type="submit" id="point-submit">Lưu điểm</button></div></form></dialog>
+<dialog class="confirm-dialog" id="delete-dialog"><form><div class="confirm-icon">!</div><h2>Xóa điểm tham quan?</h2><p>Điểm <strong id="delete-point-name"></strong> sẽ bị xóa khỏi bản đồ. Thao tác này không thể hoàn tác.</p><div class="dialog-actions"><button class="secondary-button" type="button" id="delete-cancel">Để lại</button><button class="danger-button" type="button" id="delete-confirm">Xóa điểm</button></div></form></dialog>
+{% endblock %}
