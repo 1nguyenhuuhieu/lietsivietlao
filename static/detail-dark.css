@@ -56,6 +56,19 @@ body:has(.detail){background:#091510}body:has(.detail) main{position:relative;is
 @media(max-width:760px){.detail .memorial-profile{border-radius:12px 12px 0 0}.detail .memorial-profile .memorial-card{border-radius:11px 11px 0 0}.detail .tribute-section{margin-top:-1px}.memorial-family-cta{width:100%;margin-top:16px;justify-content:flex-start;padding:9px 11px 9px 9px}.memorial-family-cta strong{font-size:10px}.memorial-family-cta i{margin-left:auto}}
 @media(prefers-reduced-motion:reduce){.detail .memorial-card__glow{animation:none}.memorial-family-cta,.memorial-family-cta i{transition:none}}
 
+/* Compact paired actions in the memorial profile. */
+.memorial-actions{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:18px}
+.memorial-action{display:inline-flex;min-height:34px;align-items:center;gap:7px;padding:5px 11px 5px 6px;border:1px solid rgba(235,194,103,.42);border-radius:999px;background:rgba(6,24,16,.52);box-shadow:inset 0 1px rgba(255,255,255,.045),0 5px 16px rgba(0,0,0,.14);color:#f8efd8;text-decoration:none;transition:transform .2s ease,border-color .2s ease,background .2s ease,box-shadow .2s ease}
+.memorial-action span{display:grid;width:23px;height:23px;place-items:center;border-radius:50%;background:rgba(222,173,75,.92);color:#10251b;font-size:11px;line-height:1}
+.memorial-action strong{font-size:10px;font-weight:700;letter-spacing:.025em;white-space:nowrap}
+.memorial-action--candle{border-color:rgba(241,204,119,.58);background:linear-gradient(135deg,rgba(111,72,18,.42),rgba(11,35,24,.6))}
+.memorial-action--candle span{background:#efc76e;box-shadow:0 0 12px rgba(239,190,83,.28)}
+.memorial-action:hover{transform:translateY(-1px);border-color:#efca78;background:rgba(14,43,30,.82);box-shadow:inset 0 1px rgba(255,255,255,.06),0 7px 19px rgba(0,0,0,.2)}
+.memorial-action:focus-visible{outline:2px solid #f0ca76;outline-offset:3px}
+@media(max-width:760px){.memorial-actions{gap:6px;margin-top:14px}.memorial-action{min-height:32px;padding:4px 9px 4px 5px}.memorial-action span{width:22px;height:22px}.memorial-action strong{font-size:9px}}
+@media(max-width:380px){.memorial-actions{align-items:stretch}.memorial-action{flex:1;justify-content:center;padding-right:7px}.memorial-action strong{white-space:normal;line-height:1.2;text-align:center}}
+@media(prefers-reduced-motion:reduce){.memorial-action{transition:none}}
+
 /* v7 — identity and grave facts live in one uninterrupted hero. */
 .detail .memorial-profile .memorial-card{grid-template-rows:auto auto;padding-bottom:42px}
 .detail .memorial-profile .memorial-card__copy{min-width:0}
