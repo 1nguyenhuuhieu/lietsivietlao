@@ -3,6 +3,11 @@
 .family-connect h2{color:#fff8e8}.family-connect h2 em{color:#efbd5d}.family-connect__intro p{color:#b9c8bf}.family-connect__verified{color:#91d2ad}
 .family-connect__panel{border-color:rgba(225,190,119,.24);background:linear-gradient(145deg,#1d3229,#10221b)}
 .family-connect__panel summary{color:#f8f1e2}.family-connect__panel summary small{color:#dcad52}.family-connect__panel summary i{background:#c99841;color:#10241b}
+.family-connect__panel--open{overflow:visible}
+.family-connect__panel-heading{display:flex;align-items:center;padding:22px 24px 0;color:#f8f1e2}
+.family-connect__panel-heading span{display:grid;gap:4px}
+.family-connect__panel-heading small{color:#dcad52;font-size:10px;font-weight:800;letter-spacing:.13em}
+.family-connect__panel-heading b{font-family:var(--serif);font-size:20px}
 .family-form{border-color:rgba(224,199,145,.18)}.family-form label{color:#dbe4df}
 .family-form input:not([type=checkbox]),.family-form select,.family-form textarea{border-color:rgba(218,190,132,.28);background:rgba(5,16,12,.58);color:#fffdf6}
 .family-form input::placeholder,.family-form textarea::placeholder{color:#829188}.family-form select option{background:#10221b;color:#fff}
