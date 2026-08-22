@@ -95,6 +95,15 @@ body:has(.detail){background:#091510}body:has(.detail) main{position:relative;is
 @media(max-width:760px){.tribute-item{column-gap:5px}.tribute-item__mark.tribute-candle{margin-top:8px}}
 @media(max-width:340px){.tribute-item__mark.tribute-candle{margin:7px 0 -5px}}
 
+/* Keep the tribute flame comfortably clear of the metallic top edge. */
+.tribute-item,.tribute-item:nth-child(3n+2),.tribute-item:nth-child(3n){padding-top:18px}
+.tribute-item__mark.tribute-candle{margin:0 auto!important}
+.tribute-item__body{min-height:166px;padding-top:8px}
+@media(max-width:760px){
+  .tribute-item,.tribute-item:nth-child(3n+2),.tribute-item:nth-child(3n){padding-top:15px}
+  .tribute-item__body{padding-top:7px}
+}
+
 /* v7 — identity and grave facts live in one uninterrupted hero. */
 .detail .memorial-profile .memorial-card{grid-template-rows:auto auto;padding-bottom:42px}
 .detail .memorial-profile .memorial-card__copy{min-width:0}
