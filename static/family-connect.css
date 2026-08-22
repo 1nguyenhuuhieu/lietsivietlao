@@ -1,4 +1,4 @@
-.family-connect{border-color:rgba(218,176,91,.22);border-top-color:#c99841;background:radial-gradient(circle at 8% 10%,rgba(203,145,42,.08),transparent 25%),linear-gradient(145deg,#152a21,#0e211a);box-shadow:0 22px 58px rgba(0,0,0,.25)}
+.family-connect{padding:0;border:0;border-radius:0;background:none;box-shadow:none}
 .family-connect__mark{border-color:rgba(230,190,105,.55);background:#0a1d15;color:#e8bd62}
 .family-connect h2{color:#fff8e8}.family-connect h2 em{color:#efbd5d}.family-connect__intro p{color:#b9c8bf}.family-connect__verified{color:#91d2ad}
 .family-connect__panel{border-color:rgba(225,190,119,.24);background:linear-gradient(145deg,#1d3229,#10221b)}
