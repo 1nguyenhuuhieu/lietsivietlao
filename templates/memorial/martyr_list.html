@@ -4,6 +4,8 @@
 {% block robots %}{% if request.GET %}noindex,follow{% else %}index,follow,max-image-preview:large,max-snippet:-1{% endif %}{% endblock %}
 {% block og_title %}Danh sách liệt sĩ tại Nghĩa trang Việt – Lào{% endblock %}
 {% block og_description %}Tra cứu {{ total_display }} hồ sơ theo họ tên, quê quán và vị trí phần mộ tại Nghĩa trang Liệt sĩ Việt – Lào.{% endblock %}
+{% block twitter_title %}Danh sách {{ total_display }} liệt sĩ Việt – Lào{% endblock %}
+{% block twitter_description %}Tra cứu hồ sơ theo họ tên, quê quán, phân khu, hàng và số mộ tại Nghĩa trang Liệt sĩ Việt – Lào.{% endblock %}
 {% block structured_data %}<script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"Danh sách liệt sĩ tại Nghĩa trang Việt – Lào","url":"https://lietsivietlao.8tech.vn/danh-sach-liet-si/","numberOfItems":{{ total }},"isPartOf":{"@type":"WebSite","name":"Ký ức Việt – Lào","url":"https://lietsivietlao.8tech.vn/"}}</script>{% endblock %}
 {% block content %}
 <section class="list-hero"><div><span class="eyebrow">KÝ ỨC VIỆT – LÀO</span><h1>Danh sách liệt sĩ</h1><p>Tra cứu trong {{ total }} hồ sơ theo tên, quê quán hoặc vị trí phần mộ.</p></div></section>
