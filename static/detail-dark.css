@@ -27,3 +27,18 @@ body:has(.detail){background:#091510}body:has(.detail) main{position:relative;is
 .tribute-item--editorial,.tribute-item--editorial:nth-child(3n+1){background:linear-gradient(145deg,rgba(26,35,25,.82),rgba(9,22,17,.93)),url("images/tribute-textures/incense-stone.webp") 68% 42%/cover no-repeat}
 .tribute-item--editorial:nth-child(3n+2){background:linear-gradient(145deg,rgba(27,35,24,.84),rgba(9,22,17,.93)),url("images/tribute-textures/leaf-shadow-stone.webp") 42% 48%/cover no-repeat}
 .tribute-item--editorial:nth-child(3n){background:linear-gradient(145deg,rgba(27,34,23,.84),rgba(9,21,16,.93)),url("images/tribute-textures/memory-halo-stone.webp") 58% 50%/cover no-repeat}
+
+/* v5 — profile and tributes form one continuous memorial record. */
+.detail{display:flex;flex-direction:column}
+.detail-breadcrumb{order:0}
+.detail .memorial-profile{order:1}
+.detail .detail-notices{order:2}
+.detail .tribute-section{order:3}
+.detail .family-connect{order:4}
+.detail .source{order:5}
+.detail .memorial-profile{overflow:visible;border-radius:18px 18px 0 0;border-bottom:0}
+.detail .memorial-profile .facts{border-bottom:0;border-radius:0}
+.detail .tribute-section{margin:0 0 30px;padding:52px 42px 42px;border-top:1px solid rgba(218,176,91,.22);border-radius:0 0 18px 18px;box-shadow:0 28px 70px rgba(0,0,0,.3)}
+.detail .tribute-section:before{top:-1px;width:160px}
+.detail .tribute-heading{margin-top:0}
+@media(max-width:760px){.detail .memorial-profile{border-radius:12px 12px 0 0}.detail .memorial-profile .facts{border-radius:0}.detail .tribute-section{margin:0 0 24px;padding:38px 14px 24px;border-radius:0 0 12px 12px}.detail .tribute-section:before{width:104px}}
