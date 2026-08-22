@@ -14,3 +14,4 @@
 .family-form__file{border-color:rgba(218,190,132,.38);background:rgba(7,22,16,.42)}.family-form__file>span,.family-form footer p{color:#9fafa6}
 .family-form footer{border-color:rgba(224,199,145,.18)}.family-form footer button{background:linear-gradient(135deg,#d1a14b,#a97020);color:#10241b}.family-form footer button span{color:#10241b}
 .detail-notices .tribute-notice{border-color:rgba(130,192,153,.35);background:#163426;color:#d9eee1}
+.family-connect__panel,.family-connect__panel--open{overflow:visible;border:0;border-radius:0;background:none;box-shadow:none}.family-connect__panel-heading{padding:0 0 17px}.family-connect__panel .family-form{padding:0;border:0;background:none}@media(max-width:760px){.family-connect__panel-heading{padding:0 0 14px}.family-connect__panel .family-form{padding:0}}
