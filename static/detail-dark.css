@@ -18,8 +18,8 @@ body:has(.detail){background:#091510}body:has(.detail) main{position:relative;is
 .tribute-item footer{margin:0;padding-top:14px;border-top:1px solid rgba(224,199,145,.12);font-size:10px;letter-spacing:.025em}
 .tribute-item footer strong{color:#d4b873;font-weight:600}
 .tribute-form__header{grid-template-columns:1fr}
-.tribute-form-wrap--plain{border:0;background:none;box-shadow:none;padding:0}
-.tribute-form--plain{border:0;border-radius:0;background:none;box-shadow:none;padding:0}
+.tribute-form-wrap--plain{display:block;width:100%;border:0;background:none;box-shadow:none;padding:0}
+.tribute-form--plain{width:100%;max-width:none;border:0;border-radius:0;background:none;box-shadow:none;padding:0}
 
 /* v19 — one calm typographic system for all biographical facts. */
 .memorial-card__copy .memorial-lifetime small,
