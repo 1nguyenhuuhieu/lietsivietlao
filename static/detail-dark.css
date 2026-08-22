@@ -88,3 +88,32 @@ body:has(.detail){background:#091510}body:has(.detail) main{position:relative;is
 .detail .memorial-profile .memorial-card .facts .is-missing b{color:#8f9e95;font:italic 500 13px/1.3 "Noto Sans VN",sans-serif;letter-spacing:0}
 @media(max-width:760px){.detail .tribute-section:after{border-radius:0 0 13px 13px;padding:1px;filter:drop-shadow(0 0 4px rgba(255,201,91,.34))}.detail .memorial-profile .memorial-card .facts div{min-height:66px;padding:13px 12px;border-bottom:1px solid rgba(226,184,96,.14)}.detail .memorial-profile .memorial-card .facts div:nth-child(2n){border-right:0}.detail .memorial-profile .memorial-card .facts div:last-child{border-bottom:0}.detail .memorial-profile .memorial-card .facts div:before{left:12px;width:22px}.detail .memorial-profile .memorial-card .facts span{margin-bottom:6px;font-size:7.5px}.detail .memorial-profile .memorial-card .facts b{font-size:15px}.detail .memorial-profile .memorial-card .facts .is-missing b{font-size:11px}}
 @media(prefers-reduced-motion:reduce){.detail .tribute-section:after{animation:none;background-position:50% 50%}.detail .memorial-profile .memorial-card .facts div{transition:none}}
+
+/* v10 — continuous three-sided frame at the profile/tribute join. */
+.detail .memorial-profile:after,
+.detail .tribute-section:after{
+  inset:-1px;
+  padding:0;
+  -webkit-mask:none;
+  mask:none;
+  background-color:transparent;
+  background-repeat:no-repeat;
+  background-size:1.5px 100%,1.5px 100%,100% 1.5px;
+  filter:drop-shadow(0 0 5px rgba(255,201,91,.42));
+  animation:memorialFrameGlow 4.5s ease-in-out infinite alternate;
+}
+.detail .memorial-profile:after{
+  border-radius:19px 19px 0 0;
+  background-image:linear-gradient(180deg,#ffe29a 0%,#c68d2d 48%,#d9a94d 100%),linear-gradient(180deg,#ffe29a 0%,#c68d2d 48%,#d9a94d 100%),linear-gradient(90deg,#c68d2d 0%,#ffe29a 30%,#a86c1d 52%,#f5c86c 72%,#c68d2d 100%);
+  background-position:left top,right top,left top;
+}
+.detail .tribute-section:after{
+  top:-1px;
+  border-radius:0 0 19px 19px;
+  background-image:linear-gradient(180deg,#d9a94d 0%,#c68d2d 52%,#ffe29a 100%),linear-gradient(180deg,#d9a94d 0%,#c68d2d 52%,#ffe29a 100%),linear-gradient(90deg,#c68d2d 0%,#ffe29a 30%,#a86c1d 52%,#f5c86c 72%,#c68d2d 100%);
+  background-position:left top,right top,left bottom;
+}
+.detail .tribute-section{border-top:1px solid rgba(226,177,77,.34)}
+@keyframes memorialFrameGlow{from{filter:drop-shadow(0 0 4px rgba(255,201,91,.32))}to{filter:drop-shadow(0 0 7px rgba(255,214,130,.5))}}
+@media(max-width:760px){.detail .memorial-profile:after,.detail .tribute-section:after{background-size:1px 100%,1px 100%,100% 1px}.detail .memorial-profile:after{border-radius:13px 13px 0 0}.detail .tribute-section:after{border-radius:0 0 13px 13px}}
+@media(prefers-reduced-motion:reduce){.detail .memorial-profile:after,.detail .tribute-section:after{animation:none}}
