@@ -89,6 +89,12 @@ body:has(.detail){background:#091510}body:has(.detail) main{position:relative;is
 .memorial-lifetime strong.is-missing{color:#95a49b}
 @media(max-width:760px){.memorial-lifetime strong,.memorial-lifetime strong.is-missing{font-size:12px}}
 
+/* Fine-tune candle alignment inside tribute cards. */
+.tribute-item{column-gap:11px}
+.tribute-item__mark.tribute-candle{margin-top:5px}
+@media(max-width:760px){.tribute-item{column-gap:8px}.tribute-item__mark.tribute-candle{margin-top:4px}}
+@media(max-width:340px){.tribute-item__mark.tribute-candle{margin:4px 0 -3px}}
+
 /* v7 — identity and grave facts live in one uninterrupted hero. */
 .detail .memorial-profile .memorial-card{grid-template-rows:auto auto;padding-bottom:42px}
 .detail .memorial-profile .memorial-card__copy{min-width:0}
