@@ -243,3 +243,22 @@ body:has(.detail){background:#091510}body:has(.detail) main{position:relative;is
 @keyframes memorialUnifiedGlow{from{border-color:rgba(205,151,51,.64)}to{border-color:rgba(245,204,116,.86)}}
 @media(max-width:760px){.detail .memorial-profile{border-radius:12px 12px 0 0}.detail .memorial-profile .memorial-card{border-radius:11px 11px 0 0}.detail .tribute-section{border-radius:0 0 12px 12px}}
 @media(prefers-reduced-motion:reduce){.detail .memorial-profile,.detail .tribute-section{animation:none}}
+
+/* v23 — reclaim the unused sky area in the mobile memorial hero. */
+@media(max-width:760px){
+  .detail .memorial-profile .memorial-card{
+    min-height:0;
+    padding:94px 18px 22px;
+    background-position:69% center;
+  }
+  .detail .memorial-profile .detail-flag{
+    width:52px;
+    height:35px;
+  }
+  .detail .memorial-profile .memorial-card__copy{
+    padding-top:8px;
+  }
+}
+@media(max-width:380px){
+  .detail .memorial-profile .memorial-card{padding-top:82px}
+}
