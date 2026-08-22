@@ -84,6 +84,11 @@ body:has(.detail){background:#091510}body:has(.detail) main{position:relative;is
 .memorial-lifetime strong{font-size:14px}
 @media(max-width:760px){.memorial-lifetime{gap:4px;margin-top:10px;padding:0}.memorial-lifetime>span{grid-template-columns:92px minmax(0,1fr);gap:7px}.memorial-lifetime small{font-size:6.5px}.memorial-lifetime strong{font-size:12px}}
 
+/* One consistent typographic system for hometown and life dates. */
+.memorial-lifetime strong,.memorial-lifetime strong.is-missing{color:#f2dfb4;font:600 14px/1.35 "Noto Serif VN",serif;letter-spacing:.01em}
+.memorial-lifetime strong.is-missing{color:#95a49b}
+@media(max-width:760px){.memorial-lifetime strong,.memorial-lifetime strong.is-missing{font-size:12px}}
+
 /* v7 — identity and grave facts live in one uninterrupted hero. */
 .detail .memorial-profile .memorial-card{grid-template-rows:auto auto;padding-bottom:42px}
 .detail .memorial-profile .memorial-card__copy{min-width:0}
