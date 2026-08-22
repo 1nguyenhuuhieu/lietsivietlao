@@ -34,7 +34,6 @@
   </div>
   <div class="tribute-layout">
     <div class="tribute-list">
-      <div class="tribute-list__heading"><div><span>NHỮNG NGỌN NẾN ĐÃ ĐƯỢC THẮP</span><strong>Lời tri ân được lưu lại</strong></div><p>Thành kính tưởng nhớ · Đời đời ghi ơn</p></div>
       <div class="tribute-list__grid">
       {% for tribute in tributes %}<article class="tribute-item tribute-item--community"><div class="tribute-item__mark tribute-candle tribute-candle--card" aria-hidden="true"><i class="tribute-candle__glow"></i><i class="tribute-candle__flame"></i><i class="tribute-candle__wick"></i><i class="tribute-candle__body"></i></div><div class="tribute-item__body"><span class="tribute-type">NGỌN NẾN TRI ÂN CỘNG ĐỒNG</span><p>“{{ tribute.content }}”</p><footer><strong>{{ tribute.author_name }}</strong><time datetime="{{ tribute.created_at|date:'c' }}">{{ tribute.created_at|date:'d/m/Y' }}</time></footer></div></article>{% endfor %}
       {% for message in editorial_tributes %}<article class="tribute-item tribute-item--editorial"><div class="tribute-item__mark tribute-candle tribute-candle--card" aria-hidden="true"><i class="tribute-candle__glow"></i><i class="tribute-candle__flame"></i><i class="tribute-candle__wick"></i><i class="tribute-candle__body"></i></div><div class="tribute-item__body"><span class="tribute-type">NGỌN NẾN TRI ÂN TỪ KÝ ỨC VIỆT–LÀO</span><p>“{{ message }}”</p><footer><strong>Ký ức Việt–Lào</strong><span>Đời đời ghi nhớ</span></footer></div></article>{% endfor %}
