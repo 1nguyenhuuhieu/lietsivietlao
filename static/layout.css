@@ -990,3 +990,10 @@
   .hero .stats{margin-top:15px}
 }
 @media(max-width:380px){.hero{min-height:478px;padding-top:92px;padding-bottom:22px}}
+/* Compact homepage list CTA: a button, not a full-width navigation card. */
+.results--home .view-all-records{display:inline-flex;width:auto;min-height:44px;grid-template-columns:none;justify-content:center;gap:10px;margin:26px auto 0;padding:11px 15px 11px 18px;border:1px solid rgba(220,183,99,.72);border-radius:7px;background:#244e3a;color:#fff;text-align:center;box-shadow:0 8px 20px rgba(18,52,36,.15)}
+.results--home .view-all-records strong{font:700 13px/1.2 "Noto Sans VN",sans-serif}
+.results--home .view-all-records__arrow{display:inline; width:auto;height:auto;border:0;border-radius:0;color:#e8c878;font-size:16px;line-height:1}
+.results--home .view-all-records:hover{transform:translateY(-1px);border-color:#e0bc69;background:#1b432f;box-shadow:0 11px 24px rgba(18,52,36,.2)}
+.results--home .view-all-records:hover .view-all-records__arrow{transform:translateX(2px);background:transparent;color:#f1d58e}
+@media(max-width:760px){.results--home .view-all-records{display:inline-flex;min-height:42px;margin-top:20px;padding:10px 14px 10px 16px;gap:9px}.results--home .view-all-records strong{font-size:12px}.results--home .view-all-records__arrow{width:auto;height:auto;font-size:15px}}
