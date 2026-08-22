@@ -20,6 +20,34 @@ body:has(.detail){background:#091510}body:has(.detail) main{position:relative;is
 .tribute-form__header{grid-template-columns:1fr}
 .tribute-form-wrap--plain{border:0;background:none;box-shadow:none;padding:0}
 .tribute-form--plain{border:0;border-radius:0;background:none;box-shadow:none;padding:0}
+
+/* v19 — one calm typographic system for all biographical facts. */
+.memorial-card__copy .memorial-lifetime small,
+.memorial-card__copy .memorial-lifetime strong,
+.memorial-card__copy .memorial-lifetime strong.is-missing,
+.memorial-card__copy .memorial-grave-meta,
+.memorial-card__copy .memorial-grave-meta b{
+  color:#e8d5aa;
+  font-family:"Noto Sans VN",sans-serif;
+  font-size:12px;
+  font-style:normal;
+  line-height:1.4;
+  letter-spacing:.01em;
+  text-transform:none;
+}
+.memorial-card__copy .memorial-lifetime small,
+.memorial-card__copy .memorial-grave-meta{font-weight:500}
+.memorial-card__copy .memorial-lifetime strong,
+.memorial-card__copy .memorial-lifetime strong.is-missing,
+.memorial-card__copy .memorial-grave-meta b{font-weight:700}
+.memorial-card__copy .memorial-lifetime>span{align-items:baseline}
+@media(max-width:760px){
+  .memorial-card__copy .memorial-lifetime small,
+  .memorial-card__copy .memorial-lifetime strong,
+  .memorial-card__copy .memorial-lifetime strong.is-missing,
+  .memorial-card__copy .memorial-grave-meta,
+  .memorial-card__copy .memorial-grave-meta b{font-size:11px}
+}
 @media(max-width:760px){.tribute-item,.tribute-item:nth-child(3n+2),.tribute-item:nth-child(3n){min-height:0}.tribute-item__body{min-height:0;padding:20px 19px 18px 22px}.tribute-item:before,.tribute-item--editorial:before{left:0;top:18px;bottom:18px}.tribute-item:after{right:15px;top:16px;width:18px;height:18px}.tribute-item__body:before{right:17px;top:34px}.tribute-item p{margin:16px 0;font-size:14.5px}}
 
 /* v4 — restrained generated memorial textures, rotated without breaking cohesion. */
