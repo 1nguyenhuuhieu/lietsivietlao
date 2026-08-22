@@ -24,11 +24,19 @@ body:has(.detail){background:#091510}body:has(.detail) main{position:relative;is
 /* v19 — one calm typographic system for all biographical facts. */
 .memorial-card__copy .memorial-lifetime small,
 .memorial-card__copy .memorial-lifetime strong,
-.memorial-card__copy .memorial-lifetime strong.is-missing,
+.memorial-card__copy .memorial-lifetime strong.is-missing{
+  color:#e8d5aa;
+  font-family:"Noto Serif VN",serif;
+  font-size:15px;
+  font-style:normal;
+  line-height:1.4;
+  letter-spacing:.01em;
+  text-transform:none;
+}
 .memorial-card__copy .memorial-grave-meta,
 .memorial-card__copy .memorial-grave-meta b{
   color:#e8d5aa;
-  font-family:"Noto Sans VN",sans-serif;
+  font-family:"Noto Serif VN",serif;
   font-size:12px;
   font-style:normal;
   line-height:1.4;
@@ -44,7 +52,7 @@ body:has(.detail){background:#091510}body:has(.detail) main{position:relative;is
 @media(max-width:760px){
   .memorial-card__copy .memorial-lifetime small,
   .memorial-card__copy .memorial-lifetime strong,
-  .memorial-card__copy .memorial-lifetime strong.is-missing,
+  .memorial-card__copy .memorial-lifetime strong.is-missing{font-size:13px}
   .memorial-card__copy .memorial-grave-meta,
   .memorial-card__copy .memorial-grave-meta b{font-size:11px}
 }
