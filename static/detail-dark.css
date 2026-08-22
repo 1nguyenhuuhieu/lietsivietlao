@@ -156,3 +156,13 @@ body:has(.detail){background:#091510}body:has(.detail) main{position:relative;is
 @keyframes memorialFrameGlow{from{filter:drop-shadow(0 0 4px rgba(255,201,91,.32))}to{filter:drop-shadow(0 0 7px rgba(255,214,130,.5))}}
 @media(max-width:760px){.detail .memorial-profile:after,.detail .tribute-section:after{background-size:1px 100%,1px 100%,100% 1px}.detail .memorial-profile:after{border-radius:13px 13px 0 0}.detail .tribute-section:after{border-radius:0 0 13px 13px}}
 @media(prefers-reduced-motion:reduce){.detail .memorial-profile:after,.detail .tribute-section:after{animation:none}}
+
+/* v16 — one clean physical frame; removes layered pseudo borders at corners. */
+.detail .memorial-profile,.detail .tribute-section{border-color:rgba(222,176,81,.72);filter:none;animation:memorialUnifiedGlow 4.8s ease-in-out infinite alternate}
+.detail .memorial-profile{border-width:1px;border-style:solid;border-bottom:0;border-radius:18px 18px 0 0;box-shadow:0 -2px 18px rgba(229,181,76,.1),0 24px 70px rgba(0,0,0,.28)}
+.detail .memorial-profile .memorial-card{border:0!important;border-radius:17px 17px 0 0;box-shadow:none}
+.detail .tribute-section{margin-top:0;border-width:1px;border-style:solid;border-top-color:rgba(222,176,81,.38);border-radius:0 0 18px 18px;box-shadow:0 3px 18px rgba(229,181,76,.08),0 28px 70px rgba(0,0,0,.3)}
+.detail .memorial-profile:after,.detail .tribute-section:after{display:none}
+@keyframes memorialUnifiedGlow{from{border-color:rgba(205,151,51,.64)}to{border-color:rgba(245,204,116,.86)}}
+@media(max-width:760px){.detail .memorial-profile{border-radius:12px 12px 0 0}.detail .memorial-profile .memorial-card{border-radius:11px 11px 0 0}.detail .tribute-section{border-radius:0 0 12px 12px}}
+@media(prefers-reduced-motion:reduce){.detail .memorial-profile,.detail .tribute-section{animation:none}}
