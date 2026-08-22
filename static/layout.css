@@ -997,3 +997,10 @@
 .results--home .view-all-records:hover{transform:translateY(-1px);border-color:#e0bc69;background:#1b432f;box-shadow:0 11px 24px rgba(18,52,36,.2)}
 .results--home .view-all-records:hover .view-all-records__arrow{transform:translateX(2px);background:transparent;color:#f1d58e}
 @media(max-width:760px){.results--home .view-all-records{display:inline-flex;min-height:42px;margin-top:20px;padding:10px 14px 10px 16px;gap:9px}.results--home .view-all-records strong{font-size:12px}.results--home .view-all-records__arrow{width:auto;height:auto;font-size:15px}}
+/* Refined memorial brand lockup in the top bar. */
+.site-header .brand-copy{display:flex;min-width:0;flex-direction:column;gap:2px;line-height:1}
+.site-header .brand-copy strong{color:#173c2b;font:700 17px/1.05 "Noto Serif VN",serif;letter-spacing:-.015em;white-space:nowrap}
+.site-header .brand-copy strong em{color:#9b691f;font-style:normal;font-weight:700}
+.site-header .brand-copy small{color:#66756d;font:700 7px/1.2 "Noto Sans VN",sans-serif;letter-spacing:.19em;white-space:nowrap}
+@media(max-width:760px){.site-header .brand-copy{gap:1px}.site-header .brand-copy strong{font-size:15px}.site-header .brand-copy small{font-size:6px;letter-spacing:.14em}}
+@media(max-width:370px){.site-header .brand-copy strong{font-size:14px}.site-header .brand-copy small{display:none}}
