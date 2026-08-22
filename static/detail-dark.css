@@ -42,3 +42,16 @@ body:has(.detail){background:#091510}body:has(.detail) main{position:relative;is
 .detail .tribute-section:before{top:-1px;width:160px}
 .detail .tribute-heading{margin-top:0}
 @media(max-width:760px){.detail .memorial-profile{border-radius:12px 12px 0 0}.detail .memorial-profile .facts{border-radius:0}.detail .tribute-section{margin:0 0 24px;padding:38px 14px 24px;border-radius:0 0 12px 12px}.detail .tribute-section:before{width:104px}}
+
+/* v6 — unified edges, family CTA and restrained living texture. */
+.detail .memorial-profile{isolation:isolate;border:1px solid rgba(218,176,91,.28);border-bottom:0;box-shadow:0 0 0 1px rgba(255,221,147,.025),0 24px 72px rgba(0,0,0,.32)}
+.detail .memorial-profile:before{content:"";position:absolute;z-index:-2;inset:-26px;border-radius:32px;background:radial-gradient(ellipse at 38% 22%,rgba(89,167,118,.14),transparent 57%),radial-gradient(ellipse at 78% 74%,rgba(218,164,73,.09),transparent 48%);filter:blur(18px);pointer-events:none}
+.detail .memorial-profile .memorial-card{border-radius:17px 17px 0 0}
+.detail .memorial-profile .facts{border-right:0;border-left:0}
+.detail .tribute-section{margin-top:-1px;border-color:rgba(218,176,91,.28);box-shadow:0 26px 72px rgba(0,0,0,.3),0 0 34px rgba(82,145,104,.055)}
+.detail .memorial-card__glow{display:block;position:absolute;z-index:-1;inset:-18%;width:auto;height:auto;border-radius:0;opacity:.18;background:radial-gradient(circle at 70% 48%,rgba(236,190,92,.35),transparent 34%),url("images/granite-fine.svg") center/430px 430px;mix-blend-mode:soft-light;animation:memorialTextureDrift 18s ease-in-out infinite alternate;pointer-events:none}
+.memorial-family-cta{display:inline-flex;width:max-content;max-width:100%;align-items:center;gap:10px;margin-top:21px;padding:10px 12px 10px 10px;border:1px solid rgba(240,200,112,.54);border-radius:999px;background:rgba(7,25,17,.68);box-shadow:0 8px 24px rgba(0,0,0,.2),inset 0 1px rgba(255,255,255,.06);color:#fff5dc;text-decoration:none;transition:transform .2s ease,border-color .2s ease,background .2s ease}
+.memorial-family-cta span{display:grid;width:28px;height:28px;place-items:center;border-radius:50%;background:#d4a344;color:#10241b;font-size:14px}.memorial-family-cta strong{font-size:11px;letter-spacing:.025em}.memorial-family-cta i{color:#efc86e;font-style:normal;transition:transform .2s ease}.memorial-family-cta:hover{transform:translateY(-2px);border-color:#f0c86e;background:rgba(13,42,29,.88)}.memorial-family-cta:hover i{transform:translateX(3px)}
+@keyframes memorialTextureDrift{0%{transform:translate3d(-1.5%,-1%,0) scale(1.02)}100%{transform:translate3d(1.5%,1%,0) scale(1.06)}}
+@media(max-width:760px){.detail .memorial-profile{border-radius:12px 12px 0 0}.detail .memorial-profile .memorial-card{border-radius:11px 11px 0 0}.detail .tribute-section{margin-top:-1px}.memorial-family-cta{width:100%;margin-top:16px;justify-content:flex-start;padding:9px 11px 9px 9px}.memorial-family-cta strong{font-size:10px}.memorial-family-cta i{margin-left:auto}}
+@media(prefers-reduced-motion:reduce){.detail .memorial-card__glow{animation:none}.memorial-family-cta,.memorial-family-cta i{transition:none}}
