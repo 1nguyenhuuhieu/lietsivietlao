@@ -10,7 +10,7 @@
 {% if messages %}<div class="home-admin-messages" role="status">{% for message in messages %}<p class="home-admin-message home-admin-message--{{ message.tags }}">{{ message }}</p>{% endfor %}</div>{% endif %}
 <section class="hero" style="--home-hero-image:url('{{ home_images.hero }}')"><div class="hero__inner"><h1>Nghĩa trang Liệt sĩ<br><em>Việt – Lào</em></h1>
 <form class="search search--home" method="get" action="{% url 'martyr_list' %}"><div class="search-main"><div class="search-input-wrap"><input id="martyr-search" name="q" value="{{ query }}" placeholder="Nhập họ tên liệt sĩ, quê quán hoặc số mộ…" autocomplete="off" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="search-suggestions"><div id="search-suggestions" class="suggestions" role="listbox" hidden></div></div><button>Tìm kiếm</button></div></form>
-<div class="stats"><b>{{ total }}</b><span>hồ sơ đang được lưu trữ và đối chiếu nguồn</span></div></div>{% include 'memorial/_image_admin_control.html' with image_key='hero' control_label='Thay ảnh nền' control_class='home-image-admin--hero' %}</section>
+<div class="stats"><b>{{ total }}+</b><span>hồ sơ đang được lưu trữ</span></div></div>{% include 'memorial/_image_admin_control.html' with image_key='hero' control_label='Thay ảnh nền' control_class='home-image-admin--hero' %}</section>
 <section class="results results--home"><div class="section-title"><div><h2>Danh sách liệt sĩ</h2></div><p>{{ total }} hồ sơ</p></div>
 {% include 'memorial/_martyr_cards.html' with martyrs=featured_martyrs home_preview=True %}
 <a class="view-all-records" href="{% url 'martyr_list' %}"><strong>Xem danh sách liệt sĩ</strong><span class="view-all-records__arrow" aria-hidden="true">→</span></a></section>
