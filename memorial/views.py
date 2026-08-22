@@ -16,7 +16,7 @@ from django.contrib.auth.decorators import user_passes_test
 from django.contrib.admin.views.decorators import staff_member_required
 from django.core import signing
 from django.core.paginator import Paginator
-from django.db.models import Case, IntegerField, Q, Value, When
+from django.db.models import Case, Count, IntegerField, Q, Value, When
 from django.http import FileResponse, HttpResponse, JsonResponse
 from django.shortcuts import get_object_or_404, redirect, render
 from django.views.decorators.http import require_POST, require_http_methods
@@ -299,9 +299,11 @@ def detail(request, source_id):
     })
 
 def tour(request):
+    zone_counts = {item["zone"]: item["count"] for item in Martyr.objects.exclude(zone="").values("zone").annotate(count=Count("id")).order_by("zone")}
     return render(request, "memorial/tour.html", {
         "tour_configuration": TourConfiguration.load(),
         "tour_points": TourPoint.objects.filter(is_active=True),
+        "zone_counts": zone_counts,
     })
 
 
