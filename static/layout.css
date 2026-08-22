@@ -949,7 +949,7 @@
   .hero .search--home .search-input-wrap,
   .hero .search--home .search-input-wrap>input,
   .hero .search--home button{min-height:48px}
-  .hero .search--home input{padding:11px 10px;font-size:12px}
+  .hero .search--home input{padding:11px 10px;font-size:16px}
   .hero .search--home button{padding:0 8px;border-radius:6px;font-size:11px;white-space:nowrap}
   .hero .stats{gap:9px;margin-top:20px;padding-left:2px}
   .hero .stats b{font-size:25px}
@@ -958,7 +958,7 @@
 
 @media(max-width:370px){
   .hero .search--home .search-main{grid-template-columns:minmax(0,1fr) 76px}
-  .hero .search--home input{font-size:11px}
+  .hero .search--home input{font-size:16px}
   .hero .search--home button{font-size:10px}
 }
 
