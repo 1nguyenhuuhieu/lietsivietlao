@@ -1001,6 +1001,3 @@
 .site-header .brand-copy{display:flex;min-width:0;flex-direction:column;gap:2px;line-height:1}
 .site-header .brand-copy strong{color:#173c2b;font:700 17px/1.05 "Noto Serif VN",serif;letter-spacing:-.015em;white-space:nowrap}
 .site-header .brand-copy strong em{color:#9b691f;font-style:normal;font-weight:700}
-.site-header .brand-copy small{color:#66756d;font:700 7px/1.2 "Noto Sans VN",sans-serif;letter-spacing:.19em;white-space:nowrap}
-@media(max-width:760px){.site-header .brand-copy{gap:1px}.site-header .brand-copy strong{font-size:15px}.site-header .brand-copy small{font-size:6px;letter-spacing:.14em}}
-@media(max-width:370px){.site-header .brand-copy strong{font-size:14px}.site-header .brand-copy small{display:none}}
