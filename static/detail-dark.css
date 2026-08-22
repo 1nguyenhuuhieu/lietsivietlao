@@ -76,6 +76,14 @@ body:has(.detail){background:#091510}body:has(.detail) main{position:relative;is
 .memorial-lifetime+.memorial-grave-meta+.memorial-card__verse{margin-top:12px}
 @media(max-width:760px){.memorial-lifetime{gap:10px;margin-top:10px;padding:7px 9px}.memorial-lifetime small{font-size:6.5px}.memorial-lifetime strong{font-size:12px}.memorial-lifetime strong.is-missing{font-size:9px}.memorial-grave-meta{gap:5px;margin-top:7px;font-size:7.5px}.memorial-grave-meta b{font-size:8.5px}}
 
+/* Life dates as two open text rows, without an enclosing card. */
+.memorial-lifetime{display:grid;width:max-content;max-width:100%;gap:5px;margin-top:13px;padding:0;border:0;border-radius:0;background:none;box-shadow:none}
+.memorial-lifetime>span{display:grid;grid-template-columns:112px minmax(0,1fr);align-items:baseline;gap:10px}
+.memorial-lifetime>i{display:none}
+.memorial-lifetime small{color:#9eaea5;font-size:8px;letter-spacing:.105em}
+.memorial-lifetime strong{font-size:14px}
+@media(max-width:760px){.memorial-lifetime{gap:4px;margin-top:10px;padding:0}.memorial-lifetime>span{grid-template-columns:92px minmax(0,1fr);gap:7px}.memorial-lifetime small{font-size:6.5px}.memorial-lifetime strong{font-size:12px}}
+
 /* v7 — identity and grave facts live in one uninterrupted hero. */
 .detail .memorial-profile .memorial-card{grid-template-rows:auto auto;padding-bottom:42px}
 .detail .memorial-profile .memorial-card__copy{min-width:0}
