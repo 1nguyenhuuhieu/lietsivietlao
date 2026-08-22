@@ -73,3 +73,18 @@ body:has(.detail){background:#091510}body:has(.detail) main{position:relative;is
 @keyframes memorialGoldSweep{0%{background-position:0 50%;filter:drop-shadow(0 0 4px rgba(255,201,91,.3))}100%{background-position:100% 50%;filter:drop-shadow(0 0 8px rgba(255,214,130,.52))}}
 @media(max-width:760px){.detail .memorial-profile:after{border-radius:13px 13px 0 0;padding:1px;filter:drop-shadow(0 0 4px rgba(255,201,91,.34))}}
 @media(prefers-reduced-motion:reduce){.detail .memorial-profile:after{animation:none;background-position:50% 50%}}
+
+/* v9 — one metallic frame and a quieter engraved facts panel. */
+.detail .tribute-section{border-color:transparent}
+.detail .tribute-section:after{content:"";position:absolute;z-index:8;inset:-1px;pointer-events:none;border-radius:0 0 19px 19px;padding:1.5px;background:linear-gradient(105deg,#704816 0%,#c68d2d 15%,#ffe29a 31%,#a86c1d 47%,#f5c86c 63%,#7c4d17 79%,#e5b453 100%);background-size:260% 100%;-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;filter:drop-shadow(0 0 5px rgba(255,201,91,.42));animation:memorialGoldSweep 9s ease-in-out infinite alternate}
+.detail .memorial-profile .memorial-card .facts{gap:0;border-color:rgba(231,190,104,.3);background:linear-gradient(110deg,rgba(4,20,14,.78),rgba(14,43,30,.72) 55%,rgba(7,28,19,.8));box-shadow:inset 0 1px rgba(255,244,210,.055),inset 0 -18px 45px rgba(0,0,0,.12),0 14px 35px rgba(0,0,0,.16)}
+.detail .memorial-profile .memorial-card .facts div{position:relative;display:flex;min-width:0;min-height:82px;padding:18px 19px 17px;flex-direction:column;justify-content:center;border-right:1px solid rgba(226,184,96,.16);transition:background .22s ease}
+.detail .memorial-profile .memorial-card .facts div:last-child{border-right:0}
+.detail .memorial-profile .memorial-card .facts div:before{content:"";position:absolute;left:19px;top:0;width:28px;height:1px;background:linear-gradient(90deg,#e9bc62,transparent);box-shadow:0 0 7px rgba(235,184,82,.36)}
+.detail .memorial-profile .memorial-card .facts div:hover{background:rgba(241,198,107,.035)}
+.detail .memorial-profile .memorial-card .facts span{display:flex;align-items:center;gap:7px;margin:0 0 8px;color:#9eaea5;font-size:8.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+.detail .memorial-profile .memorial-card .facts span:before{content:"";width:4px;height:4px;border-radius:50%;background:#d9a94d;box-shadow:0 0 7px rgba(232,181,77,.48)}
+.detail .memorial-profile .memorial-card .facts b{color:#fff7e7;font:600 18px/1.25 "Noto Serif VN",serif;letter-spacing:.01em}
+.detail .memorial-profile .memorial-card .facts .is-missing b{color:#8f9e95;font:italic 500 13px/1.3 "Noto Sans VN",sans-serif;letter-spacing:0}
+@media(max-width:760px){.detail .tribute-section:after{border-radius:0 0 13px 13px;padding:1px;filter:drop-shadow(0 0 4px rgba(255,201,91,.34))}.detail .memorial-profile .memorial-card .facts div{min-height:66px;padding:13px 12px;border-bottom:1px solid rgba(226,184,96,.14)}.detail .memorial-profile .memorial-card .facts div:nth-child(2n){border-right:0}.detail .memorial-profile .memorial-card .facts div:last-child{border-bottom:0}.detail .memorial-profile .memorial-card .facts div:before{left:12px;width:22px}.detail .memorial-profile .memorial-card .facts span{margin-bottom:6px;font-size:7.5px}.detail .memorial-profile .memorial-card .facts b{font-size:15px}.detail .memorial-profile .memorial-card .facts .is-missing b{font-size:11px}}
+@media(prefers-reduced-motion:reduce){.detail .tribute-section:after{animation:none;background-position:50% 50%}.detail .memorial-profile .memorial-card .facts div{transition:none}}
