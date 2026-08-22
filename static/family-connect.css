@@ -1,4 +1,4 @@
-.family-connect{padding:0;border:0;border-radius:0;background:none;box-shadow:none}
+.family-connect{border-color:rgba(218,176,91,.22);border-top-color:#c99841;background:radial-gradient(circle at 8% 10%,rgba(203,145,42,.08),transparent 25%),linear-gradient(145deg,#152a21,#0e211a);box-shadow:0 22px 58px rgba(0,0,0,.25)}
 .family-connect__mark{border-color:rgba(230,190,105,.55);background:#0a1d15;color:#e8bd62}
 .family-connect h2{color:#fff8e8}.family-connect h2 em{color:#efbd5d}.family-connect__intro p{color:#b9c8bf}.family-connect__verified{color:#91d2ad}
 .family-connect__panel{border-color:rgba(225,190,119,.24);background:linear-gradient(145deg,#1d3229,#10221b)}
@@ -14,4 +14,4 @@
 .family-form__file{border-color:rgba(218,190,132,.38);background:rgba(7,22,16,.42)}.family-form__file>span,.family-form footer p{color:#9fafa6}
 .family-form footer{border-color:rgba(224,199,145,.18)}.family-form footer button{background:linear-gradient(135deg,#d1a14b,#a97020);color:#10241b}.family-form footer button span{color:#10241b}
 .detail-notices .tribute-notice{border-color:rgba(130,192,153,.35);background:#163426;color:#d9eee1}
-.family-connect__panel,.family-connect__panel--open{overflow:visible;border:0;border-radius:0;background:none;box-shadow:none}.family-connect__panel-heading{padding:0 0 17px}.family-connect__panel .family-form{padding:0;border:0;background:none}@media(max-width:760px){.family-connect__panel-heading{padding:0 0 14px}.family-connect__panel .family-form{padding:0}}
+@media(max-width:760px){.family-connect{padding:0;border:0;border-radius:0;background:none;box-shadow:none}.family-connect__panel,.family-connect__panel--open{overflow:visible;border:0;border-radius:0;background:none;box-shadow:none}.family-connect__panel-heading{padding:0 0 14px}.family-connect__panel .family-form{padding:0;border:0;background:none}}
