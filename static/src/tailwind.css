@@ -1,0 +1,8 @@
+@layer theme, components, utilities;
+
+/* Keep the existing site reset intact while Tailwind is introduced gradually. */
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/utilities.css" layer(utilities);
+
+@source "../../templates/**/*.html";
+@source "../**/*.js";

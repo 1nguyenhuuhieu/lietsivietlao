@@ -21,6 +21,17 @@ python manage.py crawl_graves --end-page 2
 python manage.py runserver
 ```
 
+### CSS giao diện
+
+TailwindCSS được cài bằng npm và biên dịch thành static asset, không dùng CDN:
+
+```bash
+npm ci
+npm run build:css
+```
+
+Chạy `npm run watch:css` khi phát triển giao diện. File `static/tailwind.css` đã build được commit để production chỉ cần chạy Django `collectstatic`, không cần Node.js hoạt động trên máy chủ.
+
 ## Triển khai
 
 Các mẫu cấu hình tách biệt cho systemd và nginx nằm trong `deploy/`. Ứng dụng chỉ lắng nghe ở `127.0.0.1:8240`; nginx là cổng truy cập công khai.

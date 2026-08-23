@@ -5,7 +5,7 @@
 
   const motionGroups = [
     ['.hero .eyebrow, .hero h1, .hero__inner>p, .hero .search, .hero .stats', 'up'],
-    ['.results--home .section-title, .view-all-records, .digital-tour-card', 'up'],
+    ['.results--home .section-title, .home-list-cta, .digital-tour-card', 'up'],
     ['.cards--home-preview .card', 'scale'],
     ['.memory-journey__intro', 'left'],
     ['.memory-journey li', 'right'],
@@ -73,7 +73,7 @@
   }, { passive: true });
   updateScrollEffects();
 
-  document.querySelectorAll('.view-all-records').forEach((element) => {
+  document.querySelectorAll('.home-list-cta').forEach((element) => {
     element.addEventListener('pointermove', (event) => {
       const rect = element.getBoundingClientRect();
       element.style.setProperty('--mx', `${event.clientX - rect.left}px`);

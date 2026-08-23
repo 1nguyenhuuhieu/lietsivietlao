@@ -23,9 +23,9 @@ body.home-motion .results--home .section-title{position:relative}
 body.home-motion .results--home .section-title:after{content:"";position:absolute;bottom:-1px;left:0;width:76px;height:2px;background:linear-gradient(90deg,#8d5b18,#d5ae60)}
 body.home-motion .cards--home-preview .card{transition:transform .28s cubic-bezier(.2,.75,.25,1),box-shadow .28s ease,filter .28s ease}
 body.home-motion .cards--home-preview .card:hover{transform:translateY(-7px);filter:saturate(1.04);box-shadow:inset 0 0 0 2px rgba(238,239,235,.72),inset 9px 6px 17px rgba(255,255,255,.34),inset -10px -7px 18px rgba(45,47,44,.28),0 4px 0 #6f716d,0 24px 42px rgba(36,37,34,.28)}
-body.home-motion .view-all-records,body.home-motion .digital-tour-card{--mx:50%;--my:50%}
-body.home-motion .view-all-records:before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:radial-gradient(circle at var(--mx) var(--my),rgba(210,170,86,.14),transparent 34%);opacity:0;transition:opacity .3s ease}
-body.home-motion .view-all-records:hover:before{opacity:1}
+body.home-motion .home-list-cta,body.home-motion .digital-tour-card{--mx:50%;--my:50%}
+body.home-motion .home-list-cta:before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:radial-gradient(circle at var(--mx) var(--my),rgba(210,170,86,.14),transparent 34%);opacity:0;transition:opacity .3s ease}
+body.home-motion .home-list-cta:hover:before{opacity:1}
 body.home-motion .digital-tour-card{transition:transform .32s cubic-bezier(.2,.75,.25,1),box-shadow .32s ease}
 body.home-motion .digital-tour-card:hover{transform:translateY(-6px);box-shadow:0 32px 70px rgba(13,42,28,.28),inset 0 -3px #c9973e}
 
