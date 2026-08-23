@@ -94,3 +94,34 @@
 .about-page--embedded .about-dropcap cite:after{transform:scaleX(-1)}
 @media(max-width:760px){.memory-journey:has(+.about-page--embedded){margin-bottom:42px}.about-page--embedded .about-lead{padding-top:0;padding-bottom:58px}.about-page--embedded .about-history,.about-page--embedded .about-homecoming,.about-page--embedded .about-stele{padding-top:58px;padding-bottom:58px}}
 @media(max-width:760px){.about-page--embedded .about-lead{gap:38px}.about-page--embedded .about-dropcap{padding:42px 14px 36px;line-height:1.45}.about-page--embedded .about-dropcap small{margin-bottom:17px;font-size:8px}.about-page--embedded .about-dropcap span{font-size:clamp(21px,6.4vw,27px)}.about-page--embedded .about-dropcap strong{font-size:clamp(26px,7.8vw,34px)}.about-page--embedded .about-dropcap cite{margin-top:20px;font-size:9px;letter-spacing:.08em}}
+
+/* Full Vietnamese stele transcription, presented as a ceremonial stone panel. */
+.about-page--embedded .about-stele{grid-template-columns:1fr;gap:48px}
+.about-page--embedded .about-stele__intro{width:min(820px,100%);margin:0 auto;text-align:center}
+.about-page--embedded .about-stele__intro blockquote{margin-inline:auto}
+.stele-transcription{position:relative;isolation:isolate;overflow:hidden;width:min(980px,100%);margin:0 auto;padding:68px clamp(42px,7vw,86px) 54px;border:1px solid #b99554;border-radius:4px;background:linear-gradient(145deg,rgba(21,48,35,.985),rgba(9,31,21,.99));color:#f5ecd7;box-shadow:inset 0 0 0 7px rgba(211,174,99,.09),inset 0 0 0 8px rgba(230,204,148,.19),0 30px 70px rgba(20,39,29,.22)}
+.stele-transcription:before{content:"";position:absolute;z-index:-2;inset:0;background-image:var(--stele-bg);background-position:center;background-size:cover;opacity:.1;filter:grayscale(1) contrast(1.15)}
+.stele-transcription:after{content:"";position:absolute;z-index:-1;inset:18px;border:1px solid rgba(222,188,117,.28);pointer-events:none}
+.stele-transcription header{text-align:center}
+.stele-transcription header>span{display:block;color:#d9b86f;font-size:11px;font-weight:800;letter-spacing:.34em}
+.stele-transcription h3{max-width:700px;margin:13px auto 16px;color:#fff8e8;font:700 clamp(28px,4.2vw,46px)/1.14 "Noto Serif VN",serif;letter-spacing:.025em;text-wrap:balance}
+.stele-transcription header>i{display:flex;align-items:center;justify-content:center;gap:18px;color:#d5ae5e;font:14px/1 "Noto Serif VN",serif}
+.stele-transcription header>i:before,.stele-transcription header>i:after{content:"";width:72px;height:1px;background:linear-gradient(90deg,transparent,#c9a45a)}
+.stele-transcription header>i:after{transform:scaleX(-1)}
+.stele-transcription__body{margin-top:42px;columns:2 340px;column-gap:58px;column-rule:1px solid rgba(219,187,119,.18)}
+.stele-transcription__body p{break-inside:avoid;margin:0 0 20px;color:#eee5d2;font:400 15px/1.9 "Noto Serif VN",serif;text-align:justify;text-wrap:pretty}
+.stele-transcription__body p:first-child:first-letter{float:left;margin:7px 8px 0 0;color:#ddb969;font:700 48px/.72 "Noto Serif VN",serif}
+.stele-transcription__body .stele-transcription__verse{padding:18px 20px;border-top:1px solid rgba(218,181,103,.4);border-bottom:1px solid rgba(218,181,103,.4);color:#f1ca76;font-size:17px;font-style:italic;line-height:1.75;text-align:center}
+.stele-transcription footer{display:flex;align-items:center;justify-content:center;gap:13px;margin-top:36px;padding-top:25px;border-top:1px solid rgba(218,181,103,.35);background:transparent;color:#d9b86f}
+.stele-transcription footer span{font-size:9px;font-weight:700;letter-spacing:.18em}
+.stele-transcription footer strong{color:#fff2d4;font:700 16px/1.3 "Noto Serif VN",serif;letter-spacing:.06em}
+@media(max-width:760px){.about-page--embedded .about-stele{gap:34px}.about-page--embedded .about-stele__intro{text-align:left}.stele-transcription{width:100%;padding:48px 27px 40px}.stele-transcription:after{inset:10px}.stele-transcription header>span{font-size:9px}.stele-transcription h3{font-size:clamp(27px,8.8vw,35px)}.stele-transcription__body{margin-top:34px;columns:1}.stele-transcription__body p{margin-bottom:18px;font-size:14.5px;line-height:1.85;text-align:left}.stele-transcription__body .stele-transcription__verse{margin:25px -7px;padding:17px 8px;font-size:16px}.stele-transcription footer{align-items:center;flex-direction:column;gap:6px;text-align:center}}
+
+/* Lao memorial stele displayed beneath the Vietnamese transcription */
+.about-stele .stele-lao{grid-column:1/-1;width:min(720px,100%);margin:56px auto 0;padding:12px;background:linear-gradient(145deg,#c6a256,#75551d 48%,#d3b76a);box-shadow:0 24px 60px rgba(19,29,23,.24)}
+.stele-lao__frame{padding:7px;background:#17241d;overflow:hidden}
+.about-stele .stele-lao img{display:block;width:100%;height:auto;aspect-ratio:840/1280;object-fit:cover}
+.about-stele .stele-lao figcaption{display:flex;flex-direction:column;align-items:center;gap:6px;padding:18px 12px 12px;color:#f3e6bd;text-align:center;background:#17241d;letter-spacing:.08em}
+.about-stele .stele-lao figcaption span{font-size:10px;font-weight:700;color:#cbaa5d}
+.about-stele .stele-lao figcaption strong{font:600 17px/1.4 "Noto Serif VN",serif;letter-spacing:.025em}
+@media(max-width:760px){.about-stele .stele-lao{margin-top:28px;padding:7px}.about-stele .stele-lao figcaption{padding:14px 8px 9px}.about-stele .stele-lao figcaption strong{font-size:15px}}
