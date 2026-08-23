@@ -5,7 +5,7 @@
 {% block twitter_title %}Nghĩa trang Liệt sĩ Việt – Lào | Ký ức Việt – Lào{% endblock %}
 {% block twitter_description %}Tra cứu {{ total_display }} hồ sơ liệt sĩ và khám phá không gian tưởng niệm Việt – Lào tại Anh Sơn, Nghệ An.{% endblock %}
 {% block structured_data %}<script type="application/ld+json">{"@context":"https://schema.org","@type":"Cemetery","name":"Nghĩa trang Liệt sĩ Quốc tế Việt – Lào","alternateName":"Nghĩa trang Việt – Lào","url":"https://lietsivietlao.8tech.vn/","address":{"@type":"PostalAddress","addressLocality":"Anh Sơn","addressRegion":"Nghệ An","addressCountry":"VN"},"description":"Nơi an nghỉ của gần 11.000 quân tình nguyện và chuyên gia Việt Nam hy sinh tại Lào.","mainEntityOfPage":"https://lietsivietlao.8tech.vn/"}</script>{% endblock %}
-{% block extra_css %}<link rel="stylesheet" href="{% static 'about.css' %}?v=7"><link rel="stylesheet" href="{% static 'home-motion.css' %}?v=5">{% endblock %}
+{% block extra_css %}<link rel="stylesheet" href="{% static 'about.css' %}?v=9"><link rel="stylesheet" href="{% static 'home-motion.css' %}?v=5">{% endblock %}
 {% block content %}
 {% if messages %}<div class="home-admin-messages" role="status">{% for message in messages %}<p class="home-admin-message home-admin-message--{{ message.tags }}">{{ message }}</p>{% endfor %}</div>{% endif %}
 <section class="hero" style="--home-hero-image:url('{{ home_images.hero }}')"><div class="hero__inner"><h1>Nghĩa trang Liệt sĩ<br><em>Việt – Lào</em></h1>
